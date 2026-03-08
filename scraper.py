@@ -61,27 +61,83 @@ ENTRY_LEVEL_TITLE_KEYWORDS = [
 
 # Title keywords that HARD REJECT a job regardless of anything else
 TITLE_REJECT_KEYWORDS = [
-    # Wrong seniority
-    "senior", "sr.", "principal", "director", "manager",
+    # ── Wrong seniority / level ───────────────────────────────────────────────
+    "senior", "sr.", "principal", "director", "manager", "supervisor",
     "lead architect", "associate principal", "project architect",
-    "intermediate architect", "intermediate designer",  # mid-level, not entry
-    # IT / tech "architect" roles (not building architecture)
+    "intermediate architect", "intermediate designer", "intermediate",
+    "mid-level", "mid level",
+
+    # ── IT / tech / business "architect" roles ────────────────────────────────
     "solution architect", "solutions architect",
-    "cloud architect", "software architect",
-    "network architect", "data architect", "enterprise architect",
-    "security architect", "systems architect", "it architect",
-    "technical architect", "infrastructure architect",
-    "application architect", "integration architect",
-    "salesforce architect", "azure architect", "aws architect",
-    # Engineering — not architecture
+    "cloud architect", "software architect", "network architect",
+    "data architect", "enterprise architect", "security architect",
+    "systems architect", "it architect", "technical architect",
+    "infrastructure architect", "application architect",
+    "integration architect", "salesforce architect",
+    "azure architect", "aws architect", "gcp architect",
+    "information architect", "info architect",
+    "portfolio architect", "business architect",
+    "tech architect", "technology architect",
+    "erp architect", "sap architect", "oracle architect",
+    "advisory architect",
+
+    # ── Insurance / finance / business ───────────────────────────────────────
+    "p&c", "p & c", "property and casualty",
+    "insurance", "risk architect",
+    "financial", "accountant", "finance",
+    "legal", "compliance",
+    "recruiter", "talent acquisition",
+    "hr ", "human resources",
+    "sales representative", "sales rep", "account manager",
+    "marketing", "social media", "content creator",
+
+    # ── Instrument, control & process engineering ─────────────────────────────
+    "i&c", "i & c", "instrumentation", "instrument technician",
+    "process engineer", "controls engineer", "control systems",
+    "piping designer", "piping engineer",
+    "sprinkler", "fire protection",
+
+    # ── Construction / site roles (not design) ────────────────────────────────
+    "construction admin", "construction administrator",
+    "construction manager", "site superintendent",
+    "estimator", "quantity surveyor",
+    "construction coordinator",
+
+    # ── Engineering — not architecture ────────────────────────────────────────
     "structural engineer", "civil engineer", "mechanical engineer",
     "electrical engineer", "hvac", "process engineer",
     "geotechnical", "environmental engineer",
-    # Other wrong fields
+    "structural designer", "structural technologist",
+    "building technologist", "building technician",
+    "structural technician", "civil designer",
+
+    # ── Software / IT / data ─────────────────────────────────────────────────
+    "software developer", "software engineer", "developer",
+    "it solutions", "it support", "systems analyst",
+    "data scientist", "machine learning",
+    "web developer", "full stack", "frontend", "backend",
+    "devops", "cybersecurity",
+
+    # ── Other design fields (not building architecture) ───────────────────────
     "interior design", "interior designer",
     "landscape architect",
-    "architectural technologist",
+    "architectural technologist", "architectural technology",
     "urban planner", "urban designer",
+    "graphic designer", "graphic design",
+    "product designer", "ux designer", "ui designer",
+    "web designer", "brand designer",
+    "industrial designer", "fashion designer",
+    "set designer", "exhibit designer",
+
+    # ── Retail / trades / other ───────────────────────────────────────────────
+    "technician",           # catches "electrical technician", "hvac technician" etc.
+    "program management",   # program management intern ≠ architecture intern
+    "project manager", "program manager",
+    "analyst",              # business analyst, data analyst, etc.
+    "coordinator",          # social media coordinator, project coordinator etc.
+    "administrator",        # construction administrator, office admin etc.
+    "plumber", "electrician", "welder",
+    "retail", "store", "merchandise",
 ]
 
 # Keywords in descriptions that suggest > 3 yrs experience — used to REJECT
@@ -156,9 +212,14 @@ def is_entry_level(job: dict) -> bool:
             return False
         return True
 
-    # Accept "junior designer" or "designer" titles from architecture firms
-    # (firms like DIALOG, GEC sometimes post just "Junior Designer")
-    if "designer" in title or "junior" in title:
+    # Accept "junior designer" ONLY when paired with an architecture signal,
+    # or when it's explicitly "junior" + architecture keyword.
+    # "designer" alone is too broad — catches graphic/web/retail/industrial designers.
+    arch_title_signals = [
+        "architect", "architectural", "architecture", "design intern",
+        "junior designer", "junior architectural", "design co-op",
+    ]
+    if any(sig in title for sig in arch_title_signals):
         if any(kw in desc for kw in EXPERIENCE_REJECT_KEYWORDS):
             return False
         return True
@@ -413,7 +474,7 @@ def scrape_aaa_board() -> list[dict]:
 # any links whose URL path looks like a job posting.
 # Add more here as you discover firms with good careers pages.
 FIRM_CAREER_PAGES = [
-    ("McKinley Studios",     "https://www.mckinleystudios.com/careers/"),
+    ("McKinley Studios",     "https://www.mckinleystudios.com/contact"),
     ("Zeidler Architecture", "https://zeidler.com/culture-and-careers/"),
     ("Metafor Studio",       "https://metafor.studio/join-our-team/"),
     ("FAAS Architecture",    "https://faasarch.com/career/"),
@@ -521,21 +582,35 @@ def scrape_firm_careers() -> list[dict]:
                 if full_url.rstrip("/") == page_url.rstrip("/"):
                     continue
 
-                # URL must look like a job posting OR go 2+ levels deeper than careers page
+                # URL must look like a job posting OR go deeper than careers page.
+                # Exception: contact pages (like McKinley) — accept any link
+                # on the same domain that has an architecture signal in the text.
                 url_looks_like_job = any(pat in full_url_lower for pat in JOB_URL_PATTERNS)
+                is_contact_page = "contact" in page_url.lower()
                 careers_path = "/" + "/".join(page_url.split("/")[3:]).rstrip("/")
                 full_path    = "/" + "/".join(full_url.split("/")[3:]).rstrip("/")
+                same_domain  = full_url.split("/")[2] == page_url.split("/")[2]
                 path_is_deeper = (
                     full_path.startswith(careers_path) and
                     full_path != careers_path and
-                    full_path.count("/") >= careers_path.count("/") + 2
+                    full_path.count("/") >= careers_path.count("/") + 1
                 )
                 if not url_looks_like_job and not path_is_deeper:
-                    continue
+                    if not (is_contact_page and same_domain):
+                        continue
 
-                # Title must pass entry-level filter
-                fake_job = {"title": text, "description": "", "location": LOCATION_SHORT}
-                if not is_entry_level(fake_job):
+                # On firm pages, only hard-reject known bad titles.
+                # Don't require entry-level keywords — firm pages may phrase
+                # titles differently (e.g. "Calgary — Junior Architect").
+                text_lower_check = text.lower()
+                if any(kw in text_lower_check for kw in TITLE_REJECT_KEYWORDS):
+                    continue
+                # Must at minimum contain some architecture/design signal
+                arch_signals = [
+                    "architect", "architectural", "design", "intern",
+                    "junior", "graduate", "co-op", "coop", "idp", "drafter"
+                ]
+                if not any(sig in text_lower_check for sig in arch_signals):
                     continue
 
                 jobs.append({
@@ -1220,6 +1295,15 @@ def main():
         all_jobs: list[dict] = json.loads(all_jobs_file.read_text().strip()) if all_jobs_file.exists() and all_jobs_file.read_text().strip() else []
     except (json.JSONDecodeError, ValueError):
         all_jobs: list[dict] = []
+
+    # Retroactively clean any previously stored jobs that no longer pass filters.
+    # This purges junk that slipped through in earlier runs (e.g. after a reset).
+    before = len(all_jobs)
+    all_jobs = [j for j in all_jobs if is_calgary(j) and is_entry_level(j)]
+    purged = before - len(all_jobs)
+    if purged:
+        print(f"[Cleanup] Purged {purged} previously stored jobs that no longer pass filters")
+
     raw: list[dict] = []
 
     # ── Job board scraping ──
