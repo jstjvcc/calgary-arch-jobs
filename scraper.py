@@ -193,7 +193,7 @@ def scrape_jobspy(query: str) -> list[dict]:
             country_indeed="Canada",
             linkedin_fetch_description=True,
             results_wanted=25,
-            hours_old=48,
+            hours_old=720,  # 30 days — catches everything on a fresh start; dedup prevents repeats
         )
         for _, row in df.iterrows():
             title   = str(row.get("title", ""))
@@ -545,7 +545,7 @@ def scrape_firm_careers() -> list[dict]:
                     "location":    LOCATION_SHORT,
                     "source":      "Firm Website",
                     "url":         full_url,
-                    "date":        "See posting",
+                    "date":        "On firm website",
                     "description": f"Listed on {firm_name} careers page",
                     "scraped_at":  datetime.now().isoformat(),
                 })
@@ -614,10 +614,18 @@ def filter_new(jobs: list[dict], seen: set) -> list[dict]:
 
 
 def expire_old_jobs(all_jobs: list[dict]) -> list[dict]:
-    """Remove jobs scraped more than JOB_EXPIRY_DAYS days ago."""
+    """
+    Remove job board listings older than JOB_EXPIRY_DAYS days.
+    Firm website listings are never expired — they stay until the firm
+    removes them from their careers page (re-scrape handles that naturally).
+    """
     cutoff = datetime.now().timestamp() - (JOB_EXPIRY_DAYS * 86400)
     kept, removed = [], 0
     for job in all_jobs:
+        # Never expire firm website listings
+        if job.get("source") == "Firm Website":
+            kept.append(job)
+            continue
         try:
             scraped = datetime.fromisoformat(job.get("scraped_at", "")).timestamp()
             if scraped >= cutoff:
@@ -627,7 +635,7 @@ def expire_old_jobs(all_jobs: list[dict]) -> list[dict]:
         except (ValueError, TypeError):
             kept.append(job)  # keep if date unparseable
     if removed:
-        print(f"[Expire] Removed {removed} listings older than {JOB_EXPIRY_DAYS} days")
+        print(f"[Expire] Removed {removed} job board listings older than {JOB_EXPIRY_DAYS} days")
     return kept
 
 # ── HTML GENERATOR ────────────────────────────────────────────────────────────
@@ -662,7 +670,10 @@ def generate_html(new_jobs: list[dict], all_jobs: list[dict]):
             scraped_ts = str(int(datetime.fromisoformat(j.get("scraped_at","")).timestamp()))
         except Exception:
             pass
+        job_id = j["id"]
         return (
+            f'<div class="job-card-wrap" data-job-id="{job_id}">'
+            f'<button class="dismiss-btn" onclick="dismissJob(\'{job_id}\',event)" title="Hide this listing">✕</button>'
             f'<a href="{j["url"]}" target="_blank" rel="noopener" '
             f'class="job-card{"  job-card--new" if is_new else ""}" '
             f'data-source="{j["source"]}" data-scraped="{scraped_ts}">'
@@ -673,7 +684,7 @@ def generate_html(new_jobs: list[dict], all_jobs: list[dict]):
             f'<p class="job-company">{j["company"]}</p>'
             f'<p class="job-location">📍 {j["location"]}</p>'
             f'<p class="job-date">🕐 {j["date"]}</p>'
-            f'{desc_html}</a>'
+            f'{desc_html}</a></div>'
         )
 
     new_cards = "\n".join(job_card(j) for j in new_jobs) if new_jobs else (
@@ -687,7 +698,7 @@ def generate_html(new_jobs: list[dict], all_jobs: list[dict]):
         for s in sources
     )
     search_display = " · ".join(t.replace(" Calgary", "") for t in SEARCH_TERMS)
-    firm_display   = " · ".join(f[0] for f in FIRM_CAREER_PAGES)
+    firm_display   = " · ".join(f[0] for f in FIRM_CAREER_PAGES) + " · " + " · ".join(FIRM_NAMES_SEARCH)
 
     html = f"""<!DOCTYPE html>
 <html lang="en">
@@ -754,6 +765,32 @@ body{{
   content:'';display:inline-block;width:8px;height:8px;
   background:var(--green);transform:rotate(45deg);flex-shrink:0;
 }}
+.tab-nav{{
+  display:flex;gap:0;margin-bottom:1.75rem;
+  border-bottom:2px solid var(--brown);
+}}
+.tab-btn{{
+  background:transparent;border:none;border-bottom:3px solid transparent;
+  margin-bottom:-2px;padding:0.6rem 1.2rem;
+  font-family:'DM Sans',sans-serif;font-size:0.72rem;font-weight:600;
+  letter-spacing:0.08em;text-transform:uppercase;
+  color:var(--muted);cursor:pointer;transition:all 0.15s;
+}}
+.tab-btn:hover{{color:var(--brown)}}
+.tab-btn.active{{color:var(--brown);border-bottom-color:var(--brown);background:var(--yellow)}}
+.tab-count{{
+  display:inline-block;background:var(--brown);color:var(--yellow);
+  font-size:0.6rem;padding:0.1rem 0.4rem;border-radius:10px;
+  margin-left:0.35rem;font-weight:700;vertical-align:middle;
+}}
+.unhide-btn{{
+  position:absolute;top:8px;right:8px;
+  background:var(--green);color:#fff;border:none;
+  font-size:0.6rem;letter-spacing:0.08em;text-transform:uppercase;
+  padding:0.2rem 0.5rem;border-radius:2px;cursor:pointer;
+  font-weight:600;transition:background 0.15s;
+}}
+.unhide-btn:hover{{background:var(--brown)}}
 .info-box{{
   background:var(--yellow);border:1px solid var(--border);
   border-left:4px solid var(--brown);padding:1rem 1.2rem;
@@ -764,6 +801,7 @@ body{{
   display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));
   gap:12px;margin-bottom:3rem;
 }}
+.job-card-wrap{{position:relative;display:block;}}
 .job-card{{
   background:var(--surface);padding:1.4rem;text-decoration:none;
   color:inherit;display:block;
@@ -777,6 +815,16 @@ body{{
   box-shadow:0 6px 20px rgba(80,50,40,0.12);
   border-color:var(--green);
 }}
+.dismiss-btn{{
+  position:absolute;top:8px;right:8px;
+  background:transparent;border:1px solid var(--border);
+  color:var(--muted);width:22px;height:22px;border-radius:50%;
+  font-size:10px;cursor:pointer;display:flex;align-items:center;
+  justify-content:center;opacity:0;transition:opacity 0.15s,background 0.15s,color 0.15s;
+  z-index:2;line-height:1;padding:0;
+}}
+.job-card-wrap:hover .dismiss-btn{{opacity:1}}
+.dismiss-btn:hover{{background:var(--brown);color:#fff;border-color:var(--brown)}}
 .job-card--new{{
   background:#FFFDF5;
   border-color:var(--brown);
@@ -853,15 +901,20 @@ body{{
     <strong>Filter logic:</strong> Calgary/AB only · No senior/principal/5+ yr roles
   </div>
 
-  <section>
-    <div class="section-label">New Listings — {today}</div>
+  <!-- Tab nav -->
+  <div class="tab-nav">
+    <button class="tab-btn active" onclick="switchTab('listings',this)">All Listings</button>
+    <button class="tab-btn" onclick="switchTab('new',this)">New Today <span class="tab-count" id="new-count-badge">{new_count}</span></button>
+    <button class="tab-btn" onclick="switchTab('hidden',this)">Hidden <span class="tab-count" id="hidden-count-badge">0</span></button>
+  </div>
+
+  <!-- New today tab -->
+  <section id="tab-new" class="tab-panel" style="display:none">
     <div class="jobs-grid" id="new-grid">{new_cards}</div>
   </section>
 
-  <div class="divider"></div>
-
-  <section>
-    <div class="section-label">All Recent Listings</div>
+  <!-- All listings tab -->
+  <section id="tab-listings" class="tab-panel">
     <div class="filters">
       <button class="filter-btn active" onclick="filterJobs('all',this)">All</button>
       {filter_btns}
@@ -877,6 +930,15 @@ body{{
     <div class="jobs-grid" id="all-grid">{all_cards}</div>
   </section>
 
+  <!-- Hidden tab -->
+  <section id="tab-hidden" class="tab-panel" style="display:none">
+    <p style="font-size:0.72rem;color:var(--muted);margin-bottom:1.25rem;line-height:1.7">
+      Listings you've hidden. Click <strong>Unhide</strong> to move them back.
+    </p>
+    <div class="jobs-grid" id="hidden-grid"></div>
+    <p class="no-hidden-msg" style="display:none;color:var(--muted);font-size:0.8rem">Nothing hidden yet.</p>
+  </section>
+
 </div>
 
 <footer class="footer">
@@ -886,18 +948,107 @@ body{{
 
 <script>
 let activeSource = 'all';
-let activeDays = 0;
+let activeDays   = 0;
+const DISMISSED_KEY = 'dismissed_jobs';
 
+function getDismissed() {{
+  try {{ return new Set(JSON.parse(localStorage.getItem(DISMISSED_KEY) || '[]')); }}
+  catch {{ return new Set(); }}
+}}
+function saveDismissed(set) {{
+  localStorage.setItem(DISMISSED_KEY, JSON.stringify([...set]));
+}}
+
+// ── Tab switching ─────────────────────────────────────────────────────────────
+function switchTab(name, btn) {{
+  document.querySelectorAll('.tab-panel').forEach(p => p.style.display = 'none');
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + name).style.display = 'block';
+  btn.classList.add('active');
+  if (name === 'hidden') renderHiddenTab();
+}}
+
+// ── Dismiss (X button) ────────────────────────────────────────────────────────
+function dismissJob(jobId, e) {{
+  e.preventDefault(); e.stopPropagation();
+  const dismissed = getDismissed();
+  dismissed.add(jobId);
+  saveDismissed(dismissed);
+  // Fade out the card in all-grid
+  const wrap = document.querySelector('#all-grid [data-job-id="' + jobId + '"]');
+  if (wrap) {{
+    wrap.style.transition = 'opacity 0.2s';
+    wrap.style.opacity = '0';
+    setTimeout(() => {{ wrap.style.display = 'none'; }}, 200);
+  }}
+  // Also hide from new-grid if present
+  const newWrap = document.querySelector('#new-grid [data-job-id="' + jobId + '"]');
+  if (newWrap) newWrap.style.display = 'none';
+  updateHiddenBadge();
+}}
+
+// ── Unhide ────────────────────────────────────────────────────────────────────
+function unhideJob(jobId) {{
+  const dismissed = getDismissed();
+  dismissed.delete(jobId);
+  saveDismissed(dismissed);
+  // Restore in all-grid
+  const wrap = document.querySelector('#all-grid [data-job-id="' + jobId + '"]');
+  if (wrap) {{ wrap.style.opacity = '1'; wrap.style.display = 'block'; }}
+  updateHiddenBadge();
+  renderHiddenTab();
+}}
+
+// ── Render hidden tab ─────────────────────────────────────────────────────────
+function renderHiddenTab() {{
+  const dismissed = getDismissed();
+  const grid = document.getElementById('hidden-grid');
+  const noMsg = document.querySelector('.no-hidden-msg');
+  grid.innerHTML = '';
+  if (dismissed.size === 0) {{
+    noMsg.style.display = 'block'; return;
+  }}
+  noMsg.style.display = 'none';
+  dismissed.forEach(id => {{
+    // Clone the card from all-grid
+    const orig = document.querySelector('#all-grid [data-job-id="' + id + '"]');
+    if (!orig) return;
+    const clone = orig.cloneNode(true);
+    clone.style.display = 'block';
+    clone.style.opacity = '1';
+    // Replace dismiss button with unhide button
+    const xBtn = clone.querySelector('.dismiss-btn');
+    if (xBtn) xBtn.remove();
+    const unhideBtn = document.createElement('button');
+    unhideBtn.className = 'unhide-btn';
+    unhideBtn.textContent = 'Unhide';
+    unhideBtn.onclick = () => unhideJob(id);
+    clone.prepend(unhideBtn);
+    grid.appendChild(clone);
+  }});
+}}
+
+// ── Badge counts ──────────────────────────────────────────────────────────────
+function updateHiddenBadge() {{
+  const count = getDismissed().size;
+  const badge = document.getElementById('hidden-count-badge');
+  if (badge) {{ badge.textContent = count; badge.style.display = count > 0 ? 'inline' : 'none'; }}
+}}
+
+// ── Source + date filters ─────────────────────────────────────────────────────
 function applyFilters() {{
   const now = Math.floor(Date.now() / 1000);
-  document.querySelectorAll('#all-grid .job-card').forEach(card => {{
+  const dismissed = getDismissed();
+  document.querySelectorAll('#all-grid .job-card-wrap').forEach(wrap => {{
+    if (dismissed.has(wrap.dataset.jobId)) {{ wrap.style.display = 'none'; return; }}
+    const card = wrap.querySelector('.job-card');
     const srcMatch = activeSource === 'all' || card.dataset.source === activeSource;
     let dateMatch = true;
     if (activeDays > 0) {{
       const scraped = parseInt(card.dataset.scraped || '0');
       dateMatch = scraped > 0 && (now - scraped) <= activeDays * 86400;
     }}
-    card.style.display = (srcMatch && dateMatch) ? 'block' : 'none';
+    wrap.style.display = (srcMatch && dateMatch) ? 'block' : 'none';
   }});
 }}
 
@@ -914,6 +1065,18 @@ function filterDate(days, btn) {{
   activeDays = days;
   applyFilters();
 }}
+
+// ── Init ──────────────────────────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {{
+  applyFilters();
+  updateHiddenBadge();
+  // Hide new-grid dismissed cards too
+  const dismissed = getDismissed();
+  dismissed.forEach(id => {{
+    const w = document.querySelector('#new-grid [data-job-id="' + id + '"]');
+    if (w) w.style.display = 'none';
+  }});
+}});
 </script>
 </body>
 </html>"""
@@ -1077,11 +1240,6 @@ def main():
                 raw.extend(results)
                 print(f"  → {label}: {len(results)}")
                 time.sleep(2)
-        # Always try LinkedIn separately even when JobSpy runs,
-        # since JobSpy's LinkedIn support is limited
-        li_extra = scrape_linkedin_jobs(term)
-        raw.extend(li_extra)
-        print(f"  → LinkedIn (direct): {len(li_extra)}")
         time.sleep(3)
 
     # ── Firm career pages (clean dedicated pages — scraped directly) ──
