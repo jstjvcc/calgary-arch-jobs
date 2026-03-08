@@ -91,48 +91,6 @@ EXPERIENCE_REJECT_KEYWORDS = [
     "project architect", "project manager",
 ]
 
-# ── CALGARY FIRM CAREER PAGES ─────────────────────────────────────────────────
-# Format: (firm_name, careers_url)
-# ✏️  TO ADD A NEW FIRM: just paste one new line here. Nothing else needs to change.
-FIRM_CAREER_PAGES = [
-    # ── Established Calgary / AB firms ──────────────────────────────────────
-    ("GEC Architecture",        "https://gecarchitecture.com/careers/"),
-    ("DIALOG",                  "https://dialogdesign.ca/careers/"),
-    ("Stantec",                 "https://www.stantec.com/en/careers/job-opportunities?location=Calgary"),
-    ("Morrison Hershfield",     "https://www.morrisonhershfield.com/careers/"),
-    ("Kasian Architecture",     "https://www.kasian.com/careers/"),
-    ("Gibbs Gage Architects",   "https://www.gibbsgage.com/careers"),
-    ("NORR",                    "https://norr.com/careers/all/"),
-    ("Riddell Kurczaba",        "https://rka.ca/about/careers/"),
-    ("S2 Architecture",         "https://s2architecture.com/architecture-careers/"),
-    ("IBI Group (Arcadis)",     "https://www.ibigroup.com/careers/"),
-    ("Entuitive",               "https://www.entuitive.com/careers/"),
-    ("Calgary Municipal Land",  "https://www.calgarymlc.ca/about/careers"),
-    ("HOK",                     "https://www.hok.com/about/careers/"),
-    ("Gensler Calgary",         "https://www.gensler.com/careers"),
-
-    # ── Your added firms ────────────────────────────────────────────────────
-    # NOTE: McKinley's /contact page was provided — using it as fallback.
-    # If they add a /careers page later, update this URL.
-    ("McKinley Studios",        "https://www.mckinleystudios.com/contact"),
-    ("Metafor Studio",          "https://metafor.studio/join-our-team/"),
-    ("HCMA Architecture",       "https://hcma.ca/careers/"),
-    ("Perkins & Will",          "https://perkinswill.com/careers/"),
-    ("LOLA Architecture",       "https://lolaarchitecture.la/careers/"),
-    ("GGA Architects",          "https://gga-arch.com/careers/"),
-    ("FAAS Architecture",       "https://faasarch.com/career/"),
-    ("Zeidler Architecture",    "https://zeidler.com/culture-and-careers/"),
-    # NOTE: Gravity Architecture homepage provided — no dedicated careers page found.
-    # Bot will scan their homepage for any hiring mentions.
-    ("Gravity Architecture",    "https://www.gravityarchitecture.com/"),
-    # NOTE: Studio North contact page provided — no dedicated careers page found.
-    # Bot will scan for hiring mentions.
-    ("Studio North",            "https://www.studionorth.ca/contact"),
-
-    # ── AAA (Alberta Association of Architects) official job board ───────────
-    # This is the best single source for Alberta-licensed architect postings.
-    ("AAA Job Board",           "https://aaa.ab.ca/web/Web/Professional_Resources/Careers/Career_Opportunities.aspx?hkey=ac6171fe-e494-4a4f-b647-a1057e3a0fb2"),
-]
 
 SEEN_JOBS_FILE = Path("seen_jobs.json")
 
@@ -444,51 +402,83 @@ def scrape_aaa_board() -> list[dict]:
     return jobs
 
 
-# ── FIRM CAREER PAGE SCRAPER ──────────────────────────────────────────────────
+# ── FIRM-TARGETED SEARCH ─────────────────────────────────────────────────────
+# Instead of scraping firm websites (unreliable — picks up news/events/nav),
+# Two strategies depending on how reliable each firm's careers page is:
+#   FIRM_CAREER_PAGES → scraped directly (clean dedicated careers pages)
+#   FIRM_NAMES_SEARCH → searched via Indeed CA (sites without clean pages)
+
+# ✏️ FIRM_CAREER_PAGES: firms with clean, dedicated careers pages that list
+# individual job postings. The scraper visits these URLs directly and pulls
+# any links whose URL path looks like a job posting.
+# Add more here as you discover firms with good careers pages.
+FIRM_CAREER_PAGES = [
+    ("McKinley Studios",     "https://www.mckinleystudios.com/careers/"),
+    ("Zeidler Architecture", "https://zeidler.com/culture-and-careers/"),
+    ("Metafor Studio",       "https://metafor.studio/join-our-team/"),
+    ("FAAS Architecture",    "https://faasarch.com/career/"),
+    ("GGA Architects",       "https://gga-arch.com/careers/"),
+    ("HCMA Architecture",    "https://hcma.ca/careers/"),
+    ("S2 Architecture",      "https://s2architecture.com/architecture-careers/"),
+    ("Gibbs Gage Architects","https://www.gibbsgage.com/careers"),
+    ("Riddell Kurczaba",     "https://rka.ca/about/careers/"),
+    ("GEC Architecture",     "https://gecarchitecture.com/careers/"),
+    ("Kasian Architecture",  "https://kasian.com/kasian-careers/"),
+    # ✏️ To add a firm with a clean careers page, paste a new line here.
+]
+
+# ✏️ FIRM_NAMES_SEARCH: firms whose websites pull in news/events/project pages
+# alongside job listings, making direct scraping unreliable. We search for
+# them on Indeed CA instead, which only returns actual job postings.
+FIRM_NAMES_SEARCH = [
+    "DIALOG", "Stantec", "Morrison Hershfield",
+    "NORR", "IBI Group", "Entuitive", "HOK", "Gensler",
+    "Perkins and Will", "Studio North",
+    # ✏️ To add a firm to search-based lookup, paste a name here.
+]
+
+# Job posting URL patterns used by real ATS systems and career pages
+JOB_URL_PATTERNS = [
+    "/job/", "/jobs/", "/job-", "-job/",
+    "/opening/", "/openings/",
+    "/position/", "/positions/",
+    "/posting/", "/postings/",
+    "/vacancy/", "/vacancies/",
+    "/apply/", "/application/",
+    "/requisition/", "/req/",
+    "/opportunity/", "/opportunities/",
+    "jobid=", "job_id=", "jobId=",
+    "myworkdayjobs.com", "greenhouse.io", "lever.co",
+    "taleo.net", "icims.com", "jobvite.com", "bamboohr.com",
+]
+
+# URL patterns that are definitely NOT job postings
+NON_JOB_URL_PATTERNS = [
+    "/news/", "/blog/", "/insight/", "/article/", "/press/",
+    "/project/", "/portfolio/", "/work/", "/case-stud",
+    "/event/", "/publication/", "/resource/", "/media/",
+    "/about/", "/contact/", "/team/", "/people/",
+    "/service/", "/expertise/", "/sector/",
+]
+
+# Link text that is nav/content, not a job title
+NON_JOB_TEXT = [
+    "home", "about", "contact", "services", "projects", "portfolio",
+    "news", "blog", "events", "awards", "press", "media",
+    "team", "people", "leadership", "culture", "values",
+    "learn more", "read more", "view more", "apply here",
+    "see all", "view all", "all openings", "explore careers",
+    "privacy", "terms", "sitemap", "cookie",
+    "instagram", "facebook", "linkedin", "twitter", "youtube",
+]
+
+SKIP_IN_HREF = {"mailto:", "tel:", "javascript:", "facebook.com",
+                "twitter.com", "instagram.com", "youtube.com"}
+
 
 def scrape_firm_careers() -> list[dict]:
-    """
-    Crawl each Calgary firm's careers page and pull actual job posting links.
-    Only follows links that go deeper than the careers page itself.
-    """
+    """Scrape firms with clean dedicated careers pages directly."""
     jobs = []
-
-    # Link text must contain one of these to be a possible job posting
-    posting_keywords = [
-        "architect", "architectural", "intern", "junior", "designer",
-        "graduate", "co-op", "coop", "idp", "emerging"
-    ]
-
-    # Link text matching any of these → skip (nav, articles, non-posting content)
-    nav_keywords = [
-        # Navigation
-        "home", "about", "contact", "portfolio", "projects",
-        "services", "team", "people", "leadership",
-        # Blog / article content — the big one causing fake listings
-        "news", "blog", "article", "insight", "publication", "press",
-        "case study", "case studies", "resource", "white paper",
-        "newsletter", "update", "announcement", "event", "award",
-        # Social / utility
-        "instagram", "facebook", "linkedin", "twitter", "youtube",
-        "privacy", "terms", "cookie", "sitemap", "accessibility",
-        # Category / nav buttons that aren't individual listings
-        "apply here", "learn more", "read more", "view more",
-        "students & graduates", "students and graduates",
-        "view all", "see all", "all jobs", "all positions", "all openings",
-        "explore careers", "work with us", "join us", "our culture",
-    ]
-
-    # URL patterns that are articles/blog posts, not job postings
-    article_url_patterns = [
-        "/news/", "/blog/", "/insights/", "/articles/", "/press/",
-        "/resources/", "/events/", "/publications/", "/media/",
-        "/projects/", "/portfolio/", "/work/", "/case-studies/",
-    ]
-
-    skip_in_href = {
-        "facebook", "twitter", "instagram", "linkedin.com/company",
-        "mailto:", "tel:", "javascript:"
-    }
 
     for firm_name, page_url in FIRM_CAREER_PAGES:
         try:
@@ -501,22 +491,20 @@ def scrape_firm_careers() -> list[dict]:
                 text = link.get_text(strip=True)
                 href = link.get("href", "")
 
-                if not text or len(text) < 8 or len(text) > 120 or not href:
+                if not text or not href:
                     continue
-                if any(s in href for s in skip_in_href):
+                if len(text) < 5 or len(text) > 150:
+                    continue
+                if any(s in href for s in SKIP_IN_HREF):
+                    continue
+                if href.startswith("#") or href.startswith("?"):
                     continue
 
                 text_lower = text.lower()
-
-                # Skip navigation / category links
-                if any(nav in text_lower for nav in nav_keywords):
+                if any(nav in text_lower for nav in NON_JOB_TEXT):
                     continue
 
-                # Must look like an actual job title (contains architecture keyword)
-                if not any(kw in text_lower for kw in posting_keywords):
-                    continue
-
-                # Build full URL
+                # Build absolute URL
                 if href.startswith("http"):
                     full_url = href
                 elif href.startswith("/"):
@@ -524,27 +512,30 @@ def scrape_firm_careers() -> list[dict]:
                 else:
                     full_url = base_domain + "/" + href.lstrip("/")
 
-                # Skip if link points back to the same careers page
+                full_url_lower = full_url.lower()
+
+                # Skip non-job URL patterns
+                if any(pat in full_url_lower for pat in NON_JOB_URL_PATTERNS):
+                    continue
+                # Skip same page
                 if full_url.rstrip("/") == page_url.rstrip("/"):
                     continue
 
-                # Skip if URL pattern looks like a blog/article/project page
-                full_url_lower = full_url.lower()
-                if any(pat in full_url_lower for pat in article_url_patterns):
+                # URL must look like a job posting OR go 2+ levels deeper than careers page
+                url_looks_like_job = any(pat in full_url_lower for pat in JOB_URL_PATTERNS)
+                careers_path = "/" + "/".join(page_url.split("/")[3:]).rstrip("/")
+                full_path    = "/" + "/".join(full_url.split("/")[3:]).rstrip("/")
+                path_is_deeper = (
+                    full_path.startswith(careers_path) and
+                    full_path != careers_path and
+                    full_path.count("/") >= careers_path.count("/") + 2
+                )
+                if not url_looks_like_job and not path_is_deeper:
                     continue
 
-                # Skip if href is just a fragment or query-only (no real path depth)
-                if href.startswith("?") or href.startswith("#"):
-                    continue
-
-                # The link text must be plausibly a job title:
-                # At least 2 words OR contains a clear job keyword
-                words = text.strip().split()
-                has_job_keyword = any(kw in text.lower() for kw in [
-                    "architect", "designer", "intern", "junior", "graduate",
-                    "co-op", "coop", "idp", "drafter", "technician"
-                ])
-                if len(words) < 2 and not has_job_keyword:
+                # Title must pass entry-level filter
+                fake_job = {"title": text, "description": "", "location": LOCATION_SHORT}
+                if not is_entry_level(fake_job):
                     continue
 
                 jobs.append({
@@ -555,35 +546,14 @@ def scrape_firm_careers() -> list[dict]:
                     "source":      "Firm Website",
                     "url":         full_url,
                     "date":        "See posting",
-                    "description": f"Direct listing from {firm_name} careers page — click to view full posting",
+                    "description": f"Listed on {firm_name} careers page",
                     "scraped_at":  datetime.now().isoformat(),
                 })
                 found += 1
                 if found >= 5:
                     break
 
-            # Only show the careers page itself if NO actual job links were found
-            # AND the page text suggests there might be openings
-            if found == 0:
-                page_text = soup.get_text().lower()
-                has_openings = any(w in page_text for w in [
-                    "we are hiring", "join our team", "open position",
-                    "current opening", "job opportunit", "we're looking"
-                ])
-                if has_openings:
-                    jobs.append({
-                        "id":          f"firm_page_{abs(hash(page_url + firm_name))}",
-                        "title":       "Open Positions — Click to View",
-                        "company":     firm_name,
-                        "location":    LOCATION_SHORT,
-                        "source":      "Firm Website",
-                        "url":         page_url,
-                        "date":        "Check site",
-                        "description": "This firm appears to have openings — visit their careers page for details",
-                        "scraped_at":  datetime.now().isoformat(),
-                    })
-
-            print(f"  {firm_name}: {found} job links found")
+            print(f"  {firm_name}: {found} job link(s) found")
             time.sleep(2)
 
         except Exception as e:
@@ -591,6 +561,32 @@ def scrape_firm_careers() -> list[dict]:
 
     return jobs
 
+
+def scrape_firm_targeted() -> list[dict]:
+    """
+    For firms whose websites mix job postings with news/events/projects,
+    search Indeed CA directly — only returns actual job listings.
+    """
+    jobs = []
+    entry_queries = [
+        "junior architect", "intern architect",
+        "architectural designer", "graduate architect", "junior designer"
+    ]
+    for firm in FIRM_NAMES_SEARCH:
+        for query in entry_queries:
+            try:
+                results = scrape_indeed_ca(f"{query} {firm} Calgary")
+                for j in results:
+                    co = j.get("company", "").lower()
+                    firm_word = firm.lower().split()[0]
+                    if firm_word in co:
+                        jobs.append(j)
+            except Exception as e:
+                print(f"  [Firm search] {firm}: {e}")
+            time.sleep(1)
+
+    print(f"  [Firm search] {len(jobs)} results across {len(FIRM_NAMES_SEARCH)} firms")
+    return jobs
 
 # ── DEDUP ─────────────────────────────────────────────────────────────────────
 
@@ -1088,9 +1084,13 @@ def main():
         print(f"  → LinkedIn (direct): {len(li_extra)}")
         time.sleep(3)
 
-    # ── Firm career pages ──
-    print("\n[Firms] Scraping Calgary firm career pages ...")
+    # ── Firm career pages (clean dedicated pages — scraped directly) ──
+    print("\n[Firms] Scraping firm career pages ...")
     raw.extend(scrape_firm_careers())
+
+    # ── Firm-targeted searches (sites where scraping picks up junk) ──
+    print("\n[Firms] Searching Indeed for listings at known Calgary firms ...")
+    raw.extend(scrape_firm_targeted())
 
     # ── AAA official job board ──
     print("\n[AAA] Scraping Alberta Association of Architects job board ...")
