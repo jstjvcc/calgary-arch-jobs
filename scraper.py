@@ -458,7 +458,12 @@ def scrape_firm_careers() -> list[dict]:
 
 def load_seen() -> set:
     if SEEN_JOBS_FILE.exists():
-        return set(json.loads(SEEN_JOBS_FILE.read_text()))
+        try:
+            content = SEEN_JOBS_FILE.read_text().strip()
+            if content:
+                return set(json.loads(content))
+        except (json.JSONDecodeError, ValueError):
+            pass
     return set()
 
 def save_seen(seen: set):
@@ -666,7 +671,10 @@ def main():
 
     seen = load_seen()
     all_jobs_file = Path("all_jobs.json")
-    all_jobs: list[dict] = json.loads(all_jobs_file.read_text()) if all_jobs_file.exists() else []
+    try:
+        all_jobs: list[dict] = json.loads(all_jobs_file.read_text().strip()) if all_jobs_file.exists() and all_jobs_file.read_text().strip() else []
+    except (json.JSONDecodeError, ValueError):
+        all_jobs: list[dict] = []
     raw: list[dict] = []
 
     # ── Job board scraping ──
