@@ -1,0 +1,5 @@
+requests==2.31.0
+beautifulsoup4==4.12.3
+python-jobspy>=1.1.4
+twilio==8.13.0
+lxml==5.1.0
