@@ -64,17 +64,24 @@ TITLE_REJECT_KEYWORDS = [
     # Wrong seniority
     "senior", "sr.", "principal", "director", "manager",
     "lead architect", "associate principal", "project architect",
-    # Wrong fields — not building architecture
-    "solutions architect", "cloud architect", "software architect",
+    "intermediate architect", "intermediate designer",  # mid-level, not entry
+    # IT / tech "architect" roles (not building architecture)
+    "solution architect", "solutions architect",
+    "cloud architect", "software architect",
     "network architect", "data architect", "enterprise architect",
     "security architect", "systems architect", "it architect",
     "technical architect", "infrastructure architect",
+    "application architect", "integration architect",
+    "salesforce architect", "azure architect", "aws architect",
+    # Engineering — not architecture
+    "structural engineer", "civil engineer", "mechanical engineer",
+    "electrical engineer", "hvac", "process engineer",
+    "geotechnical", "environmental engineer",
+    # Other wrong fields
     "interior design", "interior designer",
-    "landscape architect",      # remove this line if you want landscape roles
-    "architectural technologist",  # technologist is a different credential in AB
-    # Other irrelevant
-    "hvac", "mechanical", "electrical", "structural engineer",
-    "civil engineer", "urban planner",
+    "landscape architect",
+    "architectural technologist",
+    "urban planner", "urban designer",
 ]
 
 # Keywords in descriptions that suggest > 3 yrs experience — used to REJECT
@@ -128,6 +135,9 @@ FIRM_CAREER_PAGES = [
 ]
 
 SEEN_JOBS_FILE = Path("seen_jobs.json")
+
+# How many days to keep a listing before it expires off the board
+JOB_EXPIRY_DAYS = 30
 OUTPUT_HTML    = Path("docs/index.html")
 
 TWILIO_ENABLED     = False
@@ -135,6 +145,21 @@ TWILIO_ACCOUNT_SID = os.environ.get("TWILIO_ACCOUNT_SID", "")
 TWILIO_AUTH_TOKEN  = os.environ.get("TWILIO_AUTH_TOKEN", "")
 TWILIO_FROM        = os.environ.get("TWILIO_FROM", "")
 TWILIO_TO          = os.environ.get("TWILIO_TO", "")
+
+# ── Email config (uses Outlook SMTP — free, no paid service needed) ────────────
+# To activate: set EMAIL_ENABLED = True, then add these as GitHub Secrets:
+#   SMTP_USER      → your Outlook/Hotmail address (e.g. yourname@outlook.com)
+#   SMTP_PASSWORD  → your Outlook password, OR an App Password if you have
+#                    2FA enabled: account.microsoft.com → Security → App passwords
+#   EMAIL_TO       → address to receive the digest (can be any email address)
+#   BOARD_URL      → your GitHub Pages URL e.g. https://username.github.io/calgary-arch-jobs
+EMAIL_ENABLED  = True
+SMTP_HOST      = "smtp-mail.outlook.com"
+SMTP_PORT      = 587
+SMTP_USER      = os.environ.get("SMTP_USER", "")
+SMTP_PASSWORD  = os.environ.get("SMTP_PASSWORD", "")
+EMAIL_TO       = os.environ.get("EMAIL_TO", "")
+BOARD_URL      = os.environ.get("BOARD_URL", "")
 
 HEADERS = {
     "User-Agent": (
@@ -428,24 +453,41 @@ def scrape_firm_careers() -> list[dict]:
     """
     jobs = []
 
-    # Link text must contain one of these to be considered a job posting
+    # Link text must contain one of these to be a possible job posting
     posting_keywords = [
         "architect", "architectural", "intern", "junior", "designer",
         "graduate", "co-op", "coop", "idp", "emerging"
     ]
 
-    # Link text with these words is definitely NOT a job posting (nav/footer links)
+    # Link text matching any of these → skip (nav, articles, non-posting content)
     nav_keywords = [
-        "home", "about", "contact", "portfolio", "projects", "news",
-        "blog", "team", "services", "instagram", "facebook", "linkedin",
-        "twitter", "privacy", "terms", "apply here", "learn more",
-        "students & graduates", "students and graduates",  # Stantec category pages
-        "view all", "see all", "all jobs", "all positions",
+        # Navigation
+        "home", "about", "contact", "portfolio", "projects",
+        "services", "team", "people", "leadership",
+        # Blog / article content — the big one causing fake listings
+        "news", "blog", "article", "insight", "publication", "press",
+        "case study", "case studies", "resource", "white paper",
+        "newsletter", "update", "announcement", "event", "award",
+        # Social / utility
+        "instagram", "facebook", "linkedin", "twitter", "youtube",
+        "privacy", "terms", "cookie", "sitemap", "accessibility",
+        # Category / nav buttons that aren't individual listings
+        "apply here", "learn more", "read more", "view more",
+        "students & graduates", "students and graduates",
+        "view all", "see all", "all jobs", "all positions", "all openings",
+        "explore careers", "work with us", "join us", "our culture",
+    ]
+
+    # URL patterns that are articles/blog posts, not job postings
+    article_url_patterns = [
+        "/news/", "/blog/", "/insights/", "/articles/", "/press/",
+        "/resources/", "/events/", "/publications/", "/media/",
+        "/projects/", "/portfolio/", "/work/", "/case-studies/",
     ]
 
     skip_in_href = {
         "facebook", "twitter", "instagram", "linkedin.com/company",
-        "mailto:", "tel:", "#", "javascript:"
+        "mailto:", "tel:", "javascript:"
     }
 
     for firm_name, page_url in FIRM_CAREER_PAGES:
@@ -482,8 +524,27 @@ def scrape_firm_careers() -> list[dict]:
                 else:
                     full_url = base_domain + "/" + href.lstrip("/")
 
-                # Skip if the link just points back to the same careers page
+                # Skip if link points back to the same careers page
                 if full_url.rstrip("/") == page_url.rstrip("/"):
+                    continue
+
+                # Skip if URL pattern looks like a blog/article/project page
+                full_url_lower = full_url.lower()
+                if any(pat in full_url_lower for pat in article_url_patterns):
+                    continue
+
+                # Skip if href is just a fragment or query-only (no real path depth)
+                if href.startswith("?") or href.startswith("#"):
+                    continue
+
+                # The link text must be plausibly a job title:
+                # At least 2 words OR contains a clear job keyword
+                words = text.strip().split()
+                has_job_keyword = any(kw in text.lower() for kw in [
+                    "architect", "designer", "intern", "junior", "graduate",
+                    "co-op", "coop", "idp", "drafter", "technician"
+                ])
+                if len(words) < 2 and not has_job_keyword:
                     continue
 
                 jobs.append({
@@ -555,6 +616,24 @@ def filter_new(jobs: list[dict], seen: set) -> list[dict]:
     return new
 
 
+
+def expire_old_jobs(all_jobs: list[dict]) -> list[dict]:
+    """Remove jobs scraped more than JOB_EXPIRY_DAYS days ago."""
+    cutoff = datetime.now().timestamp() - (JOB_EXPIRY_DAYS * 86400)
+    kept, removed = [], 0
+    for job in all_jobs:
+        try:
+            scraped = datetime.fromisoformat(job.get("scraped_at", "")).timestamp()
+            if scraped >= cutoff:
+                kept.append(job)
+            else:
+                removed += 1
+        except (ValueError, TypeError):
+            kept.append(job)  # keep if date unparseable
+    if removed:
+        print(f"[Expire] Removed {removed} listings older than {JOB_EXPIRY_DAYS} days")
+    return kept
+
 # ── HTML GENERATOR ────────────────────────────────────────────────────────────
 
 def generate_html(new_jobs: list[dict], all_jobs: list[dict]):
@@ -582,10 +661,15 @@ def generate_html(new_jobs: list[dict], all_jobs: list[dict]):
         desc_html = ""
         if j.get("description") and j["description"] not in ("", "N/A"):
             desc_html = f'<p class="job-desc">{j["description"][:130]}…</p>'
+        scraped_ts = ""
+        try:
+            scraped_ts = str(int(datetime.fromisoformat(j.get("scraped_at","")).timestamp()))
+        except Exception:
+            pass
         return (
             f'<a href="{j["url"]}" target="_blank" rel="noopener" '
             f'class="job-card{"  job-card--new" if is_new else ""}" '
-            f'data-source="{j["source"]}">'
+            f'data-source="{j["source"]}" data-scraped="{scraped_ts}">'
             f'<div class="job-card__header">'
             f'<span class="job-source" style="background:{color}">{j["source"]}</span>'
             f'{new_badge}</div>'
@@ -639,14 +723,7 @@ body{{
   background:var(--brown);
   padding:2.5rem 2rem 2rem;position:relative;overflow:hidden;
 }}
-.masthead::before{{
-  content:'INTERN ARCHITECT';
-  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
-  font-family:'Georgia',serif;
-  font-size:clamp(3rem,10vw,8rem);font-weight:900;
-  color:transparent;-webkit-text-stroke:1px rgba(251,230,183,0.12);
-  white-space:nowrap;pointer-events:none;letter-spacing:-2px;
-}}
+.masthead::before{{display:none}}
 .masthead__inner{{
   max-width:1200px;margin:0 auto;position:relative;z-index:1;
   display:flex;align-items:flex-end;justify-content:space-between;
@@ -793,6 +870,14 @@ body{{
       <button class="filter-btn active" onclick="filterJobs('all',this)">All</button>
       {filter_btns}
     </div>
+    <div class="filters" style="margin-top:-0.75rem">
+      <span style="font-size:0.62rem;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;align-self:center">Added:</span>
+      <button class="filter-btn date-btn active" onclick="filterDate(0,this)">All Time</button>
+      <button class="filter-btn date-btn" onclick="filterDate(1,this)">Today</button>
+      <button class="filter-btn date-btn" onclick="filterDate(3,this)">Last 3 Days</button>
+      <button class="filter-btn date-btn" onclick="filterDate(7,this)">Last Week</button>
+      <button class="filter-btn date-btn" onclick="filterDate(14,this)">Last 2 Weeks</button>
+    </div>
     <div class="jobs-grid" id="all-grid">{all_cards}</div>
   </section>
 
@@ -804,12 +889,34 @@ body{{
 </footer>
 
 <script>
-function filterJobs(source, btn) {{
-  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
+let activeSource = 'all';
+let activeDays = 0;
+
+function applyFilters() {{
+  const now = Math.floor(Date.now() / 1000);
   document.querySelectorAll('#all-grid .job-card').forEach(card => {{
-    card.style.display = (source === 'all' || card.dataset.source === source) ? 'block' : 'none';
+    const srcMatch = activeSource === 'all' || card.dataset.source === activeSource;
+    let dateMatch = true;
+    if (activeDays > 0) {{
+      const scraped = parseInt(card.dataset.scraped || '0');
+      dateMatch = scraped > 0 && (now - scraped) <= activeDays * 86400;
+    }}
+    card.style.display = (srcMatch && dateMatch) ? 'block' : 'none';
   }});
+}}
+
+function filterJobs(source, btn) {{
+  document.querySelectorAll('.filter-btn:not(.date-btn)').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  activeSource = source;
+  applyFilters();
+}}
+
+function filterDate(days, btn) {{
+  document.querySelectorAll('.date-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  activeDays = days;
+  applyFilters();
 }}
 </script>
 </body>
@@ -837,6 +944,108 @@ def send_sms(jobs: list[dict]):
         print(f"[SMS] Sent — {len(jobs)} jobs")
     except Exception as e:
         print(f"[SMS] Error: {e}")
+
+
+def send_email(jobs: list[dict]):
+    """Send a daily digest email via Outlook SMTP. No paid service needed."""
+    if not EMAIL_ENABLED or not jobs or not SMTP_USER or not SMTP_PASSWORD or not EMAIL_TO:
+        if EMAIL_ENABLED and not SMTP_USER:
+            print("[Email] Skipped — SMTP_USER secret not set")
+        return
+    try:
+        import smtplib
+        from email.mime.multipart import MIMEMultipart
+        from email.mime.text import MIMEText
+
+        today     = datetime.now().strftime("%B %d, %Y")
+        count     = len(jobs)
+        subject   = f"\U0001f3db {count} New Calgary Arch Job{'s' if count != 1 else ''} — {today}"
+
+        SOURCE_COLORS = {
+            "Indeed CA":"#7A9DB0","Indeed":"#7A9DB0","LinkedIn":"#7A9DB0",
+            "Glassdoor":"#879979","Firm Website":"#503228",
+            "Workopolis":"#8B6F5E","AAA Job Board":"#879979",
+        }
+
+        def make_card(j):
+            color = SOURCE_COLORS.get(j["source"], "#7A9DB0")
+            desc_row = ""
+            if j.get("description"):
+                d = j["description"][:150]
+                desc_row = (
+                    '<p style="font-size:12px;color:#7A6E68;margin:6px 0 0;line-height:1.5">'
+                    + d + "\u2026</p>"
+                )
+            return (
+                f'<a href="{j["url"]}" style="display:block;text-decoration:none;color:inherit;' +
+                f'background:#fff;border:1px solid #D6D0C4;border-left:4px solid {color};' +
+                f'border-radius:3px;padding:14px 16px;margin-bottom:12px">' +
+                f'<div style="margin-bottom:6px">' +
+                f'<span style="background:{color};color:#fff;font-size:10px;letter-spacing:1px;' +
+                f'text-transform:uppercase;padding:2px 7px;border-radius:2px;font-weight:600">' +
+                f'{j["source"]}</span></div>' +
+                f'<div style="font-family:Georgia,serif;font-size:16px;font-weight:700;' +
+                f'color:#503228;margin-bottom:3px">{j["title"]}</div>' +
+                f'<div style="font-size:13px;color:#879979;font-weight:600;margin-bottom:2px">' +
+                f'{j["company"]}</div>' +
+                f'<div style="font-size:12px;color:#7A6E68">\U0001f4cd {j["location"]} ' +
+                f'&nbsp;\u00b7&nbsp; \U0001f550 {j["date"]}</div>' +
+                desc_row +
+                '</a>'
+            )
+
+        cards_html = "\n".join(make_card(j) for j in jobs)
+        board_link = (
+            f'<a href="{BOARD_URL}" style="color:#E8DCC1;font-weight:600">{BOARD_URL}</a>'
+            if BOARD_URL else "your GitHub Pages job board"
+        )
+
+        html_body = (
+            '<!DOCTYPE html><html><head><meta charset="UTF-8"/></head>' +
+            '<body style="margin:0;padding:0;background:#F2F1EB;font-family:Arial,sans-serif">' +
+            '<table width="100%" cellpadding="0" cellspacing="0" style="background:#F2F1EB;padding:30px 0">' +
+            '<tr><td align="center"><table width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%">' +
+            '<tr><td style="background:#503228;padding:28px 30px;border-radius:4px 4px 0 0">' +
+            '<div style="font-family:Georgia,serif;font-size:26px;font-weight:700;color:#E8DCC1;line-height:1.2">' +
+            'Job Search — Intern Architect</div>' +
+            '<div style="font-size:12px;color:rgba(232,220,193,0.7);letter-spacing:2px;text-transform:uppercase;margin-top:6px">' +
+            '\U0001f4cd Calgary, Alberta</div></td></tr>' +
+            f'<tr><td style="background:#E8DCC1;padding:10px 30px">' +
+            f'<span style="font-size:12px;color:#503228;font-weight:700;letter-spacing:1px;text-transform:uppercase">' +
+            f'{count} New Listing{"s" if count != 1 else ""} — {today}</span></td></tr>' +
+            f'<tr><td style="padding:20px 30px;background:#F2F1EB">{cards_html}</td></tr>' +
+            f'<tr><td style="background:#503228;padding:18px 30px;border-radius:0 0 4px 4px;text-align:center">' +
+            f'<p style="color:rgba(232,220,193,0.7);font-size:11px;margin:0;line-height:1.8">' +
+            f'View all listings: {board_link}<br>' +
+            'Auto-generated daily · Calgary Architecture Jobs</p></td></tr>' +
+            '</table></td></tr></table></body></html>'
+        )
+
+        plain_lines = [f"\U0001f3db {count} new Calgary architecture jobs — {today}\n"]
+        for j in jobs:
+            plain_lines.append(f"- {j['title']} @ {j['company']}")
+            plain_lines.append(f"  {j['location']} | {j['source']}")
+            plain_lines.append(f"  {j['url']}\n")
+        if BOARD_URL:
+            plain_lines.append(f"View all: {BOARD_URL}")
+        plain_body = "\n".join(plain_lines)
+
+        msg = MIMEMultipart("alternative")
+        msg["Subject"] = subject
+        msg["From"]    = SMTP_USER  # Outlook requires From to match login address
+        msg["To"]      = EMAIL_TO
+        msg.attach(MIMEText(plain_body, "plain"))
+        msg.attach(MIMEText(html_body,  "html"))
+
+        with smtplib.SMTP(SMTP_HOST, SMTP_PORT) as server:
+            server.starttls()
+            server.login(SMTP_USER, SMTP_PASSWORD)
+            server.sendmail(SMTP_USER, EMAIL_TO, msg.as_string())
+
+        print(f"[Email] Sent to {EMAIL_TO} — {count} jobs")
+
+    except Exception as e:
+        print(f"[Email] Error: {e}")
 
 
 # ── MAIN ──────────────────────────────────────────────────────────────────────
@@ -903,10 +1112,14 @@ def main():
     all_jobs.extend(new_jobs)
     print(f"[Result] {len(new_jobs)} brand-new jobs (of {len(unique)} unique filtered)")
 
+    # Remove listings older than JOB_EXPIRY_DAYS
+    all_jobs = expire_old_jobs(all_jobs)
+
     save_seen(seen)
-    all_jobs_file.write_text(json.dumps(all_jobs[-500:], indent=2))
+    all_jobs_file.write_text(json.dumps(all_jobs, indent=2))
     generate_html(new_jobs, all_jobs)
     send_sms(new_jobs)
+    send_email(new_jobs)
     print("\n✓ Done!")
 
 
