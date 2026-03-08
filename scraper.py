@@ -47,17 +47,34 @@ CALGARY_KEYWORDS = {"calgary", "ab", "alberta"}
 
 # Title keywords that confirm entry-level / early-career roles
 ENTRY_LEVEL_TITLE_KEYWORDS = [
-    "intern", "internship", "co-op", "coop",
-    "junior", "jr.",
-    "entry", "entry-level", "entry level",
-    "graduate", "grad",
-    "emerging",
-    "architectural designer",
-    "architectural technologist",
-    "junior designer",
-    "junior architect",
-    "idp",
-    "designer i", "architect i", "architect 1",
+    "intern architect", "architectural intern", "internship",
+    "co-op", "coop",
+    "junior architect", "junior architectural", "junior designer",
+    "jr. architect",
+    "entry level architect", "entry-level architect",
+    "graduate architect", "architecture graduate",
+    "emerging architect",
+    "architectural designer",   # common new-grad title
+    "idp",                      # intern development program
+    "architect i",  "architect 1",  # level-based titles
+]
+
+# Title keywords that HARD REJECT a job regardless of anything else
+TITLE_REJECT_KEYWORDS = [
+    # Wrong seniority
+    "senior", "sr.", "principal", "director", "manager",
+    "lead architect", "associate principal", "project architect",
+    # Wrong fields — not building architecture
+    "solutions architect", "cloud architect", "software architect",
+    "network architect", "data architect", "enterprise architect",
+    "security architect", "systems architect", "it architect",
+    "technical architect", "infrastructure architect",
+    "interior design", "interior designer",
+    "landscape architect",      # remove this line if you want landscape roles
+    "architectural technologist",  # technologist is a different credential in AB
+    # Other irrelevant
+    "hvac", "mechanical", "electrical", "structural engineer",
+    "civil engineer", "urban planner",
 ]
 
 # Keywords in descriptions that suggest > 3 yrs experience — used to REJECT
@@ -140,17 +157,38 @@ def is_calgary(job: dict) -> bool:
 def is_entry_level(job: dict) -> bool:
     title = job.get("title", "").lower()
     desc  = job.get("description", "").lower()
+    combined = title + " " + desc
 
-    # Hard reject senior titles
-    if any(kw in title for kw in ["senior", "sr.", "principal", "director", "manager", "lead architect"]):
+    # Hard reject anything in the title reject list (wrong field or seniority)
+    if any(kw in title for kw in TITLE_REJECT_KEYWORDS):
         return False
 
-    # Accept if title contains entry-level keyword
+    # Accept if title contains an entry-level keyword
     if any(kw in title for kw in ENTRY_LEVEL_TITLE_KEYWORDS):
         return True
 
-    # Accept "architect" / "designer" titles unless description flags seniority
-    if "architect" in title or "designer" in title:
+    # Accept titles with "architect" in them (catches plain "architect" postings)
+    if "architect" in title:
+        if any(kw in desc for kw in EXPERIENCE_REJECT_KEYWORDS):
+            return False
+        return True
+
+    # Accept "junior designer" or "designer" titles from architecture firms
+    # (firms like DIALOG, GEC sometimes post just "Junior Designer")
+    if "designer" in title or "junior" in title:
+        if any(kw in desc for kw in EXPERIENCE_REJECT_KEYWORDS):
+            return False
+        return True
+
+    # Accept if description mentions entry-level / student / graduate signals
+    desc_entry_signals = [
+        "entry level", "entry-level", "new grad", "new graduate",
+        "recent graduate", "students and graduates", "students & graduates",
+        "0-2 years", "0 to 2 years", "1-3 years", "1 to 3 years",
+        "intern", "internship", "co-op", "coop", "idp",
+        "emerging professional", "graduate architect",
+    ]
+    if any(sig in combined for sig in desc_entry_signals):
         if any(kw in desc for kw in EXPERIENCE_REJECT_KEYWORDS):
             return False
         return True
@@ -166,9 +204,9 @@ def scrape_jobspy(query: str) -> list[dict]:
     try:
         from jobspy import scrape_jobs
         df = scrape_jobs(
-            site_name=["indeed", "linkedin", "zip_recruiter", "glassdoor"],
+            site_name=["indeed", "linkedin", "glassdoor"],  # ziprecruiter blocks GitHub IPs
             search_term=query,
-            location=LOCATION,
+            location="Calgary, Alberta",  # format Glassdoor accepts for Canadian cities
             country_indeed="Canada",
             linkedin_fetch_description=True,
             results_wanted=25,
@@ -385,63 +423,102 @@ def scrape_aaa_board() -> list[dict]:
 
 def scrape_firm_careers() -> list[dict]:
     """
-    Crawl each Calgary firm's careers page and pull any links
-    that look like job postings (title contains architecture keywords).
+    Crawl each Calgary firm's careers page and pull actual job posting links.
+    Only follows links that go deeper than the careers page itself.
     """
     jobs = []
-    job_keywords = ENTRY_LEVEL_TITLE_KEYWORDS + [
-        "architect", "designer", "technologist", "technician", "intern"
+
+    # Link text must contain one of these to be considered a job posting
+    posting_keywords = [
+        "architect", "architectural", "intern", "junior", "designer",
+        "graduate", "co-op", "coop", "idp", "emerging"
     ]
-    skip_domains = {"facebook", "twitter", "instagram", "linkedin.com/company", "mailto:", "tel:"}
+
+    # Link text with these words is definitely NOT a job posting (nav/footer links)
+    nav_keywords = [
+        "home", "about", "contact", "portfolio", "projects", "news",
+        "blog", "team", "services", "instagram", "facebook", "linkedin",
+        "twitter", "privacy", "terms", "apply here", "learn more",
+        "students & graduates", "students and graduates",  # Stantec category pages
+        "view all", "see all", "all jobs", "all positions",
+    ]
+
+    skip_in_href = {
+        "facebook", "twitter", "instagram", "linkedin.com/company",
+        "mailto:", "tel:", "#", "javascript:"
+    }
 
     for firm_name, page_url in FIRM_CAREER_PAGES:
         try:
             resp = requests.get(page_url, headers=HEADERS, timeout=20)
             soup = BeautifulSoup(resp.text, "html.parser")
+            base_domain = "/".join(page_url.split("/")[:3])
             found = 0
 
             for link in soup.find_all("a"):
                 text = link.get_text(strip=True)
                 href = link.get("href", "")
 
-                if not text or len(text) < 5 or not href:
+                if not text or len(text) < 8 or len(text) > 120 or not href:
                     continue
-                if any(s in href for s in skip_domains):
+                if any(s in href for s in skip_in_href):
                     continue
 
                 text_lower = text.lower()
-                if any(kw in text_lower for kw in job_keywords):
-                    full_url = href if href.startswith("http") else (
-                        "/".join(page_url.rstrip("/").split("/")[:3]) + "/" + href.lstrip("/")
-                    )
-                    jobs.append({
-                        "id":          f"firm_{abs(hash(full_url + firm_name))}",
-                        "title":       text[:80].title(),
-                        "company":     firm_name,
-                        "location":    LOCATION_SHORT,
-                        "source":      "Firm Website",
-                        "url":         full_url,
-                        "date":        "See posting",
-                        "description": f"Direct listing from {firm_name} careers page",
-                        "scraped_at":  datetime.now().isoformat(),
-                    })
-                    found += 1
-                    if found >= 4:
-                        break
 
-            # If no specific links found but firm has a careers page, list it anyway
+                # Skip navigation / category links
+                if any(nav in text_lower for nav in nav_keywords):
+                    continue
+
+                # Must look like an actual job title (contains architecture keyword)
+                if not any(kw in text_lower for kw in posting_keywords):
+                    continue
+
+                # Build full URL
+                if href.startswith("http"):
+                    full_url = href
+                elif href.startswith("/"):
+                    full_url = base_domain + href
+                else:
+                    full_url = base_domain + "/" + href.lstrip("/")
+
+                # Skip if the link just points back to the same careers page
+                if full_url.rstrip("/") == page_url.rstrip("/"):
+                    continue
+
+                jobs.append({
+                    "id":          f"firm_{abs(hash(full_url + firm_name))}",
+                    "title":       text[:100].strip(),
+                    "company":     firm_name,
+                    "location":    LOCATION_SHORT,
+                    "source":      "Firm Website",
+                    "url":         full_url,
+                    "date":        "See posting",
+                    "description": f"Direct listing from {firm_name} careers page — click to view full posting",
+                    "scraped_at":  datetime.now().isoformat(),
+                })
+                found += 1
+                if found >= 5:
+                    break
+
+            # Only show the careers page itself if NO actual job links were found
+            # AND the page text suggests there might be openings
             if found == 0:
                 page_text = soup.get_text().lower()
-                if any(w in page_text for w in ["opening", "position", "hiring", "join our team", "opportunit"]):
+                has_openings = any(w in page_text for w in [
+                    "we are hiring", "join our team", "open position",
+                    "current opening", "job opportunit", "we're looking"
+                ])
+                if has_openings:
                     jobs.append({
                         "id":          f"firm_page_{abs(hash(page_url + firm_name))}",
-                        "title":       "View Open Positions",
+                        "title":       "Open Positions — Click to View",
                         "company":     firm_name,
                         "location":    LOCATION_SHORT,
                         "source":      "Firm Website",
                         "url":         page_url,
                         "date":        "Check site",
-                        "description": "Visit their careers page to see current openings",
+                        "description": "This firm appears to have openings — visit their careers page for details",
                         "scraped_at":  datetime.now().isoformat(),
                     })
 
@@ -486,15 +563,16 @@ def generate_html(new_jobs: list[dict], all_jobs: list[dict]):
     new_ids   = {j["id"] for j in new_jobs}
 
     SOURCE_COLORS = {
-        "Indeed CA":    "#003A9B",
-        "Indeed":       "#003A9B",
-        "Zip Recruiter":"#4A90D9",
-        "ZipRecruiter": "#4A90D9",
-        "Glassdoor":    "#0CAA41",
-        "LinkedIn":     "#0A66C2",
-        "Firm Website": "#8B5E3C",
-        "Work Alberta": "#CC3333",
-        "Workopolis":   "#E05C00",
+        "Indeed CA":    "#7A9DB0",
+        "Indeed":       "#7A9DB0",
+        "Zip Recruiter":"#7A9DB0",
+        "ZipRecruiter": "#7A9DB0",
+        "Glassdoor":    "#879979",
+        "LinkedIn":     "#7A9DB0",
+        "Firm Website": "#503228",
+        "Work Alberta": "#8B6F5E",
+        "Workopolis":   "#8B6F5E",
+        "AAA Job Board":"#879979",
     }
 
     def job_card(j: dict) -> str:
@@ -536,45 +614,144 @@ def generate_html(new_jobs: list[dict], all_jobs: list[dict]):
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Calgary Architecture Jobs</title>
+<title>Job Search — Intern Architect | Calgary</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Georgia&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{{--bg:#0D0D0D;--surface:#161616;--surface2:#1F1F1F;--border:#2A2A2A;--accent:#C8A96E;--accent2:#E8D5B0;--text:#F0EDE6;--muted:#888;--glow:rgba(200,169,110,0.12)}}
+:root{{
+  --bg:#F2F1EB;
+  --surface:#FFFFFF;
+  --surface2:#EDE9DF;
+  --border:#D6D0C4;
+  --brown:#503228;
+  --green:#879979;
+  --yellow:#E8DCC1;
+  --text:#2C1F1A;
+  --muted:#7A6E68;
+  --glow:rgba(80,50,40,0.07);
+}}
 *{{box-sizing:border-box;margin:0;padding:0}}
-body{{background:var(--bg);color:var(--text);font-family:'DM Mono',monospace;min-height:100vh;background-image:repeating-linear-gradient(0deg,transparent,transparent 39px,var(--border) 39px,var(--border) 40px),repeating-linear-gradient(90deg,transparent,transparent 39px,var(--border) 39px,var(--border) 40px);background-size:40px 40px}}
-.masthead{{background:var(--bg);border-bottom:2px solid var(--accent);padding:2.5rem 2rem 2rem;position:relative;overflow:hidden}}
-.masthead::before{{content:'YYC ARCH JOBS';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Playfair Display',serif;font-size:clamp(3rem,10vw,8rem);font-weight:900;color:transparent;-webkit-text-stroke:1px rgba(200,169,110,0.06);white-space:nowrap;pointer-events:none;letter-spacing:-2px}}
-.masthead__inner{{max-width:1200px;margin:0 auto;position:relative;z-index:1;display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:1rem}}
-.masthead__title{{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:900;color:var(--accent);line-height:1;letter-spacing:-1px}}
-.masthead__sub{{font-size:0.7rem;color:var(--muted);letter-spacing:0.2em;text-transform:uppercase;margin-top:0.4rem}}
-.masthead__city{{display:inline-block;background:var(--accent);color:#000;font-size:0.6rem;letter-spacing:0.25em;padding:0.2rem 0.7rem;margin-top:0.5rem;font-weight:600}}
-.masthead__date{{font-size:0.75rem;color:var(--muted);letter-spacing:0.1em}}
-.counter{{display:inline-block;background:var(--accent);color:#000;font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;padding:0.2rem 0.8rem;margin-top:0.3rem}}
-.counter__label{{font-size:0.65rem;color:var(--muted);display:block;letter-spacing:0.15em;text-transform:uppercase;margin-top:0.2rem}}
+body{{
+  background:var(--bg);color:var(--text);
+  font-family:'DM Sans',sans-serif;min-height:100vh;
+}}
+.masthead{{
+  background:var(--brown);
+  padding:2.5rem 2rem 2rem;position:relative;overflow:hidden;
+}}
+.masthead::before{{
+  content:'INTERN ARCHITECT';
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  font-family:'Georgia',serif;
+  font-size:clamp(3rem,10vw,8rem);font-weight:900;
+  color:transparent;-webkit-text-stroke:1px rgba(251,230,183,0.12);
+  white-space:nowrap;pointer-events:none;letter-spacing:-2px;
+}}
+.masthead__inner{{
+  max-width:1200px;margin:0 auto;position:relative;z-index:1;
+  display:flex;align-items:flex-end;justify-content:space-between;
+  flex-wrap:wrap;gap:1rem;
+}}
+.masthead__title{{
+  font-family:'Georgia',serif;
+  font-size:clamp(2rem,5vw,3.5rem);font-weight:700;
+  color:var(--yellow);line-height:1;letter-spacing:-1px;
+}}
+.masthead__sub{{font-size:0.72rem;color:rgba(251,230,183,0.7);letter-spacing:0.2em;text-transform:uppercase;margin-top:0.5rem}}
+.masthead__city{{
+  display:inline-block;background:var(--yellow);color:var(--brown);
+  font-size:0.62rem;letter-spacing:0.2em;padding:0.25rem 0.75rem;
+  margin-top:0.5rem;font-weight:700;
+}}
+.masthead__date{{font-size:0.75rem;color:rgba(251,230,183,0.6);letter-spacing:0.08em}}
+.counter{{
+  display:inline-block;background:var(--yellow);color:var(--brown);
+  font-family:'Georgia',serif;font-size:2.2rem;font-weight:700;
+  padding:0.15rem 0.8rem;margin-top:0.3rem;
+}}
+.counter__label{{font-size:0.65rem;color:rgba(251,230,183,0.6);display:block;letter-spacing:0.15em;text-transform:uppercase;margin-top:0.25rem}}
 .container{{max-width:1200px;margin:0 auto;padding:2rem}}
-.section-label{{font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--accent);border-bottom:1px solid var(--border);padding-bottom:0.75rem;margin-bottom:1.5rem;display:flex;align-items:center;gap:0.75rem}}
-.section-label::before{{content:'';display:inline-block;width:8px;height:8px;background:var(--accent);transform:rotate(45deg);flex-shrink:0}}
-.info-box{{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--accent);padding:1rem 1.2rem;margin-bottom:2rem;font-size:0.68rem;color:var(--muted);line-height:2}}
-.info-box strong{{color:var(--accent2)}}
-.jobs-grid{{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:1px;background:var(--border);margin-bottom:3rem}}
-.job-card{{background:var(--surface);padding:1.4rem;text-decoration:none;color:inherit;display:block;transition:background 0.15s,transform 0.15s;position:relative}}
-.job-card:hover{{background:var(--surface2);transform:translate(-2px,-2px);z-index:1;box-shadow:4px 4px 0 var(--accent)}}
-.job-card--new{{background:#1A1610}}
-.job-card__header{{display:flex;align-items:center;gap:0.5rem;margin-bottom:0.75rem}}
-.job-source{{font-size:0.58rem;letter-spacing:0.12em;text-transform:uppercase;color:#fff;padding:0.2rem 0.5rem;font-weight:500}}
-.badge-new{{font-size:0.55rem;letter-spacing:0.2em;background:var(--accent);color:#000;padding:0.15rem 0.4rem;font-weight:500;animation:pulse 2s infinite}}
-@keyframes pulse{{0%,100%{{opacity:1}}50%{{opacity:0.5}}}}
-.job-title{{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:var(--accent2);line-height:1.3;margin-bottom:0.4rem}}
-.job-company{{font-size:0.78rem;color:var(--text);margin-bottom:0.3rem}}
+.section-label{{
+  font-size:0.65rem;letter-spacing:0.25em;text-transform:uppercase;
+  color:var(--brown);border-bottom:2px solid var(--brown);
+  padding-bottom:0.6rem;margin-bottom:1.5rem;
+  display:flex;align-items:center;gap:0.75rem;font-weight:700;
+}}
+.section-label::before{{
+  content:'';display:inline-block;width:8px;height:8px;
+  background:var(--green);transform:rotate(45deg);flex-shrink:0;
+}}
+.info-box{{
+  background:var(--yellow);border:1px solid var(--border);
+  border-left:4px solid var(--brown);padding:1rem 1.2rem;
+  margin-bottom:2rem;font-size:0.7rem;color:var(--brown);line-height:2;
+}}
+.info-box strong{{color:var(--brown);font-weight:700}}
+.jobs-grid{{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));
+  gap:12px;margin-bottom:3rem;
+}}
+.job-card{{
+  background:var(--surface);padding:1.4rem;text-decoration:none;
+  color:inherit;display:block;
+  transition:box-shadow 0.15s,transform 0.15s;
+  border:1px solid var(--border);
+  border-radius:2px;
+  position:relative;
+}}
+.job-card:hover{{
+  transform:translateY(-3px);
+  box-shadow:0 6px 20px rgba(80,50,40,0.12);
+  border-color:var(--green);
+}}
+.job-card--new{{
+  background:#FFFDF5;
+  border-color:var(--brown);
+  border-left:4px solid var(--brown);
+}}
+.job-card__header{{display:flex;align-items:center;gap:0.5rem;margin-bottom:0.75rem;flex-wrap:wrap}}
+.job-source{{
+  font-size:0.58rem;letter-spacing:0.12em;text-transform:uppercase;
+  color:#fff;padding:0.2rem 0.55rem;font-weight:600;border-radius:2px;
+}}
+.badge-new{{
+  font-size:0.55rem;letter-spacing:0.15em;background:var(--brown);
+  color:var(--yellow);padding:0.15rem 0.5rem;font-weight:700;
+  border-radius:2px;animation:pulse 2.5s infinite;
+}}
+@keyframes pulse{{0%,100%{{opacity:1}}50%{{opacity:0.6}}}}
+.job-title{{
+  font-family:'Georgia',serif;font-size:1.05rem;font-weight:700;
+  color:var(--brown);line-height:1.35;margin-bottom:0.4rem;
+}}
+.job-company{{font-size:0.8rem;color:var(--green);font-weight:600;margin-bottom:0.3rem}}
 .job-location,.job-date{{font-size:0.68rem;color:var(--muted);margin-top:0.2rem}}
-.job-desc{{font-size:0.64rem;color:var(--muted);margin-top:0.5rem;line-height:1.55;opacity:0.8}}
-.no-jobs{{grid-column:1/-1;text-align:center;padding:3rem;color:var(--muted);font-size:0.8rem;letter-spacing:0.1em;background:var(--surface)}}
+.job-desc{{font-size:0.67rem;color:var(--muted);margin-top:0.6rem;line-height:1.6;border-top:1px solid var(--border);padding-top:0.5rem}}
+.no-jobs{{
+  grid-column:1/-1;text-align:center;padding:3rem;
+  color:var(--muted);font-size:0.85rem;background:var(--surface);
+  border:1px solid var(--border);
+}}
 .filters{{display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:1.5rem}}
-.filter-btn{{background:transparent;border:1px solid var(--border);color:var(--muted);padding:0.35rem 0.8rem;font-family:'DM Mono',monospace;font-size:0.63rem;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;transition:all 0.15s}}
-.filter-btn:hover,.filter-btn.active{{border-color:var(--accent);color:var(--accent);background:var(--glow)}}
-.divider{{height:2px;background:linear-gradient(90deg,transparent,var(--accent),transparent);margin:2rem 0;opacity:0.3}}
-.footer{{border-top:1px solid var(--border);padding:1.5rem 2rem;text-align:center;font-size:0.63rem;color:var(--muted);letter-spacing:0.08em;max-width:1200px;margin:0 auto;line-height:2}}
+.filter-btn{{
+  background:var(--surface);border:1px solid var(--border);color:var(--muted);
+  padding:0.4rem 0.9rem;font-family:'DM Sans',sans-serif;font-size:0.65rem;
+  letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;
+  transition:all 0.15s;border-radius:2px;font-weight:500;
+}}
+.filter-btn:hover,.filter-btn.active{{
+  border-color:var(--brown);color:var(--brown);
+  background:var(--yellow);font-weight:700;
+}}
+.divider{{
+  height:1px;background:var(--border);
+  margin:2.5rem 0;
+}}
+.footer{{
+  border-top:2px solid var(--brown);padding:1.5rem 2rem;text-align:center;
+  font-size:0.65rem;color:var(--muted);letter-spacing:0.06em;
+  max-width:1200px;margin:0 auto;line-height:2;
+}}
 </style>
 </head>
 <body>
@@ -582,7 +759,7 @@ body{{background:var(--bg);color:var(--text);font-family:'DM Mono',monospace;min
 <header class="masthead">
   <div class="masthead__inner">
     <div>
-      <div class="masthead__title">Arch<br>Jobs</div>
+      <div class="masthead__title">Job Search —<br><span style="font-size:0.72em;opacity:0.9;font-style:italic">Intern Architect</span></div>
       <div class="masthead__sub">Entry Level · Intern · Junior · Graduate</div>
       <div class="masthead__city">📍 Calgary, Alberta</div>
     </div>
