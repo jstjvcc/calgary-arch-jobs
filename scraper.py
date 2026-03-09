@@ -80,6 +80,16 @@ TITLE_REJECT_KEYWORDS = [
     "tech architect", "technology architect",
     "erp architect", "sap architect", "oracle architect",
     "advisory architect",
+    # Data / AI / analytics
+    "data architect", "databricks", "data analytics", "data engineer",
+    "ai architect", "ml architect", "llm", "copilot", "generative ai",
+    "artificial intelligence architect", "machine learning architect",
+    # Consulting
+    "technical consultant", "technology consultant", "it consultant",
+    "management consultant", "solutions consultant", "consulting architect",
+    "staff augmentation",
+    # Structural building technologist variants
+    "structural building technologist", "building systems",
 
     # ── Insurance / finance / business ───────────────────────────────────────
     "p&c", "p & c", "property and casualty",
@@ -147,6 +157,64 @@ EXPERIENCE_REJECT_KEYWORDS = [
     "project architect", "project manager",
 ]
 
+# If ANY of these appear in the job description, reject regardless of title.
+# Catches IT/data/consulting jobs where the title looks like architecture
+# but the description reveals it is not building architecture.
+DESC_REJECT_KEYWORDS = [
+    # Cloud / data / software platforms
+    "aws", "azure", "google cloud", "gcp", "databricks", "snowflake",
+    "kubernetes", "terraform", "devops", "ci/cd", "microservices",
+    "api gateway", "rest api", "graphql", "kafka", "spark",
+    "data pipeline", "data warehouse", "data lake", "data mesh",
+    "machine learning", "deep learning", "llm", "generative ai",
+    "artificial intelligence", "copilot", "openai", "gpt",
+    "salesforce", "dynamics 365", "sap hana", "oracle database",
+    "erp implementation", "crm platform",
+    # IT / consulting signals
+    "it architecture", "enterprise architecture", "solution architecture",
+    "technical architecture", "systems architecture",
+    "togaf", "zachman", "archimate",           # EA frameworks
+    "it strategy", "digital transformation strategy",
+    "agile coach", "scrum master",
+    "software development lifecycle", "sdlc",
+    "network infrastructure", "server infrastructure",
+    "cybersecurity", "penetration testing", "soc analyst",
+    # Finance / insurance / business signals
+    "actuarial", "underwriting", "reinsurance",
+    "financial modeling", "investment portfolio",
+    "chartered professional accountant", "cpa designation",
+    "tax compliance", "audit",
+    # Not building design
+    "structural analysis software", "finite element",
+    "piping and instrumentation", "p&id",
+    "instrumentation engineer", "control valve",
+]
+
+# Description keywords confirming this IS a real architecture/design job.
+# If the description is present and has none of these, and the title is
+# ambiguous (just "architect" with no qualifier), we reject it.
+DESC_CONFIRM_ARCH = [
+    # Design process
+    "floor plan", "floor plans", "schematic design", "design development",
+    "construction document", "building permit", "permit drawing",
+    "site plan", "elevation", "section drawing", "detail drawing",
+    "architectural drawing", "architectural design",
+    # Software tools used in architecture
+    "revit", "autocad", "archicad", "rhino", "sketchup",
+    "lumion", "enscape", "3ds max", "grasshopper",
+    "adobe creative", "indesign", "illustrator",
+    # Building types / scope
+    "residential", "commercial", "mixed-use", "multi-family",
+    "institutional", "renovation", "new construction",
+    "building design", "building envelope",
+    # Professional context
+    "internship development program", "idp hours",
+    "raic", "aibc", "aaa", "oaa",   # Canadian architecture associations
+    "leed", "passive house",
+    "client meeting", "design presentation",
+    "architectural studio", "design studio",
+]
+
 
 SEEN_JOBS_FILE = Path("seen_jobs.json")
 
@@ -200,6 +268,21 @@ def is_entry_level(job: dict) -> bool:
 
     # Hard reject anything in the title reject list (wrong field or seniority)
     if any(kw in title for kw in TITLE_REJECT_KEYWORDS):
+        return False
+
+    # Hard reject if description contains IT/data/consulting signals —
+    # catches jobs where title looks like architecture but isn't
+    if desc and any(kw in desc for kw in DESC_REJECT_KEYWORDS):
+        return False
+
+    # For ambiguous titles (just "architect" with no entry-level qualifier),
+    # require at least one real architecture signal in the description
+    is_ambiguous_title = (
+        "architect" in title and
+        not any(kw in title for kw in ENTRY_LEVEL_TITLE_KEYWORDS) and
+        not any(sig in title for sig in ["architectural", "architecture"])
+    )
+    if is_ambiguous_title and desc and not any(kw in desc for kw in DESC_CONFIRM_ARCH):
         return False
 
     # Accept if title contains an entry-level keyword
