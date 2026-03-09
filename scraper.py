@@ -209,10 +209,18 @@ DESC_CONFIRM_ARCH = [
     "building design", "building envelope",
     # Professional context
     "internship development program", "idp hours",
-    "raic", "aibc", "aaa", "oaa",   # Canadian architecture associations
+    "raic", "aibc", "aaa", "oaa",
     "leed", "passive house",
     "client meeting", "design presentation",
     "architectural studio", "design studio",
+    # Broader signals — firm names, general practice language
+    "architecture firm", "architectural firm", "architecture office",
+    "design firm", "studio",
+    "registered architect", "licensed architect",
+    "architectural practice", "built environment",
+    "space planning", "building code", "zoning",
+    "project delivery", "design team",
+    "calgary", "alberta",   # location in desc is a good signal it's a local firm posting
 ]
 
 
@@ -271,18 +279,28 @@ def is_entry_level(job: dict) -> bool:
         return False
 
     # Hard reject if description contains IT/data/consulting signals —
-    # catches jobs where title looks like architecture but isn't
-    if desc and any(kw in desc for kw in DESC_REJECT_KEYWORDS):
+    # catches jobs where title looks like architecture but isn't.
+    # Only check if description is substantial (>100 chars) to avoid
+    # rejecting firm website listings with minimal descriptions.
+    if len(desc) > 100 and any(kw in desc for kw in DESC_REJECT_KEYWORDS):
         return False
 
-    # For ambiguous titles (just "architect" with no entry-level qualifier),
-    # require at least one real architecture signal in the description
+    # For plain "architect" titles with no entry-level qualifier AND no
+    # "architectural"/"architecture" in title, require the description to
+    # confirm this is actually a building architecture role.
+    # Only apply when description is long enough to be meaningful (>150 chars)
+    # — short descriptions (firm pages, brief listings) get the benefit of the doubt.
     is_ambiguous_title = (
-        "architect" in title and
-        not any(kw in title for kw in ENTRY_LEVEL_TITLE_KEYWORDS) and
-        not any(sig in title for sig in ["architectural", "architecture"])
+        title.strip() in ("architect",) or  # exact plain "architect" only
+        (
+            "architect" in title and
+            not any(kw in title for kw in ENTRY_LEVEL_TITLE_KEYWORDS) and
+            not any(sig in title for sig in ["architectural", "architecture",
+                                              "registered", "licensed", "intern",
+                                              "junior", "graduate", "co-op", "coop"])
+        )
     )
-    if is_ambiguous_title and desc and not any(kw in desc for kw in DESC_CONFIRM_ARCH):
+    if is_ambiguous_title and len(desc) > 150 and not any(kw in desc for kw in DESC_CONFIRM_ARCH):
         return False
 
     # Accept if title contains an entry-level keyword
