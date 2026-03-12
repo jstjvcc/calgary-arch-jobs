@@ -6,6 +6,7 @@ Optional SMS alerts via Twilio.
 """
 
 import json
+import hashlib
 import os
 import re
 import time
@@ -251,6 +252,11 @@ SMTP_PASSWORD  = os.environ.get("SMTP_PASSWORD", "")
 EMAIL_TO       = os.environ.get("EMAIL_TO", "")
 BOARD_URL      = os.environ.get("BOARD_URL", "")
 
+def stable_id(s: str) -> str:
+    """Deterministic ID from a string — safe across Python runs unlike hash()."""
+    import hashlib
+    return hashlib.md5(s.encode()).hexdigest()[:16]
+
 HEADERS = {
     "User-Agent": (
         "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
@@ -361,7 +367,7 @@ def scrape_jobspy(query: str) -> list[dict]:
             title   = str(row.get("title", ""))
             url     = str(row.get("job_url", ""))
             jobs.append({
-                "id":          f"jobspy_{abs(hash(url + title))}",
+                "id":          f"jobspy_{stable_id(url + title)}",
                 "title":       title,
                 "company":     str(row.get("company", "N/A")),
                 "location":    str(row.get("location", LOCATION_SHORT)),
@@ -436,7 +442,7 @@ def scrape_linkedin_jobs(query: str) -> list[dict]:
                 continue
             href = link_el["href"].split("?")[0] if link_el else ""
             jobs.append({
-                "id":          f"linkedin_{abs(hash(href))}",
+                "id":          f"linkedin_{stable_id(href)}",
                 "title":       title_el.get_text(strip=True),
                 "company":     company_el.get_text(strip=True) if company_el else "N/A",
                 "location":    loc_el.get_text(strip=True) if loc_el else LOCATION_SHORT,
@@ -471,7 +477,7 @@ def scrape_workopolis(query: str) -> list[dict]:
             if href and not href.startswith("http"):
                 href = "https://www.workopolis.com" + href
             jobs.append({
-                "id":          f"workopolis_{abs(hash(href))}",
+                "id":          f"workopolis_{stable_id(href)}",
                 "title":       title_el.get_text(strip=True),
                 "company":     company_el.get_text(strip=True) if company_el else "N/A",
                 "location":    LOCATION_SHORT,
@@ -532,7 +538,7 @@ def scrape_aaa_board() -> list[dict]:
             parent_text = entry.get_text(separator=" ", strip=True) if hasattr(entry, "get_text") else title
 
             jobs.append({
-                "id":          f"aaa_{abs(hash(href + title))}",
+                "id":          f"aaa_{stable_id(href + title)}",
                 "title":       title[:100],
                 "company":     "See posting",
                 "location":    "Alberta",
@@ -715,7 +721,7 @@ def scrape_firm_careers() -> list[dict]:
                     continue
 
                 jobs.append({
-                    "id":          f"firm_{abs(hash(full_url + firm_name))}",
+                    "id":          f"firm_{stable_id(full_url + firm_name)}",
                     "title":       text[:100].strip(),
                     "company":     firm_name,
                     "location":    LOCATION_SHORT,
