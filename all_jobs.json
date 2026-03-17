@@ -64,5 +64,16 @@
     "date": "On firm website",
     "description": "Listed on McKinley Studios careers page",
     "scraped_at": "2026-03-15T20:26:25.265869"
+  },
+  {
+    "id": "jobspy_fb2542965f80071c",
+    "title": "Licensed Architect",
+    "company": "Mosaic Holding Corporation",
+    "location": "Calgary, Alberta, Canada",
+    "source": "Linkedin",
+    "url": "https://www.linkedin.com/jobs/view/4385267624",
+    "date": "nan",
+    "description": "**Mosaic Holding Corporation (MHC)** \n is a modern investment firm founded in 2023 and headquartered in Calgary, with offices in Florida and Cairo. Built on the belief that true strength lies in connection, MHC acquires and accelerates mid\\-cap companies across architecture, engineering, marine structures, oil \\& gas, and energy management. Through an agile, customer\\-centric approach, we empower each company to grow while preserving its unique identity, creating a connected ecosystem of innovat",
+    "scraped_at": "2026-03-17T09:45:33.049604"
   }
 ]
