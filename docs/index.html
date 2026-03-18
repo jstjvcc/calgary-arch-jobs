@@ -183,8 +183,8 @@ body{
       <div class="masthead__city">📍 Calgary, Alberta</div>
     </div>
     <div style="text-align:right">
-      <div class="masthead__date">Updated March 17, 2026</div>
-      <div class="counter">1</div>
+      <div class="masthead__date">Updated March 18, 2026</div>
+      <div class="counter">0</div>
       <span class="counter__label">New today</span>
     </div>
   </div>
@@ -202,14 +202,13 @@ body{
   <!-- Tab nav -->
   <div class="tab-nav">
     <button class="tab-btn active" onclick="switchTab('listings',this)">All Listings</button>
-    <button class="tab-btn" onclick="switchTab('new',this)">New Today <span class="tab-count" id="new-count-badge">1</span></button>
+    <button class="tab-btn" onclick="switchTab('new',this)">New Today <span class="tab-count" id="new-count-badge">0</span></button>
     <button class="tab-btn" onclick="switchTab('hidden',this)">Hidden <span class="tab-count" id="hidden-count-badge">0</span></button>
   </div>
 
   <!-- New today tab -->
   <section id="tab-new" class="tab-panel" style="display:none">
-    <div class="jobs-grid" id="new-grid"><div class="job-card-wrap" data-job-id="jobspy_fb2542965f80071c"><button class="dismiss-btn" onclick="dismissJob('jobspy_fb2542965f80071c',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4385267624" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Linkedin" data-scraped="1773740733"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span><span class="badge-new">NEW</span></div><h3 class="job-title">Licensed Architect</h3><p class="job-company">Mosaic Holding Corporation</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 nan</p><p class="job-desc">**Mosaic Holding Corporation (MHC)** 
- is a modern investment firm founded in 2023 and headquartered in Calgary, with offices in F…</p></a></div></div>
+    <div class="jobs-grid" id="new-grid"><p class="no-jobs">No new jobs today — check back tomorrow! 🏛</p></div>
   </section>
 
   <!-- All listings tab -->
@@ -228,7 +227,7 @@ body{
       <button class="filter-btn date-btn" onclick="filterDate(7,this)">Last Week</button>
       <button class="filter-btn date-btn" onclick="filterDate(14,this)">Last 2 Weeks</button>
     </div>
-    <div class="jobs-grid" id="all-grid"><div class="job-card-wrap" data-job-id="jobspy_fb2542965f80071c"><button class="dismiss-btn" onclick="dismissJob('jobspy_fb2542965f80071c',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4385267624" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Linkedin" data-scraped="1773740733"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span><span class="badge-new">NEW</span></div><h3 class="job-title">Licensed Architect</h3><p class="job-company">Mosaic Holding Corporation</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 nan</p><p class="job-desc">**Mosaic Holding Corporation (MHC)** 
+    <div class="jobs-grid" id="all-grid"><div class="job-card-wrap" data-job-id="jobspy_fb2542965f80071c"><button class="dismiss-btn" onclick="dismissJob('jobspy_fb2542965f80071c',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4385267624" target="_blank" rel="noopener" class="job-card" data-source="Linkedin" data-scraped="1773740733"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span></div><h3 class="job-title">Licensed Architect</h3><p class="job-company">Mosaic Holding Corporation</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 nan</p><p class="job-desc">**Mosaic Holding Corporation (MHC)** 
  is a modern investment firm founded in 2023 and headquartered in Calgary, with offices in F…</p></a></div>
 <div class="job-card-wrap" data-job-id="firm_bec01a020a666b59"><button class="dismiss-btn" onclick="dismissJob('firm_bec01a020a666b59',event)" title="Hide this listing">✕</button><a href="https://www.mckinleystudios.com/careers/registered-architect" target="_blank" rel="noopener" class="job-card" data-source="Firm Website" data-scraped="1773606385"><div class="job-card__header"><span class="job-source" style="background:#503228">Firm Website</span></div><h3 class="job-title">registered architect / yyc + yvr</h3><p class="job-company">McKinley Studios</p><p class="job-location">📍 Calgary, AB</p><p class="job-date">🕐 On firm website</p><p class="job-desc">Listed on McKinley Studios careers page…</p></a></div>
 <div class="job-card-wrap" data-job-id="jobspy_e8a4742ab05f5c74"><button class="dismiss-btn" onclick="dismissJob('jobspy_e8a4742ab05f5c74',event)" title="Hide this listing">✕</button><a href="https://ca.indeed.com/viewjob?jk=150c1febe128629d" target="_blank" rel="noopener" class="job-card" data-source="Indeed" data-scraped="1773606320"><div class="job-card__header"><span class="job-source" style="background:#7A9DB0">Indeed</span></div><h3 class="job-title">Visual Designer Intern</h3><p class="job-company">MDDL</p><p class="job-location">📍 Calgary, AB, CA</p><p class="job-date">🕐 2026-03-15</p><p class="job-desc">**Term:** April/May 2026 \- August 2026  
