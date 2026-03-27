@@ -183,8 +183,8 @@ body{
       <div class="masthead__city">📍 Calgary, Alberta</div>
     </div>
     <div style="text-align:right">
-      <div class="masthead__date">Updated March 26, 2026</div>
-      <div class="counter">0</div>
+      <div class="masthead__date">Updated March 27, 2026</div>
+      <div class="counter">1</div>
       <span class="counter__label">New today</span>
     </div>
   </div>
@@ -202,13 +202,16 @@ body{
   <!-- Tab nav -->
   <div class="tab-nav">
     <button class="tab-btn active" onclick="switchTab('listings',this)">All Listings</button>
-    <button class="tab-btn" onclick="switchTab('new',this)">New Today <span class="tab-count" id="new-count-badge">0</span></button>
+    <button class="tab-btn" onclick="switchTab('new',this)">New Today <span class="tab-count" id="new-count-badge">1</span></button>
     <button class="tab-btn" onclick="switchTab('hidden',this)">Hidden <span class="tab-count" id="hidden-count-badge">0</span></button>
   </div>
 
   <!-- New today tab -->
   <section id="tab-new" class="tab-panel" style="display:none">
-    <div class="jobs-grid" id="new-grid"><p class="no-jobs">No new jobs today — check back tomorrow! 🏛</p></div>
+    <div class="jobs-grid" id="new-grid"><div class="job-card-wrap" data-job-id="jobspy_88829657350b3b88"><button class="dismiss-btn" onclick="dismissJob('jobspy_88829657350b3b88',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4391113081" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Linkedin" data-scraped="1774604662"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span><span class="badge-new">NEW</span></div><h3 class="job-title">Intern Architect</h3><p class="job-company">TalentSphere Staffing Solutions</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 nan</p><p class="job-desc">**Job Title: Intern Architect / Junior Architect**
+**Location: Calgary, Alberta**
+**Industry: Architecture \& Design Studio**
+**Co…</p></a></div></div>
   </section>
 
   <!-- All listings tab -->
@@ -227,7 +230,11 @@ body{
       <button class="filter-btn date-btn" onclick="filterDate(7,this)">Last Week</button>
       <button class="filter-btn date-btn" onclick="filterDate(14,this)">Last 2 Weeks</button>
     </div>
-    <div class="jobs-grid" id="all-grid"><div class="job-card-wrap" data-job-id="jobspy_8e4c51346f430e76"><button class="dismiss-btn" onclick="dismissJob('jobspy_8e4c51346f430e76',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4389904820" target="_blank" rel="noopener" class="job-card" data-source="Linkedin" data-scraped="1774431819"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span></div><h3 class="job-title">Architect</h3><p class="job-company">TalentSphere Staffing Solutions</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 nan</p><p class="job-desc">**Architect or Project Lead**
+    <div class="jobs-grid" id="all-grid"><div class="job-card-wrap" data-job-id="jobspy_88829657350b3b88"><button class="dismiss-btn" onclick="dismissJob('jobspy_88829657350b3b88',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4391113081" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Linkedin" data-scraped="1774604662"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span><span class="badge-new">NEW</span></div><h3 class="job-title">Intern Architect</h3><p class="job-company">TalentSphere Staffing Solutions</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 nan</p><p class="job-desc">**Job Title: Intern Architect / Junior Architect**
+**Location: Calgary, Alberta**
+**Industry: Architecture \& Design Studio**
+**Co…</p></a></div>
+<div class="job-card-wrap" data-job-id="jobspy_8e4c51346f430e76"><button class="dismiss-btn" onclick="dismissJob('jobspy_8e4c51346f430e76',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4389904820" target="_blank" rel="noopener" class="job-card" data-source="Linkedin" data-scraped="1774431819"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span></div><h3 class="job-title">Architect</h3><p class="job-company">TalentSphere Staffing Solutions</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 nan</p><p class="job-desc">**Architect or Project Lead**
 **Commercial Projects \- Restaurants, Hospitality, Fast food Outlets, Cafes**
 **Architecture Firm**
 …</p></a></div>
