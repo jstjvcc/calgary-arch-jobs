@@ -183,8 +183,8 @@ body{
       <div class="masthead__city">📍 Calgary, Alberta</div>
     </div>
     <div style="text-align:right">
-      <div class="masthead__date">Updated April 07, 2026</div>
-      <div class="counter">0</div>
+      <div class="masthead__date">Updated April 08, 2026</div>
+      <div class="counter">3</div>
       <span class="counter__label">New today</span>
     </div>
   </div>
@@ -202,13 +202,16 @@ body{
   <!-- Tab nav -->
   <div class="tab-nav">
     <button class="tab-btn active" onclick="switchTab('listings',this)">All Listings</button>
-    <button class="tab-btn" onclick="switchTab('new',this)">New Today <span class="tab-count" id="new-count-badge">0</span></button>
+    <button class="tab-btn" onclick="switchTab('new',this)">New Today <span class="tab-count" id="new-count-badge">3</span></button>
     <button class="tab-btn" onclick="switchTab('hidden',this)">Hidden <span class="tab-count" id="hidden-count-badge">0</span></button>
   </div>
 
   <!-- New today tab -->
   <section id="tab-new" class="tab-panel" style="display:none">
-    <div class="jobs-grid" id="new-grid"><p class="no-jobs">No new jobs today — check back tomorrow! 🏛</p></div>
+    <div class="jobs-grid" id="new-grid"><div class="job-card-wrap" data-job-id="jobspy_87f29f03f9275164"><button class="dismiss-btn" onclick="dismissJob('jobspy_87f29f03f9275164',event)" title="Hide this listing">✕</button><a href="https://ca.indeed.com/viewjob?jk=631951afd9f84532" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Indeed" data-scraped="1775642332"><div class="job-card__header"><span class="job-source" style="background:#7A9DB0">Indeed</span><span class="badge-new">NEW</span></div><h3 class="job-title">Registered Architect</h3><p class="job-company">Wood</p><p class="job-location">📍 Calgary, AB, CA</p><p class="job-date">🕐 2026-04-07</p><p class="job-desc">Wood is recruiting for Registered Architect to join our team in our Calgary, Alberta office. If you have a successful track record…</p></a></div>
+<div class="job-card-wrap" data-job-id="jobspy_1f18ba97b6671cd6"><button class="dismiss-btn" onclick="dismissJob('jobspy_1f18ba97b6671cd6',event)" title="Hide this listing">✕</button><a href="https://ca.indeed.com/viewjob?jk=778b49f3f58285fd" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Indeed" data-scraped="1775642332"><div class="job-card__header"><span class="job-source" style="background:#7A9DB0">Indeed</span><span class="badge-new">NEW</span></div><h3 class="job-title">Registered Architect</h3><p class="job-company">Wood PLC</p><p class="job-location">📍 Calgary, AB, CA</p><p class="job-date">🕐 2026-04-07</p><p class="job-desc">Wood is recruiting for Registered Architect to join our team in our Calgary, Alberta office. If you have a successful track record…</p></a></div>
+<div class="job-card-wrap" data-job-id="jobspy_3e810b1d03c48500"><button class="dismiss-btn" onclick="dismissJob('jobspy_3e810b1d03c48500',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4398980156" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Linkedin" data-scraped="1775642427"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span><span class="badge-new">NEW</span></div><h3 class="job-title">Registered Architect</h3><p class="job-company">Wood</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 nan</p><p class="job-desc">**Job Description**
+ Wood is recruiting for Registered Architect to join our team in our Calgary, Alberta office. If you have a su…</p></a></div></div>
   </section>
 
   <!-- All listings tab -->
@@ -227,7 +230,11 @@ body{
       <button class="filter-btn date-btn" onclick="filterDate(7,this)">Last Week</button>
       <button class="filter-btn date-btn" onclick="filterDate(14,this)">Last 2 Weeks</button>
     </div>
-    <div class="jobs-grid" id="all-grid"><div class="job-card-wrap" data-job-id="jobspy_5a7c5d44ad102fcf"><button class="dismiss-btn" onclick="dismissJob('jobspy_5a7c5d44ad102fcf',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4394263735" target="_blank" rel="noopener" class="job-card" data-source="Linkedin" data-scraped="1775381430"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span></div><h3 class="job-title">Architect Project Lead</h3><p class="job-company">AsmblStudio</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 nan</p><p class="job-desc">Architect / Project Lead
+    <div class="jobs-grid" id="all-grid"><div class="job-card-wrap" data-job-id="jobspy_3e810b1d03c48500"><button class="dismiss-btn" onclick="dismissJob('jobspy_3e810b1d03c48500',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4398980156" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Linkedin" data-scraped="1775642427"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span><span class="badge-new">NEW</span></div><h3 class="job-title">Registered Architect</h3><p class="job-company">Wood</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 nan</p><p class="job-desc">**Job Description**
+ Wood is recruiting for Registered Architect to join our team in our Calgary, Alberta office. If you have a su…</p></a></div>
+<div class="job-card-wrap" data-job-id="jobspy_1f18ba97b6671cd6"><button class="dismiss-btn" onclick="dismissJob('jobspy_1f18ba97b6671cd6',event)" title="Hide this listing">✕</button><a href="https://ca.indeed.com/viewjob?jk=778b49f3f58285fd" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Indeed" data-scraped="1775642332"><div class="job-card__header"><span class="job-source" style="background:#7A9DB0">Indeed</span><span class="badge-new">NEW</span></div><h3 class="job-title">Registered Architect</h3><p class="job-company">Wood PLC</p><p class="job-location">📍 Calgary, AB, CA</p><p class="job-date">🕐 2026-04-07</p><p class="job-desc">Wood is recruiting for Registered Architect to join our team in our Calgary, Alberta office. If you have a successful track record…</p></a></div>
+<div class="job-card-wrap" data-job-id="jobspy_87f29f03f9275164"><button class="dismiss-btn" onclick="dismissJob('jobspy_87f29f03f9275164',event)" title="Hide this listing">✕</button><a href="https://ca.indeed.com/viewjob?jk=631951afd9f84532" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Indeed" data-scraped="1775642332"><div class="job-card__header"><span class="job-source" style="background:#7A9DB0">Indeed</span><span class="badge-new">NEW</span></div><h3 class="job-title">Registered Architect</h3><p class="job-company">Wood</p><p class="job-location">📍 Calgary, AB, CA</p><p class="job-date">🕐 2026-04-07</p><p class="job-desc">Wood is recruiting for Registered Architect to join our team in our Calgary, Alberta office. If you have a successful track record…</p></a></div>
+<div class="job-card-wrap" data-job-id="jobspy_5a7c5d44ad102fcf"><button class="dismiss-btn" onclick="dismissJob('jobspy_5a7c5d44ad102fcf',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4394263735" target="_blank" rel="noopener" class="job-card" data-source="Linkedin" data-scraped="1775381430"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span></div><h3 class="job-title">Architect Project Lead</h3><p class="job-company">AsmblStudio</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 nan</p><p class="job-desc">Architect / Project Lead
  
  8\+ years of experience
    
