@@ -183,8 +183,8 @@ body{
       <div class="masthead__city">📍 Calgary, Alberta</div>
     </div>
     <div style="text-align:right">
-      <div class="masthead__date">Updated April 09, 2026</div>
-      <div class="counter">0</div>
+      <div class="masthead__date">Updated April 10, 2026</div>
+      <div class="counter">3</div>
       <span class="counter__label">New today</span>
     </div>
   </div>
@@ -202,13 +202,25 @@ body{
   <!-- Tab nav -->
   <div class="tab-nav">
     <button class="tab-btn active" onclick="switchTab('listings',this)">All Listings</button>
-    <button class="tab-btn" onclick="switchTab('new',this)">New Today <span class="tab-count" id="new-count-badge">0</span></button>
+    <button class="tab-btn" onclick="switchTab('new',this)">New Today <span class="tab-count" id="new-count-badge">3</span></button>
     <button class="tab-btn" onclick="switchTab('hidden',this)">Hidden <span class="tab-count" id="hidden-count-badge">0</span></button>
   </div>
 
   <!-- New today tab -->
   <section id="tab-new" class="tab-panel" style="display:none">
-    <div class="jobs-grid" id="new-grid"><p class="no-jobs">No new jobs today — check back tomorrow! 🏛</p></div>
+    <div class="jobs-grid" id="new-grid"><div class="job-card-wrap" data-job-id="jobspy_84cf748c6d63b4f2"><button class="dismiss-btn" onclick="dismissJob('jobspy_84cf748c6d63b4f2',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4400382187" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Linkedin" data-scraped="1775815277"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span><span class="badge-new">NEW</span></div><h3 class="job-title">Junior Designer</h3><p class="job-company">Egis in Canada</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 nan</p><p class="job-desc">Are you ambitious and looking to make the right move in your career? Now is the perfect time to join Egis. Egis is experiencing su…</p></a></div>
+<div class="job-card-wrap" data-job-id="jobspy_1093cdb86295e491"><button class="dismiss-btn" onclick="dismissJob('jobspy_1093cdb86295e491',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4397658510" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Linkedin" data-scraped="1775815277"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span><span class="badge-new">NEW</span></div><h3 class="job-title">Concepteur junior de systems</h3><p class="job-company">Co-operators Assurance et services financiers</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 nan</p><p class="job-desc">Entreprise: GCL
+   
+
+  
+
+ Service: Prestation de services en TI, Assurance de dommages
+   
+
+  
+
+ Catégories d’emplois: Poste perma…</p></a></div>
+<div class="job-card-wrap" data-job-id="jobspy_20a2d74db3b16107"><button class="dismiss-btn" onclick="dismissJob('jobspy_20a2d74db3b16107',event)" title="Hide this listing">✕</button><a href="https://ca.indeed.com/viewjob?jk=7200e40c1c224a03" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Indeed" data-scraped="1775815381"><div class="job-card__header"><span class="job-source" style="background:#7A9DB0">Indeed</span><span class="badge-new">NEW</span></div><h3 class="job-title">Engineering Intern, Buildings</h3><p class="job-company">TYLin</p><p class="job-location">📍 Calgary, AB, CA</p><p class="job-date">🕐 2026-04-10</p><p class="job-desc">**TYLin** is a globally recognized, full\-service infrastructure consulting firm committed to providing innovative, cost\-effectiv…</p></a></div></div>
   </section>
 
   <!-- All listings tab -->
@@ -227,7 +239,20 @@ body{
       <button class="filter-btn date-btn" onclick="filterDate(7,this)">Last Week</button>
       <button class="filter-btn date-btn" onclick="filterDate(14,this)">Last 2 Weeks</button>
     </div>
-    <div class="jobs-grid" id="all-grid"><div class="job-card-wrap" data-job-id="jobspy_3e810b1d03c48500"><button class="dismiss-btn" onclick="dismissJob('jobspy_3e810b1d03c48500',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4398980156" target="_blank" rel="noopener" class="job-card" data-source="Linkedin" data-scraped="1775642427"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span></div><h3 class="job-title">Registered Architect</h3><p class="job-company">Wood</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 nan</p><p class="job-desc">**Job Description**
+    <div class="jobs-grid" id="all-grid"><div class="job-card-wrap" data-job-id="jobspy_20a2d74db3b16107"><button class="dismiss-btn" onclick="dismissJob('jobspy_20a2d74db3b16107',event)" title="Hide this listing">✕</button><a href="https://ca.indeed.com/viewjob?jk=7200e40c1c224a03" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Indeed" data-scraped="1775815381"><div class="job-card__header"><span class="job-source" style="background:#7A9DB0">Indeed</span><span class="badge-new">NEW</span></div><h3 class="job-title">Engineering Intern, Buildings</h3><p class="job-company">TYLin</p><p class="job-location">📍 Calgary, AB, CA</p><p class="job-date">🕐 2026-04-10</p><p class="job-desc">**TYLin** is a globally recognized, full\-service infrastructure consulting firm committed to providing innovative, cost\-effectiv…</p></a></div>
+<div class="job-card-wrap" data-job-id="jobspy_1093cdb86295e491"><button class="dismiss-btn" onclick="dismissJob('jobspy_1093cdb86295e491',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4397658510" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Linkedin" data-scraped="1775815277"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span><span class="badge-new">NEW</span></div><h3 class="job-title">Concepteur junior de systems</h3><p class="job-company">Co-operators Assurance et services financiers</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 nan</p><p class="job-desc">Entreprise: GCL
+   
+
+  
+
+ Service: Prestation de services en TI, Assurance de dommages
+   
+
+  
+
+ Catégories d’emplois: Poste perma…</p></a></div>
+<div class="job-card-wrap" data-job-id="jobspy_84cf748c6d63b4f2"><button class="dismiss-btn" onclick="dismissJob('jobspy_84cf748c6d63b4f2',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4400382187" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Linkedin" data-scraped="1775815277"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span><span class="badge-new">NEW</span></div><h3 class="job-title">Junior Designer</h3><p class="job-company">Egis in Canada</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 nan</p><p class="job-desc">Are you ambitious and looking to make the right move in your career? Now is the perfect time to join Egis. Egis is experiencing su…</p></a></div>
+<div class="job-card-wrap" data-job-id="jobspy_3e810b1d03c48500"><button class="dismiss-btn" onclick="dismissJob('jobspy_3e810b1d03c48500',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4398980156" target="_blank" rel="noopener" class="job-card" data-source="Linkedin" data-scraped="1775642427"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span></div><h3 class="job-title">Registered Architect</h3><p class="job-company">Wood</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 nan</p><p class="job-desc">**Job Description**
  Wood is recruiting for Registered Architect to join our team in our Calgary, Alberta office. If you have a su…</p></a></div>
 <div class="job-card-wrap" data-job-id="jobspy_1f18ba97b6671cd6"><button class="dismiss-btn" onclick="dismissJob('jobspy_1f18ba97b6671cd6',event)" title="Hide this listing">✕</button><a href="https://ca.indeed.com/viewjob?jk=778b49f3f58285fd" target="_blank" rel="noopener" class="job-card" data-source="Indeed" data-scraped="1775642332"><div class="job-card__header"><span class="job-source" style="background:#7A9DB0">Indeed</span></div><h3 class="job-title">Registered Architect</h3><p class="job-company">Wood PLC</p><p class="job-location">📍 Calgary, AB, CA</p><p class="job-date">🕐 2026-04-07</p><p class="job-desc">Wood is recruiting for Registered Architect to join our team in our Calgary, Alberta office. If you have a successful track record…</p></a></div>
 <div class="job-card-wrap" data-job-id="jobspy_87f29f03f9275164"><button class="dismiss-btn" onclick="dismissJob('jobspy_87f29f03f9275164',event)" title="Hide this listing">✕</button><a href="https://ca.indeed.com/viewjob?jk=631951afd9f84532" target="_blank" rel="noopener" class="job-card" data-source="Indeed" data-scraped="1775642332"><div class="job-card__header"><span class="job-source" style="background:#7A9DB0">Indeed</span></div><h3 class="job-title">Registered Architect</h3><p class="job-company">Wood</p><p class="job-location">📍 Calgary, AB, CA</p><p class="job-date">🕐 2026-04-07</p><p class="job-desc">Wood is recruiting for Registered Architect to join our team in our Calgary, Alberta office. If you have a successful track record…</p></a></div>
