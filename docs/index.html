@@ -183,8 +183,8 @@ body{
       <div class="masthead__city">📍 Calgary, Alberta</div>
     </div>
     <div style="text-align:right">
-      <div class="masthead__date">Updated April 17, 2026</div>
-      <div class="counter">0</div>
+      <div class="masthead__date">Updated April 18, 2026</div>
+      <div class="counter">1</div>
       <span class="counter__label">New today</span>
     </div>
   </div>
@@ -202,13 +202,17 @@ body{
   <!-- Tab nav -->
   <div class="tab-nav">
     <button class="tab-btn active" onclick="switchTab('listings',this)">All Listings</button>
-    <button class="tab-btn" onclick="switchTab('new',this)">New Today <span class="tab-count" id="new-count-badge">0</span></button>
+    <button class="tab-btn" onclick="switchTab('new',this)">New Today <span class="tab-count" id="new-count-badge">1</span></button>
     <button class="tab-btn" onclick="switchTab('hidden',this)">Hidden <span class="tab-count" id="hidden-count-badge">0</span></button>
   </div>
 
   <!-- New today tab -->
   <section id="tab-new" class="tab-panel" style="display:none">
-    <div class="jobs-grid" id="new-grid"><p class="no-jobs">No new jobs today — check back tomorrow! 🏛</p></div>
+    <div class="jobs-grid" id="new-grid"><div class="job-card-wrap" data-job-id="jobspy_9d0cb6648b24e7d1"><button class="dismiss-btn" onclick="dismissJob('jobspy_9d0cb6648b24e7d1',event)" title="Hide this listing">✕</button><a href="https://ca.indeed.com/viewjob?jk=76320620053e78fb" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Indeed" data-scraped="1776505106"><div class="job-card__header"><span class="job-source" style="background:#7A9DB0">Indeed</span><span class="badge-new">NEW</span></div><h3 class="job-title">Talent Attraction Partner (12 Month Term)</h3><p class="job-company">ATB Financial</p><p class="job-location">📍 Calgary, AB, CA</p><p class="job-date">🕐 2026-04-17</p><p class="job-desc">Job ID**2761**
+Work Type**Hybrid**
+Business unit**People Culture Brand and Communications**
+Pay grade**K \- OTH**
+Apply before**02…</p></a></div></div>
   </section>
 
   <!-- All listings tab -->
@@ -227,7 +231,12 @@ body{
       <button class="filter-btn date-btn" onclick="filterDate(7,this)">Last Week</button>
       <button class="filter-btn date-btn" onclick="filterDate(14,this)">Last 2 Weeks</button>
     </div>
-    <div class="jobs-grid" id="all-grid"><div class="job-card-wrap" data-job-id="jobspy_e5f88920fa578efa"><button class="dismiss-btn" onclick="dismissJob('jobspy_e5f88920fa578efa',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4402677228" target="_blank" rel="noopener" class="job-card" data-source="Linkedin" data-scraped="1776334298"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span></div><h3 class="job-title">Transportation Engineering Intern/ Co-op - Summer 2026 (4 to 8 months)</h3><p class="job-company">Stantec</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 nan</p><p class="job-desc">Learning begins in the classroom but there’s no better place to gain real\-world experience than with Stantec. Interns are an inte…</p></a></div>
+    <div class="jobs-grid" id="all-grid"><div class="job-card-wrap" data-job-id="jobspy_9d0cb6648b24e7d1"><button class="dismiss-btn" onclick="dismissJob('jobspy_9d0cb6648b24e7d1',event)" title="Hide this listing">✕</button><a href="https://ca.indeed.com/viewjob?jk=76320620053e78fb" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Indeed" data-scraped="1776505106"><div class="job-card__header"><span class="job-source" style="background:#7A9DB0">Indeed</span><span class="badge-new">NEW</span></div><h3 class="job-title">Talent Attraction Partner (12 Month Term)</h3><p class="job-company">ATB Financial</p><p class="job-location">📍 Calgary, AB, CA</p><p class="job-date">🕐 2026-04-17</p><p class="job-desc">Job ID**2761**
+Work Type**Hybrid**
+Business unit**People Culture Brand and Communications**
+Pay grade**K \- OTH**
+Apply before**02…</p></a></div>
+<div class="job-card-wrap" data-job-id="jobspy_e5f88920fa578efa"><button class="dismiss-btn" onclick="dismissJob('jobspy_e5f88920fa578efa',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4402677228" target="_blank" rel="noopener" class="job-card" data-source="Linkedin" data-scraped="1776334298"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span></div><h3 class="job-title">Transportation Engineering Intern/ Co-op - Summer 2026 (4 to 8 months)</h3><p class="job-company">Stantec</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 nan</p><p class="job-desc">Learning begins in the classroom but there’s no better place to gain real\-world experience than with Stantec. Interns are an inte…</p></a></div>
 <div class="job-card-wrap" data-job-id="jobspy_09a657cb5b33e51b"><button class="dismiss-btn" onclick="dismissJob('jobspy_09a657cb5b33e51b',event)" title="Hide this listing">✕</button><a href="https://ca.indeed.com/viewjob?jk=9d6573c2aa55f62a" target="_blank" rel="noopener" class="job-card" data-source="Indeed" data-scraped="1776334298"><div class="job-card__header"><span class="job-source" style="background:#7A9DB0">Indeed</span></div><h3 class="job-title">Transportation Engineering Intern/ Co-op - Summer 2026 (4 to 8 months)</h3><p class="job-company">Stantec</p><p class="job-location">📍 Calgary, AB, CA</p><p class="job-date">🕐 2026-04-15</p><p class="job-desc">Learning begins in the classroom but there’s no better place to gain real\-world experience than with Stantec. Interns are an inte…</p></a></div>
 <div class="job-card-wrap" data-job-id="jobspy_20a2d74db3b16107"><button class="dismiss-btn" onclick="dismissJob('jobspy_20a2d74db3b16107',event)" title="Hide this listing">✕</button><a href="https://ca.indeed.com/viewjob?jk=7200e40c1c224a03" target="_blank" rel="noopener" class="job-card" data-source="Indeed" data-scraped="1775815381"><div class="job-card__header"><span class="job-source" style="background:#7A9DB0">Indeed</span></div><h3 class="job-title">Engineering Intern, Buildings</h3><p class="job-company">TYLin</p><p class="job-location">📍 Calgary, AB, CA</p><p class="job-date">🕐 2026-04-10</p><p class="job-desc">**TYLin** is a globally recognized, full\-service infrastructure consulting firm committed to providing innovative, cost\-effectiv…</p></a></div>
 <div class="job-card-wrap" data-job-id="jobspy_1093cdb86295e491"><button class="dismiss-btn" onclick="dismissJob('jobspy_1093cdb86295e491',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4397658510" target="_blank" rel="noopener" class="job-card" data-source="Linkedin" data-scraped="1775815277"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span></div><h3 class="job-title">Concepteur junior de systems</h3><p class="job-company">Co-operators Assurance et services financiers</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 nan</p><p class="job-desc">Entreprise: GCL
@@ -290,11 +299,6 @@ We believe in the power of diversity and the power of teamwork. We need both col
 **Commercial Projects \- Restaurants, Hospitality, Fast food Outlets, Cafes**
 **Architecture Firm**
 …</p></a></div>
-<div class="job-card-wrap" data-job-id="jobspy_125c35e245a2abb4"><button class="dismiss-btn" onclick="dismissJob('jobspy_125c35e245a2abb4',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4387639260" target="_blank" rel="noopener" class="job-card" data-source="Linkedin" data-scraped="1773912857"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span></div><h3 class="job-title">Junior Designer (Specifier Focused)</h3><p class="job-company">McCrum's Office Furnishings</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 nan</p><p class="job-desc">**Junior Designer**
-**Department: Design**
-**Reports To: Design Manager**
-**Job Summary**
- McCrum’s Designers provide contract fur…</p></a></div>
 <div class="job-card-wrap" data-job-id="firm_bec01a020a666b59"><button class="dismiss-btn" onclick="dismissJob('firm_bec01a020a666b59',event)" title="Hide this listing">✕</button><a href="https://www.mckinleystudios.com/careers/registered-architect" target="_blank" rel="noopener" class="job-card" data-source="Firm Website" data-scraped="1773606385"><div class="job-card__header"><span class="job-source" style="background:#503228">Firm Website</span></div><h3 class="job-title">registered architect / yyc + yvr</h3><p class="job-company">McKinley Studios</p><p class="job-location">📍 Calgary, AB</p><p class="job-date">🕐 On firm website</p><p class="job-desc">Listed on McKinley Studios careers page…</p></a></div></div>
   </section>
 
