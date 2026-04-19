@@ -183,8 +183,8 @@ body{
       <div class="masthead__city">📍 Calgary, Alberta</div>
     </div>
     <div style="text-align:right">
-      <div class="masthead__date">Updated April 18, 2026</div>
-      <div class="counter">1</div>
+      <div class="masthead__date">Updated April 19, 2026</div>
+      <div class="counter">0</div>
       <span class="counter__label">New today</span>
     </div>
   </div>
@@ -202,17 +202,13 @@ body{
   <!-- Tab nav -->
   <div class="tab-nav">
     <button class="tab-btn active" onclick="switchTab('listings',this)">All Listings</button>
-    <button class="tab-btn" onclick="switchTab('new',this)">New Today <span class="tab-count" id="new-count-badge">1</span></button>
+    <button class="tab-btn" onclick="switchTab('new',this)">New Today <span class="tab-count" id="new-count-badge">0</span></button>
     <button class="tab-btn" onclick="switchTab('hidden',this)">Hidden <span class="tab-count" id="hidden-count-badge">0</span></button>
   </div>
 
   <!-- New today tab -->
   <section id="tab-new" class="tab-panel" style="display:none">
-    <div class="jobs-grid" id="new-grid"><div class="job-card-wrap" data-job-id="jobspy_9d0cb6648b24e7d1"><button class="dismiss-btn" onclick="dismissJob('jobspy_9d0cb6648b24e7d1',event)" title="Hide this listing">✕</button><a href="https://ca.indeed.com/viewjob?jk=76320620053e78fb" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Indeed" data-scraped="1776505106"><div class="job-card__header"><span class="job-source" style="background:#7A9DB0">Indeed</span><span class="badge-new">NEW</span></div><h3 class="job-title">Talent Attraction Partner (12 Month Term)</h3><p class="job-company">ATB Financial</p><p class="job-location">📍 Calgary, AB, CA</p><p class="job-date">🕐 2026-04-17</p><p class="job-desc">Job ID**2761**
-Work Type**Hybrid**
-Business unit**People Culture Brand and Communications**
-Pay grade**K \- OTH**
-Apply before**02…</p></a></div></div>
+    <div class="jobs-grid" id="new-grid"><p class="no-jobs">No new jobs today — check back tomorrow! 🏛</p></div>
   </section>
 
   <!-- All listings tab -->
@@ -231,7 +227,7 @@ Apply before**02…</p></a></div></div>
       <button class="filter-btn date-btn" onclick="filterDate(7,this)">Last Week</button>
       <button class="filter-btn date-btn" onclick="filterDate(14,this)">Last 2 Weeks</button>
     </div>
-    <div class="jobs-grid" id="all-grid"><div class="job-card-wrap" data-job-id="jobspy_9d0cb6648b24e7d1"><button class="dismiss-btn" onclick="dismissJob('jobspy_9d0cb6648b24e7d1',event)" title="Hide this listing">✕</button><a href="https://ca.indeed.com/viewjob?jk=76320620053e78fb" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Indeed" data-scraped="1776505106"><div class="job-card__header"><span class="job-source" style="background:#7A9DB0">Indeed</span><span class="badge-new">NEW</span></div><h3 class="job-title">Talent Attraction Partner (12 Month Term)</h3><p class="job-company">ATB Financial</p><p class="job-location">📍 Calgary, AB, CA</p><p class="job-date">🕐 2026-04-17</p><p class="job-desc">Job ID**2761**
+    <div class="jobs-grid" id="all-grid"><div class="job-card-wrap" data-job-id="jobspy_9d0cb6648b24e7d1"><button class="dismiss-btn" onclick="dismissJob('jobspy_9d0cb6648b24e7d1',event)" title="Hide this listing">✕</button><a href="https://ca.indeed.com/viewjob?jk=76320620053e78fb" target="_blank" rel="noopener" class="job-card" data-source="Indeed" data-scraped="1776505106"><div class="job-card__header"><span class="job-source" style="background:#7A9DB0">Indeed</span></div><h3 class="job-title">Talent Attraction Partner (12 Month Term)</h3><p class="job-company">ATB Financial</p><p class="job-location">📍 Calgary, AB, CA</p><p class="job-date">🕐 2026-04-17</p><p class="job-desc">Job ID**2761**
 Work Type**Hybrid**
 Business unit**People Culture Brand and Communications**
 Pay grade**K \- OTH**
