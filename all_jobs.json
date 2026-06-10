@@ -11,17 +11,6 @@
     "scraped_at": "2026-03-15T20:26:25.265869"
   },
   {
-    "id": "jobspy_f52861c3f8df1071",
-    "title": "2026 Returning Intern - Canada",
-    "company": "IBM",
-    "location": "Calgary, Alberta, Canada",
-    "source": "Linkedin",
-    "url": "https://www.linkedin.com/jobs/view/4412191114",
-    "date": "2026-05-08",
-    "description": "**Introduction**\n As you have witnessed during your IBM experience, at IBM we have an amazing opportunity to transform the world with technology. By using the vast amounts of information available today to identify new patterns and make new discoveries. Join the forward\\-thinking teams at IBM solving some of the world's most complex problems \\- there is no better place to grow your career!\n   \n\n  \n\n**Your Role And Responsibilities**\n This position is for returning interns to start in 2026\\.\n   \n",
-    "scraped_at": "2026-05-11T12:01:39.895066"
-  },
-  {
     "id": "jobspy_967891563a337314",
     "title": "Surveyor Assistant (Co-op/New Grad)",
     "company": "EXP",
@@ -471,5 +460,49 @@
     "date": "2026-05-26",
     "description": "nan",
     "scraped_at": "2026-06-09T11:57:56.354640"
+  },
+  {
+    "id": "jobspy_7a2fb890b544be65",
+    "title": "Job Title: Server SME/Architect",
+    "company": "J&M Group",
+    "location": "Calgary, Alberta, Canada",
+    "source": "Linkedin",
+    "url": "https://www.linkedin.com/jobs/view/4419533138",
+    "date": "2026-05-26",
+    "description": "nan",
+    "scraped_at": "2026-06-10T12:14:05.741341"
+  },
+  {
+    "id": "jobspy_ee709e67abd711df",
+    "title": "Architect",
+    "company": "Benevity",
+    "location": "Calgary, Alberta, Canada",
+    "source": "Linkedin",
+    "url": "https://www.linkedin.com/jobs/view/4418250889",
+    "date": "2026-05-26",
+    "description": "nan",
+    "scraped_at": "2026-06-10T12:14:05.741445"
+  },
+  {
+    "id": "linkedin_5f0835f42656da3e",
+    "title": "IT Student Intern-West",
+    "company": "McAsphalt Industries Limited",
+    "location": "Calgary, Alberta, Canada",
+    "source": "LinkedIn",
+    "url": "https://ca.linkedin.com/jobs/view/it-student-intern-west-at-mcasphalt-industries-limited-4422763594",
+    "date": "2026-06-09",
+    "description": "",
+    "scraped_at": "2026-06-10T12:16:05.756313"
+  },
+  {
+    "id": "jobspy_5a6fbe2696f3fb65",
+    "title": "Architect, Operations Research",
+    "company": "Kinaxis",
+    "location": "Calgary, Alberta, Canada",
+    "source": "Linkedin",
+    "url": "https://www.linkedin.com/jobs/view/4391121716",
+    "date": "2026-05-30",
+    "description": "nan",
+    "scraped_at": "2026-06-10T12:17:20.385706"
   }
 ]
