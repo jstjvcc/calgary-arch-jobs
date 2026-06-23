@@ -183,8 +183,8 @@ body{
       <div class="masthead__city">📍 Calgary, Alberta</div>
     </div>
     <div style="text-align:right">
-      <div class="masthead__date">Updated June 22, 2026</div>
-      <div class="counter">0</div>
+      <div class="masthead__date">Updated June 23, 2026</div>
+      <div class="counter">2</div>
       <span class="counter__label">New today</span>
     </div>
   </div>
@@ -202,13 +202,17 @@ body{
   <!-- Tab nav -->
   <div class="tab-nav">
     <button class="tab-btn active" onclick="switchTab('listings',this)">All Listings</button>
-    <button class="tab-btn" onclick="switchTab('new',this)">New Today <span class="tab-count" id="new-count-badge">0</span></button>
+    <button class="tab-btn" onclick="switchTab('new',this)">New Today <span class="tab-count" id="new-count-badge">2</span></button>
     <button class="tab-btn" onclick="switchTab('hidden',this)">Hidden <span class="tab-count" id="hidden-count-badge">0</span></button>
   </div>
 
   <!-- New today tab -->
   <section id="tab-new" class="tab-panel" style="display:none">
-    <div class="jobs-grid" id="new-grid"><p class="no-jobs">No new jobs today — check back tomorrow! 🏛</p></div>
+    <div class="jobs-grid" id="new-grid"><div class="job-card-wrap" data-job-id="jobspy_5d3b49063d64bc3d"><button class="dismiss-btn" onclick="dismissJob('jobspy_5d3b49063d64bc3d',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4410331679" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Linkedin" data-scraped="1782215587"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span><span class="badge-new">NEW</span></div><h3 class="job-title">Indigenous Engineer Intern/co-op</h3><p class="job-company">GHD</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-06-03</p><p class="job-desc">**Job Description**
+ We are currently seeking an
+ **Intern** 
+ to work with our Design and Project Management groups on First Nati…</p></a></div>
+<div class="job-card-wrap" data-job-id="jobspy_c3ed2eb0e1672d88"><button class="dismiss-btn" onclick="dismissJob('jobspy_c3ed2eb0e1672d88',event)" title="Hide this listing">✕</button><a href="https://ca.indeed.com/viewjob?jk=a7b18685893441c5" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Indeed" data-scraped="1782215620"><div class="job-card__header"><span class="job-source" style="background:#7A9DB0">Indeed</span><span class="badge-new">NEW</span></div><h3 class="job-title">Junior Designer</h3><p class="job-company">nonfiction studios inc.</p><p class="job-location">📍 Calgary, AB, CA</p><p class="job-date">🕐 2026-06-22</p><p class="job-desc">We are looking for an emerging visual designer to join our boutique studio. The ideal candidate is a new graduate or junior design…</p></a></div></div>
   </section>
 
   <!-- All listings tab -->
@@ -228,7 +232,12 @@ body{
       <button class="filter-btn date-btn" onclick="filterDate(7,this)">Last Week</button>
       <button class="filter-btn date-btn" onclick="filterDate(14,this)">Last 2 Weeks</button>
     </div>
-    <div class="jobs-grid" id="all-grid"><div class="job-card-wrap" data-job-id="jobspy_6648c5b6fbb35f82"><button class="dismiss-btn" onclick="dismissJob('jobspy_6648c5b6fbb35f82',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4430007990" target="_blank" rel="noopener" class="job-card" data-source="Linkedin" data-scraped="1781953681"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span></div><h3 class="job-title">Architectural Control Consultant</h3><p class="job-company">Jayman BUILT</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 nan</p><p class="job-desc">**Builder of the year 28 times.** 
+    <div class="jobs-grid" id="all-grid"><div class="job-card-wrap" data-job-id="jobspy_c3ed2eb0e1672d88"><button class="dismiss-btn" onclick="dismissJob('jobspy_c3ed2eb0e1672d88',event)" title="Hide this listing">✕</button><a href="https://ca.indeed.com/viewjob?jk=a7b18685893441c5" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Indeed" data-scraped="1782215620"><div class="job-card__header"><span class="job-source" style="background:#7A9DB0">Indeed</span><span class="badge-new">NEW</span></div><h3 class="job-title">Junior Designer</h3><p class="job-company">nonfiction studios inc.</p><p class="job-location">📍 Calgary, AB, CA</p><p class="job-date">🕐 2026-06-22</p><p class="job-desc">We are looking for an emerging visual designer to join our boutique studio. The ideal candidate is a new graduate or junior design…</p></a></div>
+<div class="job-card-wrap" data-job-id="jobspy_5d3b49063d64bc3d"><button class="dismiss-btn" onclick="dismissJob('jobspy_5d3b49063d64bc3d',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4410331679" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Linkedin" data-scraped="1782215587"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span><span class="badge-new">NEW</span></div><h3 class="job-title">Indigenous Engineer Intern/co-op</h3><p class="job-company">GHD</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-06-03</p><p class="job-desc">**Job Description**
+ We are currently seeking an
+ **Intern** 
+ to work with our Design and Project Management groups on First Nati…</p></a></div>
+<div class="job-card-wrap" data-job-id="jobspy_6648c5b6fbb35f82"><button class="dismiss-btn" onclick="dismissJob('jobspy_6648c5b6fbb35f82',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4430007990" target="_blank" rel="noopener" class="job-card" data-source="Linkedin" data-scraped="1781953681"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span></div><h3 class="job-title">Architectural Control Consultant</h3><p class="job-company">Jayman BUILT</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 nan</p><p class="job-desc">**Builder of the year 28 times.** 
   
  **Picture a career with us.** 
   
