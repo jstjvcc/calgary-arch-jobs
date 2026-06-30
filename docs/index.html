@@ -183,8 +183,8 @@ body{
       <div class="masthead__city">📍 Calgary, Alberta</div>
     </div>
     <div style="text-align:right">
-      <div class="masthead__date">Updated June 29, 2026</div>
-      <div class="counter">0</div>
+      <div class="masthead__date">Updated June 30, 2026</div>
+      <div class="counter">2</div>
       <span class="counter__label">New today</span>
     </div>
   </div>
@@ -202,13 +202,34 @@ body{
   <!-- Tab nav -->
   <div class="tab-nav">
     <button class="tab-btn active" onclick="switchTab('listings',this)">All Listings</button>
-    <button class="tab-btn" onclick="switchTab('new',this)">New Today <span class="tab-count" id="new-count-badge">0</span></button>
+    <button class="tab-btn" onclick="switchTab('new',this)">New Today <span class="tab-count" id="new-count-badge">2</span></button>
     <button class="tab-btn" onclick="switchTab('hidden',this)">Hidden <span class="tab-count" id="hidden-count-badge">0</span></button>
   </div>
 
   <!-- New today tab -->
   <section id="tab-new" class="tab-panel" style="display:none">
-    <div class="jobs-grid" id="new-grid"><p class="no-jobs">No new jobs today — check back tomorrow! 🏛</p></div>
+    <div class="jobs-grid" id="new-grid"><div class="job-card-wrap" data-job-id="jobspy_6883b40f2397a160"><button class="dismiss-btn" onclick="dismissJob('jobspy_6883b40f2397a160',event)" title="Hide this listing">✕</button><a href="https://ca.indeed.com/viewjob?jk=8c0d32c6eccc85da" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Indeed" data-scraped="1782819512"><div class="job-card__header"><span class="job-source" style="background:#7A9DB0">Indeed</span><span class="badge-new">NEW</span></div><h3 class="job-title">Pre-Sales Architect</h3><p class="job-company">SysGen Solutions Group Ltd.</p><p class="job-location">📍 Calgary, AB, CA</p><p class="job-date">🕐 2026-06-26</p><p class="job-desc">**Pre\-Sales Architect**
+
+  
+
+
+
+From our Calgary HQ to our teams in Edmonton, Red Deer, and the Okanagan, **SysGen** helps busines…</p></a></div>
+<div class="job-card-wrap" data-job-id="jobspy_dae35399c0b4693b"><button class="dismiss-btn" onclick="dismissJob('jobspy_dae35399c0b4693b',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4402181347" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Linkedin" data-scraped="1782819795"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span><span class="badge-new">NEW</span></div><h3 class="job-title">Equipment Planner (Calgary/Edmonton) - Kiewit Equipment Services</h3><p class="job-company">Kiewit</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-06-19</p><p class="job-desc">**Requisition ID:** 
+ 180445
+   
+
+  
+
+**Job Level:** 
+ Entry Level
+   
+
+  
+
+**Home District/Group:** 
+ Kiewit Equipment Services
+ …</p></a></div></div>
   </section>
 
   <!-- All listings tab -->
@@ -228,7 +249,29 @@ body{
       <button class="filter-btn date-btn" onclick="filterDate(7,this)">Last Week</button>
       <button class="filter-btn date-btn" onclick="filterDate(14,this)">Last 2 Weeks</button>
     </div>
-    <div class="jobs-grid" id="all-grid"><div class="job-card-wrap" data-job-id="jobspy_3cb26b084d605594"><button class="dismiss-btn" onclick="dismissJob('jobspy_3cb26b084d605594',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4433435877" target="_blank" rel="noopener" class="job-card" data-source="Linkedin" data-scraped="1782557698"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span></div><h3 class="job-title">Registered Architect</h3><p class="job-company">Kingsway Drafting & Design</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 nan</p><p class="job-desc">**Company Description** 
+    <div class="jobs-grid" id="all-grid"><div class="job-card-wrap" data-job-id="jobspy_dae35399c0b4693b"><button class="dismiss-btn" onclick="dismissJob('jobspy_dae35399c0b4693b',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4402181347" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Linkedin" data-scraped="1782819795"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span><span class="badge-new">NEW</span></div><h3 class="job-title">Equipment Planner (Calgary/Edmonton) - Kiewit Equipment Services</h3><p class="job-company">Kiewit</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-06-19</p><p class="job-desc">**Requisition ID:** 
+ 180445
+   
+
+  
+
+**Job Level:** 
+ Entry Level
+   
+
+  
+
+**Home District/Group:** 
+ Kiewit Equipment Services
+ …</p></a></div>
+<div class="job-card-wrap" data-job-id="jobspy_6883b40f2397a160"><button class="dismiss-btn" onclick="dismissJob('jobspy_6883b40f2397a160',event)" title="Hide this listing">✕</button><a href="https://ca.indeed.com/viewjob?jk=8c0d32c6eccc85da" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Indeed" data-scraped="1782819512"><div class="job-card__header"><span class="job-source" style="background:#7A9DB0">Indeed</span><span class="badge-new">NEW</span></div><h3 class="job-title">Pre-Sales Architect</h3><p class="job-company">SysGen Solutions Group Ltd.</p><p class="job-location">📍 Calgary, AB, CA</p><p class="job-date">🕐 2026-06-26</p><p class="job-desc">**Pre\-Sales Architect**
+
+  
+
+
+
+From our Calgary HQ to our teams in Edmonton, Red Deer, and the Okanagan, **SysGen** helps busines…</p></a></div>
+<div class="job-card-wrap" data-job-id="jobspy_3cb26b084d605594"><button class="dismiss-btn" onclick="dismissJob('jobspy_3cb26b084d605594',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4433435877" target="_blank" rel="noopener" class="job-card" data-source="Linkedin" data-scraped="1782557698"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span></div><h3 class="job-title">Registered Architect</h3><p class="job-company">Kingsway Drafting & Design</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 nan</p><p class="job-desc">**Company Description** 
  Kingsway Drafting \& Design is an Alberta\-based architectural drafting firm that delivers professional,…</p></a></div>
 <div class="job-card-wrap" data-job-id="jobspy_33fc9616490aca6a"><button class="dismiss-btn" onclick="dismissJob('jobspy_33fc9616490aca6a',event)" title="Hide this listing">✕</button><a href="https://ca.indeed.com/viewjob?jk=d7e9eb655856d1f9" target="_blank" rel="noopener" class="job-card" data-source="Indeed" data-scraped="1782557565"><div class="job-card__header"><span class="job-source" style="background:#7A9DB0">Indeed</span></div><h3 class="job-title">Pre-Sales Architect</h3><p class="job-company">SysGen Solutions Group Ltd.</p><p class="job-location">📍 Calgary, AB, CA</p><p class="job-date">🕐 2026-06-26</p><p class="job-desc">**Pre\-Sales Architect**
 
@@ -390,18 +433,6 @@ This is a full\-time position, working out of our impeccably designed and furnis
 
 **Salary Range:** 
  SP4, Level 6\.…</p></a></div>
-<div class="job-card-wrap" data-job-id="jobspy_7183489ee01afcd9"><button class="dismiss-btn" onclick="dismissJob('jobspy_7183489ee01afcd9',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4412057000" target="_blank" rel="noopener" class="job-card" data-source="Linkedin" data-scraped="1780224848"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span></div><h3 class="job-title">CAD Designer (Technologist)</h3><p class="job-company">Onterris</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-05-15</p><p class="job-desc">**About Us**
- At Onterris, we build careers grounded in purpose, responsibility and real\-world impact.
-   
-
-  
-
- “For Planet and …</p></a></div>
-<div class="job-card-wrap" data-job-id="jobspy_40e6321fb5a871f5"><button class="dismiss-btn" onclick="dismissJob('jobspy_40e6321fb5a871f5',event)" title="Hide this listing">✕</button><a href="https://ca.indeed.com/viewjob?jk=dd3c79cb78273ab8" target="_blank" rel="noopener" class="job-card" data-source="Indeed" data-scraped="1780224715"><div class="job-card__header"><span class="job-source" style="background:#7A9DB0">Indeed</span></div><h3 class="job-title">Enterprise Data Modeler - Hybrid</h3><p class="job-company">Alberta Energy Regulator</p><p class="job-location">📍 Calgary, AB, CA</p><p class="job-date">🕐 2026-05-29</p><p class="job-desc">**Location:** Calgary, Alberta
-
-**Employment Type:** Full Time – Permanent
-
-**Salary Range:** SP4, Level 6\. The final compensatio…</p></a></div>
 <div class="job-card-wrap" data-job-id="firm_bec01a020a666b59"><button class="dismiss-btn" onclick="dismissJob('firm_bec01a020a666b59',event)" title="Hide this listing">✕</button><a href="https://www.mckinleystudios.com/careers/registered-architect" target="_blank" rel="noopener" class="job-card" data-source="Firm Website" data-scraped="1773606385"><div class="job-card__header"><span class="job-source" style="background:#503228">Firm Website</span></div><h3 class="job-title">registered architect / yyc + yvr</h3><p class="job-company">McKinley Studios</p><p class="job-location">📍 Calgary, AB</p><p class="job-date">🕐 On firm website</p><p class="job-desc">Listed on McKinley Studios careers page…</p></a></div></div>
   </section>
 
