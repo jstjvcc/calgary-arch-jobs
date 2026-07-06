@@ -11,28 +11,6 @@
     "scraped_at": "2026-03-15T20:26:25.265869"
   },
   {
-    "id": "linkedin_82ad338c7796dc1e",
-    "title": "Architectural Designer",
-    "company": "TalentSphere Staffing Solutions",
-    "location": "Calgary, Alberta, Canada",
-    "source": "LinkedIn",
-    "url": "https://ca.linkedin.com/jobs/view/architectural-designer-at-talentsphere-staffing-solutions-4410365120",
-    "date": "2026-06-03",
-    "description": "",
-    "scraped_at": "2026-06-05T11:57:13.483626"
-  },
-  {
-    "id": "linkedin_2905d5269ae4a5cb",
-    "title": "Associate Architect",
-    "company": "Softchoice",
-    "location": "Calgary, Alberta, Canada",
-    "source": "LinkedIn",
-    "url": "https://ca.linkedin.com/jobs/view/associate-architect-at-softchoice-4424491009",
-    "date": "2026-06-04",
-    "description": "",
-    "scraped_at": "2026-06-05T11:57:13.485172"
-  },
-  {
     "id": "jobspy_1ff30d90c794de5e",
     "title": "Architect, Professional Services",
     "company": "Softchoice",
@@ -449,5 +427,16 @@
     "date": "2026-07-03",
     "description": "",
     "scraped_at": "2026-07-05T11:04:02.156702"
+  },
+  {
+    "id": "jobspy_ecb30b1bacfbc9f2",
+    "title": "Co-op/Intern Software Development - C++",
+    "company": "Kinaxis",
+    "location": "Calgary, Alberta, Canada",
+    "source": "Linkedin",
+    "url": "https://www.linkedin.com/jobs/view/4430171036",
+    "date": "2026-06-18",
+    "description": "**About Kinaxis**\n Are you looking to join an innovative, market\\-leading company where you can truly elevate your career? At Kinaxis we are serious about culture, we are serious about technology, we are serious about customers, and we are serious about not taking ourselves too seriously. If you are looking to be part of an incredible growth story, then we might just be the place for you!\n   \n\n  \n\n In 1984, we started out as a team of three engineers. Today, we have grown to become a global orga",
+    "scraped_at": "2026-07-06T12:41:10.151479"
   }
 ]
