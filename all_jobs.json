@@ -11,50 +11,6 @@
     "scraped_at": "2026-03-15T20:26:25.265869"
   },
   {
-    "id": "jobspy_7a2fb890b544be65",
-    "title": "Job Title: Server SME/Architect",
-    "company": "J&M Group",
-    "location": "Calgary, Alberta, Canada",
-    "source": "Linkedin",
-    "url": "https://www.linkedin.com/jobs/view/4419533138",
-    "date": "2026-05-26",
-    "description": "nan",
-    "scraped_at": "2026-06-10T12:14:05.741341"
-  },
-  {
-    "id": "jobspy_ee709e67abd711df",
-    "title": "Architect",
-    "company": "Benevity",
-    "location": "Calgary, Alberta, Canada",
-    "source": "Linkedin",
-    "url": "https://www.linkedin.com/jobs/view/4418250889",
-    "date": "2026-05-26",
-    "description": "nan",
-    "scraped_at": "2026-06-10T12:14:05.741445"
-  },
-  {
-    "id": "linkedin_5f0835f42656da3e",
-    "title": "IT Student Intern-West",
-    "company": "McAsphalt Industries Limited",
-    "location": "Calgary, Alberta, Canada",
-    "source": "LinkedIn",
-    "url": "https://ca.linkedin.com/jobs/view/it-student-intern-west-at-mcasphalt-industries-limited-4422763594",
-    "date": "2026-06-09",
-    "description": "",
-    "scraped_at": "2026-06-10T12:16:05.756313"
-  },
-  {
-    "id": "jobspy_5a6fbe2696f3fb65",
-    "title": "Architect, Operations Research",
-    "company": "Kinaxis",
-    "location": "Calgary, Alberta, Canada",
-    "source": "Linkedin",
-    "url": "https://www.linkedin.com/jobs/view/4391121716",
-    "date": "2026-05-30",
-    "description": "nan",
-    "scraped_at": "2026-06-10T12:17:20.385706"
-  },
-  {
     "id": "jobspy_d61e6fc3307b2981",
     "title": "Document Production Services (DPS) Specialist",
     "company": "PwC Canada",
@@ -438,5 +394,60 @@
     "date": "nan",
     "description": "**Location:** \n Calgary Head Office\n   \n\n  \n\n**Job status:** \n Full Time Fixed Term\n   \n\n  \n\n**Department:** \n Information Services\n   \n\n  \n\n Is this position safety sensitive: No\n   \n\n  \n\n At Gibson, we believe our competitive advantage lies in the strength and talents of our employees. That means connecting our employees to rewarding careers, building a high\\-performance culture where collaboration and creativity are rewarded, and providing real growth opportunities for employees to take on ne",
     "scraped_at": "2026-07-07T11:42:18.631340"
+  },
+  {
+    "id": "jobspy_ade3c17906044a5a",
+    "title": "Architect, Facilities - Places",
+    "company": "City of Calgary",
+    "location": "Calgary, AB, CA",
+    "source": "Indeed",
+    "url": "https://ca.indeed.com/viewjob?jk=08951a013df663a3",
+    "date": "2026-07-10",
+    "description": "If you are committed to public service, enjoy collaborating with others, share our values and have a desire to learn and grow, join The City of Calgary. City employees deliver the services, run the programs and operate the facilities which make a difference in our community. We support work\\-life balance, promote physical and psychological safety, and offer competitive wages, pensions, and benefits. Together we make Calgary a great place to make a living, a great place to make a life.\n\nThe City ",
+    "scraped_at": "2026-07-11T10:08:24.811444"
+  },
+  {
+    "id": "jobspy_a832f02f11747ee7",
+    "title": "Enterprise Experience Design - Story Teller Designer Intern (September 2026 - 4 Months - Toronto, Calgary, Montreal, Ottawa, Vancouver)",
+    "company": "IBM",
+    "location": "Calgary, Alberta, Canada",
+    "source": "Linkedin",
+    "url": "https://www.linkedin.com/jobs/view/4436653203",
+    "date": "nan",
+    "description": "**Introduction**\n Thomas J. Watson said it best: \"Good design is good business.\" Visualization is critical to discovering data\\-driven insights and effectively communicating that knowledge to others. Designers at IBM work to create experiences that work together, work the same, and work for our clients. Does the thought of creating the platform at the heart of solutions like Watson, Blockchain, IoT, and Security excite you? If so, read on!\n   \n\n  \n\n**Your Role And Responsibilities**\n* User\\-Cent",
+    "scraped_at": "2026-07-11T10:09:42.687755"
+  },
+  {
+    "id": "jobspy_e75961601b918dfb",
+    "title": "Co-op, Corporate Services & IT Student (12 Months Term)",
+    "company": "Calgary Airports",
+    "location": "Calgary, Alberta, Canada",
+    "source": "Linkedin",
+    "url": "https://www.linkedin.com/jobs/view/4439352103",
+    "date": "nan",
+    "description": "**Hourly Rate:** \n $23\\.50\n   \n\n  \n\n**Status:** \n Full\\-Time, 12\\-month term, expected start date September 7, 2026\n   \n\n  \n\n**Work environment:** \n Hybrid (3 days in office, 2 days WFH)\n   \n\n  \n\n**Number of positions available:** \n 1\n   \n\n  \n\n**WHY CALGARY AIRPORTS**\n Powered by heart and dedicated to excellence, we\u2019re the team that keeps Calgary connected \u2013 and you could be our newest member.\n   \n\n  \n\n We\u2019re in the business of uplifting people, and every day, we create runways to new places an",
+    "scraped_at": "2026-07-11T10:13:47.554041"
+  },
+  {
+    "id": "jobspy_7e57963266042bd7",
+    "title": "Co-op, Accounting (12 Months Term)",
+    "company": "Calgary Airports",
+    "location": "Calgary, Alberta, Canada",
+    "source": "Linkedin",
+    "url": "https://www.linkedin.com/jobs/view/4439355057",
+    "date": "nan",
+    "description": "**Hourly Rate:** \n $23\\.50\n   \n\n  \n\n**Status:** \n Full\\-Time, 12\\-month term, expected start date September 7, 2026\n   \n\n  \n\n**Work environment:** \n Hybrid (3 days in office, 2 days WFH)\n   \n\n  \n\n**Number of positions available:** \n 1\n   \n\n  \n\n**WHY CALGARY AIRPORTS**\n Powered by heart and dedicated to excellence, we\u2019re the team that keeps Calgary connected \u2013 and you could be our newest member.\n   \n\n  \n\n We\u2019re in the business of uplifting people, and every day, we create runways to new places an",
+    "scraped_at": "2026-07-11T10:13:47.554082"
+  },
+  {
+    "id": "jobspy_4b698d3176709425",
+    "title": "Co-op/Intern \u2013 Forensic Disputes & Investigation (FDI) Calgary or Vancouver | January \u2013 April 2027",
+    "company": "BDO Canada",
+    "location": "Calgary, Alberta, Canada",
+    "source": "Linkedin",
+    "url": "https://www.linkedin.com/jobs/view/4439092575",
+    "date": "nan",
+    "description": "**Putting people first, every day**\n BDO is a firm built on a foundation of positive relationships with our people and our clients. Each day, our professionals provide exceptional service, helping clients with advice and insight they can trust. In turn, we offer an award\\-winning environment that fosters a people\\-first culture with a high priority on your personal and professional growth.\n   \n\n  \n\n**Your Opportunity**\n Ready to sharpen your critical thinking, level up your analytical toolkit, a",
+    "scraped_at": "2026-07-11T10:13:47.554164"
   }
 ]

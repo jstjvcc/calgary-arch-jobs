@@ -183,8 +183,8 @@ body{
       <div class="masthead__city">📍 Calgary, Alberta</div>
     </div>
     <div style="text-align:right">
-      <div class="masthead__date">Updated July 10, 2026</div>
-      <div class="counter">0</div>
+      <div class="masthead__date">Updated July 11, 2026</div>
+      <div class="counter">5</div>
       <span class="counter__label">New today</span>
     </div>
   </div>
@@ -202,13 +202,43 @@ body{
   <!-- Tab nav -->
   <div class="tab-nav">
     <button class="tab-btn active" onclick="switchTab('listings',this)">All Listings</button>
-    <button class="tab-btn" onclick="switchTab('new',this)">New Today <span class="tab-count" id="new-count-badge">0</span></button>
+    <button class="tab-btn" onclick="switchTab('new',this)">New Today <span class="tab-count" id="new-count-badge">5</span></button>
     <button class="tab-btn" onclick="switchTab('hidden',this)">Hidden <span class="tab-count" id="hidden-count-badge">0</span></button>
   </div>
 
   <!-- New today tab -->
   <section id="tab-new" class="tab-panel" style="display:none">
-    <div class="jobs-grid" id="new-grid"><p class="no-jobs">No new jobs today — check back tomorrow! 🏛</p></div>
+    <div class="jobs-grid" id="new-grid"><div class="job-card-wrap" data-job-id="jobspy_ade3c17906044a5a"><button class="dismiss-btn" onclick="dismissJob('jobspy_ade3c17906044a5a',event)" title="Hide this listing">✕</button><a href="https://ca.indeed.com/viewjob?jk=08951a013df663a3" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Indeed" data-scraped="1783764504"><div class="job-card__header"><span class="job-source" style="background:#7A9DB0">Indeed</span><span class="badge-new">NEW</span></div><h3 class="job-title">Architect, Facilities - Places</h3><p class="job-company">City of Calgary</p><p class="job-location">📍 Calgary, AB, CA</p><p class="job-date">🕐 2026-07-10</p><p class="job-desc">If you are committed to public service, enjoy collaborating with others, share our values and have a desire to learn and grow, joi…</p></a></div>
+<div class="job-card-wrap" data-job-id="jobspy_a832f02f11747ee7"><button class="dismiss-btn" onclick="dismissJob('jobspy_a832f02f11747ee7',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4436653203" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Linkedin" data-scraped="1783764582"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span><span class="badge-new">NEW</span></div><h3 class="job-title">Enterprise Experience Design - Story Teller Designer Intern (September 2026 - 4 Months - Toronto, Calgary, Montreal, Ottawa, Vancouver)</h3><p class="job-company">IBM</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 nan</p><p class="job-desc">**Introduction**
+ Thomas J. Watson said it best: "Good design is good business." Visualization is critical to discovering data\-dr…</p></a></div>
+<div class="job-card-wrap" data-job-id="jobspy_e75961601b918dfb"><button class="dismiss-btn" onclick="dismissJob('jobspy_e75961601b918dfb',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4439352103" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Linkedin" data-scraped="1783764827"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span><span class="badge-new">NEW</span></div><h3 class="job-title">Co-op, Corporate Services & IT Student (12 Months Term)</h3><p class="job-company">Calgary Airports</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 nan</p><p class="job-desc">**Hourly Rate:** 
+ $23\.50
+   
+
+  
+
+**Status:** 
+ Full\-Time, 12\-month term, expected start date September 7, 2026
+   
+
+  
+
+**Wor…</p></a></div>
+<div class="job-card-wrap" data-job-id="jobspy_7e57963266042bd7"><button class="dismiss-btn" onclick="dismissJob('jobspy_7e57963266042bd7',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4439355057" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Linkedin" data-scraped="1783764827"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span><span class="badge-new">NEW</span></div><h3 class="job-title">Co-op, Accounting (12 Months Term)</h3><p class="job-company">Calgary Airports</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 nan</p><p class="job-desc">**Hourly Rate:** 
+ $23\.50
+   
+
+  
+
+**Status:** 
+ Full\-Time, 12\-month term, expected start date September 7, 2026
+   
+
+  
+
+**Wor…</p></a></div>
+<div class="job-card-wrap" data-job-id="jobspy_4b698d3176709425"><button class="dismiss-btn" onclick="dismissJob('jobspy_4b698d3176709425',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4439092575" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Linkedin" data-scraped="1783764827"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span><span class="badge-new">NEW</span></div><h3 class="job-title">Co-op/Intern – Forensic Disputes & Investigation (FDI) Calgary or Vancouver | January – April 2027</h3><p class="job-company">BDO Canada</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 nan</p><p class="job-desc">**Putting people first, every day**
+ BDO is a firm built on a foundation of positive relationships with our people and our clients…</p></a></div></div>
   </section>
 
   <!-- All listings tab -->
@@ -228,7 +258,38 @@ body{
       <button class="filter-btn date-btn" onclick="filterDate(7,this)">Last Week</button>
       <button class="filter-btn date-btn" onclick="filterDate(14,this)">Last 2 Weeks</button>
     </div>
-    <div class="jobs-grid" id="all-grid"><div class="job-card-wrap" data-job-id="jobspy_9068868c0776fb98"><button class="dismiss-btn" onclick="dismissJob('jobspy_9068868c0776fb98',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4436233281" target="_blank" rel="noopener" class="job-card" data-source="Linkedin" data-scraped="1783424538"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span></div><h3 class="job-title">Co-op Student Information Services</h3><p class="job-company">Gibson Energy</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 nan</p><p class="job-desc">**Location:** 
+    <div class="jobs-grid" id="all-grid"><div class="job-card-wrap" data-job-id="jobspy_4b698d3176709425"><button class="dismiss-btn" onclick="dismissJob('jobspy_4b698d3176709425',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4439092575" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Linkedin" data-scraped="1783764827"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span><span class="badge-new">NEW</span></div><h3 class="job-title">Co-op/Intern – Forensic Disputes & Investigation (FDI) Calgary or Vancouver | January – April 2027</h3><p class="job-company">BDO Canada</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 nan</p><p class="job-desc">**Putting people first, every day**
+ BDO is a firm built on a foundation of positive relationships with our people and our clients…</p></a></div>
+<div class="job-card-wrap" data-job-id="jobspy_7e57963266042bd7"><button class="dismiss-btn" onclick="dismissJob('jobspy_7e57963266042bd7',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4439355057" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Linkedin" data-scraped="1783764827"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span><span class="badge-new">NEW</span></div><h3 class="job-title">Co-op, Accounting (12 Months Term)</h3><p class="job-company">Calgary Airports</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 nan</p><p class="job-desc">**Hourly Rate:** 
+ $23\.50
+   
+
+  
+
+**Status:** 
+ Full\-Time, 12\-month term, expected start date September 7, 2026
+   
+
+  
+
+**Wor…</p></a></div>
+<div class="job-card-wrap" data-job-id="jobspy_e75961601b918dfb"><button class="dismiss-btn" onclick="dismissJob('jobspy_e75961601b918dfb',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4439352103" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Linkedin" data-scraped="1783764827"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span><span class="badge-new">NEW</span></div><h3 class="job-title">Co-op, Corporate Services & IT Student (12 Months Term)</h3><p class="job-company">Calgary Airports</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 nan</p><p class="job-desc">**Hourly Rate:** 
+ $23\.50
+   
+
+  
+
+**Status:** 
+ Full\-Time, 12\-month term, expected start date September 7, 2026
+   
+
+  
+
+**Wor…</p></a></div>
+<div class="job-card-wrap" data-job-id="jobspy_a832f02f11747ee7"><button class="dismiss-btn" onclick="dismissJob('jobspy_a832f02f11747ee7',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4436653203" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Linkedin" data-scraped="1783764582"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span><span class="badge-new">NEW</span></div><h3 class="job-title">Enterprise Experience Design - Story Teller Designer Intern (September 2026 - 4 Months - Toronto, Calgary, Montreal, Ottawa, Vancouver)</h3><p class="job-company">IBM</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 nan</p><p class="job-desc">**Introduction**
+ Thomas J. Watson said it best: "Good design is good business." Visualization is critical to discovering data\-dr…</p></a></div>
+<div class="job-card-wrap" data-job-id="jobspy_ade3c17906044a5a"><button class="dismiss-btn" onclick="dismissJob('jobspy_ade3c17906044a5a',event)" title="Hide this listing">✕</button><a href="https://ca.indeed.com/viewjob?jk=08951a013df663a3" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Indeed" data-scraped="1783764504"><div class="job-card__header"><span class="job-source" style="background:#7A9DB0">Indeed</span><span class="badge-new">NEW</span></div><h3 class="job-title">Architect, Facilities - Places</h3><p class="job-company">City of Calgary</p><p class="job-location">📍 Calgary, AB, CA</p><p class="job-date">🕐 2026-07-10</p><p class="job-desc">If you are committed to public service, enjoy collaborating with others, share our values and have a desire to learn and grow, joi…</p></a></div>
+<div class="job-card-wrap" data-job-id="jobspy_9068868c0776fb98"><button class="dismiss-btn" onclick="dismissJob('jobspy_9068868c0776fb98',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4436233281" target="_blank" rel="noopener" class="job-card" data-source="Linkedin" data-scraped="1783424538"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span></div><h3 class="job-title">Co-op Student Information Services</h3><p class="job-company">Gibson Energy</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 nan</p><p class="job-desc">**Location:** 
  Calgary Head Office
    
 
@@ -416,10 +477,6 @@ This is a full\-time position, working out of our impeccably designed and furnis
 
 **Specialism**
  IFS \- Adminis…</p></a></div>
-<div class="job-card-wrap" data-job-id="jobspy_5a6fbe2696f3fb65"><button class="dismiss-btn" onclick="dismissJob('jobspy_5a6fbe2696f3fb65',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4391121716" target="_blank" rel="noopener" class="job-card" data-source="Linkedin" data-scraped="1781093840"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span></div><h3 class="job-title">Architect, Operations Research</h3><p class="job-company">Kinaxis</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-05-30</p><p class="job-desc">nan…</p></a></div>
-<div class="job-card-wrap" data-job-id="linkedin_5f0835f42656da3e"><button class="dismiss-btn" onclick="dismissJob('linkedin_5f0835f42656da3e',event)" title="Hide this listing">✕</button><a href="https://ca.linkedin.com/jobs/view/it-student-intern-west-at-mcasphalt-industries-limited-4422763594" target="_blank" rel="noopener" class="job-card" data-source="LinkedIn" data-scraped="1781093765"><div class="job-card__header"><span class="job-source" style="background:#7A9DB0">LinkedIn</span></div><h3 class="job-title">IT Student Intern-West</h3><p class="job-company">McAsphalt Industries Limited</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-06-09</p></a></div>
-<div class="job-card-wrap" data-job-id="jobspy_ee709e67abd711df"><button class="dismiss-btn" onclick="dismissJob('jobspy_ee709e67abd711df',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4418250889" target="_blank" rel="noopener" class="job-card" data-source="Linkedin" data-scraped="1781093645"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span></div><h3 class="job-title">Architect</h3><p class="job-company">Benevity</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-05-26</p><p class="job-desc">nan…</p></a></div>
-<div class="job-card-wrap" data-job-id="jobspy_7a2fb890b544be65"><button class="dismiss-btn" onclick="dismissJob('jobspy_7a2fb890b544be65',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4419533138" target="_blank" rel="noopener" class="job-card" data-source="Linkedin" data-scraped="1781093645"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span></div><h3 class="job-title">Job Title: Server SME/Architect</h3><p class="job-company">J&M Group</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-05-26</p><p class="job-desc">nan…</p></a></div>
 <div class="job-card-wrap" data-job-id="firm_bec01a020a666b59"><button class="dismiss-btn" onclick="dismissJob('firm_bec01a020a666b59',event)" title="Hide this listing">✕</button><a href="https://www.mckinleystudios.com/careers/registered-architect" target="_blank" rel="noopener" class="job-card" data-source="Firm Website" data-scraped="1773606385"><div class="job-card__header"><span class="job-source" style="background:#503228">Firm Website</span></div><h3 class="job-title">registered architect / yyc + yvr</h3><p class="job-company">McKinley Studios</p><p class="job-location">📍 Calgary, AB</p><p class="job-date">🕐 On firm website</p><p class="job-desc">Listed on McKinley Studios careers page…</p></a></div></div>
   </section>
 
