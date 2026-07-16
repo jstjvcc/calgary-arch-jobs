@@ -11,17 +11,6 @@
     "scraped_at": "2026-03-15T20:26:25.265869"
   },
   {
-    "id": "jobspy_4f52ee591d758098",
-    "title": "Line Design & Project Engineer",
-    "company": "AltaLink",
-    "location": "Calgary, AB, CA",
-    "source": "Indeed",
-    "url": "https://ca.indeed.com/viewjob?jk=292160873473601b",
-    "date": "2026-06-15",
-    "description": "**Job Title: Line Design \\& Project Engineer**\n\n**Job Level:** ENG C/D  \n\n**Date Posted:** June 14, 2026  \n\n**Closing Date:** June 22, 2026  \n\n**Job Type:** Full\\-time Permanent  \n\n**Category:** Internal/External Opportunities\n\n\n**Location:** Calgary\n\n  \n\nWe are seeking to fill one confirmed position, with the possibility of hiring a second candidate from this posting.\n\n  \n\n\n\n**Powering a bright future starts with you!**\n\n\nAt AltaLink, people are at the heart of our success. We are a team commit",
-    "scraped_at": "2026-06-15T14:56:17.238351"
-  },
-  {
     "id": "jobspy_abb6cdfb1e038de9",
     "title": "Designer - Architectural Solutions",
     "company": "Contemporary Office Interiors",
@@ -471,5 +460,49 @@
     "date": "2026-07-13",
     "description": "",
     "scraped_at": "2026-07-14T10:34:50.807050"
+  },
+  {
+    "id": "linkedin_d9d979c9e0fecae9",
+    "title": "Architect",
+    "company": "Hays",
+    "location": "Greater Calgary Metropolitan Area",
+    "source": "LinkedIn",
+    "url": "https://ca.linkedin.com/jobs/view/architect-at-hays-4441272063",
+    "date": "2026-07-15",
+    "description": "",
+    "scraped_at": "2026-07-16T10:53:51.526342"
+  },
+  {
+    "id": "linkedin_8ff3c8c047fed346",
+    "title": "Architectural Designer",
+    "company": "TalentSphere Staffing Solutions",
+    "location": "Calgary, Alberta, Canada",
+    "source": "LinkedIn",
+    "url": "https://ca.linkedin.com/jobs/view/architectural-designer-at-talentsphere-staffing-solutions-4432510633",
+    "date": "2026-07-15",
+    "description": "",
+    "scraped_at": "2026-07-16T10:53:51.526745"
+  },
+  {
+    "id": "linkedin_353f0cc9b707fee4",
+    "title": "Mechanical Design Intern",
+    "company": "CoolIT Systems",
+    "location": "Calgary, Alberta, Canada",
+    "source": "LinkedIn",
+    "url": "https://ca.linkedin.com/jobs/view/mechanical-design-intern-at-coolit-systems-4439855664",
+    "date": "2026-07-14",
+    "description": "",
+    "scraped_at": "2026-07-16T10:53:51.527525"
+  },
+  {
+    "id": "jobspy_bab0d848930870e2",
+    "title": "Mechanical Design Intern",
+    "company": "CoolIT Systems",
+    "location": "Calgary, Alberta, Canada",
+    "source": "Linkedin",
+    "url": "https://www.linkedin.com/jobs/view/4439855664",
+    "date": "2026-07-14",
+    "description": "**About CoolIT Systems Inc.**\n Founded in Calgary, Alberta in 2001, CoolIT Systems is the leading Direct Liquid Cooling technology provider for data centers, supercomputers, and desktop computers. We design and manufacture solutions used by the largest tech companies globally.\n   \n\n  \n\n Recognized as one of \u201cThe Americas\u2019 Fastest Growing Companies 2023\u201d by Financial Times and honored with the Deloitte Fast 50 Clean Technology award in 2022, as well as the Deloitte Fast 500 distinction in both 20",
+    "scraped_at": "2026-07-16T10:54:32.369452"
   }
 ]
