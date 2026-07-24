@@ -11,28 +11,6 @@
     "scraped_at": "2026-03-15T20:26:25.265869"
   },
   {
-    "id": "jobspy_5d3b49063d64bc3d",
-    "title": "Indigenous Engineer Intern/co-op",
-    "company": "GHD",
-    "location": "Calgary, Alberta, Canada",
-    "source": "Linkedin",
-    "url": "https://www.linkedin.com/jobs/view/4410331679",
-    "date": "2026-06-03",
-    "description": "**Job Description**\n We are currently seeking an\n **Intern** \n to work with our Design and Project Management groups on First Nation Solid Waste Management, Environmental Remediation, Water Management, Renewable Energy, and Emergency Response Planning projects. This position is a paid internship position. We are currently providing technical assistance to Indigenous Peoples across Canada to develop recycling systems, improve waste collection, and reduce diesel combustion in off\\-grid communities",
-    "scraped_at": "2026-06-23T11:53:07.394542"
-  },
-  {
-    "id": "jobspy_c3ed2eb0e1672d88",
-    "title": "Junior Designer",
-    "company": "nonfiction studios inc.",
-    "location": "Calgary, AB, CA",
-    "source": "Indeed",
-    "url": "https://ca.indeed.com/viewjob?jk=a7b18685893441c5",
-    "date": "2026-06-22",
-    "description": "We are looking for an emerging visual designer to join our boutique studio. The ideal candidate is a new graduate or junior designer looking to expand their practical experience while working in a dynamic agency environment.\n\n**What You\u2019ll Do**\n\n* Assist with concept development and visual research\n* Develop brand, print, and digital assets across various client projects\n* Prepare and refine files for presentation and production\n* Executing design updates and revisions\n* Contributing to social, ",
-    "scraped_at": "2026-06-23T11:53:40.325291"
-  },
-  {
     "id": "jobspy_dbd971d7e15d5947",
     "title": "Sp\u00e9cialiste des syst\u00e8mes, Architecture informatique",
     "company": "KPMG Canada",
@@ -603,5 +581,38 @@
     "date": "nan",
     "description": "Youtooz creates designer toys for the heroes and role models of the internet \u2014 Youtubers, Instagram influencers, celebrities, athletes, rappers, and more. Our mission is to bring the people you already love to watch and keep up with on the internet in real life, on your desk at work, your shelf in your bedroom or even in your living room for everyone to see. Youtooz are incredibly personal and unique to each creator and customer and comes with a variety of unique perks.\n   \n\n  \n\n Concept Artists",
     "scraped_at": "2026-07-23T11:00:40.558815"
+  },
+  {
+    "id": "linkedin_b45579f76c479c2d",
+    "title": "AEM Architect",
+    "company": "Coforge",
+    "location": "Calgary, Alberta, Canada",
+    "source": "LinkedIn",
+    "url": "https://ca.linkedin.com/jobs/view/aem-architect-at-coforge-4441366350",
+    "date": "2026-07-22",
+    "description": "",
+    "scraped_at": "2026-07-24T10:55:09.452657"
+  },
+  {
+    "id": "linkedin_0e64cd01255b9b93",
+    "title": "Practice Architect, M365/Workforce AI",
+    "company": "Softchoice",
+    "location": "Calgary, Alberta, Canada",
+    "source": "LinkedIn",
+    "url": "https://ca.linkedin.com/jobs/view/practice-architect-m365-workforce-ai-at-softchoice-4433263329",
+    "date": "2026-07-22",
+    "description": "",
+    "scraped_at": "2026-07-24T10:58:12.109079"
+  },
+  {
+    "id": "linkedin_643916a8acca85f4",
+    "title": "STORAGE ARCHITECT / SPECIALIST",
+    "company": "Chrome Technologies",
+    "location": "Greater Calgary Metropolitan Area",
+    "source": "LinkedIn",
+    "url": "https://ca.linkedin.com/jobs/view/storage-architect-specialist-at-chrome-technologies-4444053169",
+    "date": "2026-07-24",
+    "description": "",
+    "scraped_at": "2026-07-24T10:58:12.109901"
   }
 ]
