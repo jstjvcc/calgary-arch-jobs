@@ -11,28 +11,6 @@
     "scraped_at": "2026-03-15T20:26:25.265869"
   },
   {
-    "id": "jobspy_24549f59370aaa08",
-    "title": "Architecte adjoint(e) de bilans",
-    "company": "Softchoice",
-    "location": "Calgary, Alberta, Canada",
-    "source": "Linkedin",
-    "url": "https://www.linkedin.com/jobs/view/4433276037",
-    "date": "2026-06-26",
-    "description": "nan",
-    "scraped_at": "2026-07-01T11:58:37.633608"
-  },
-  {
-    "id": "jobspy_ab224bef0f0ac03d",
-    "title": "Co-op Student Engineering Track Evaluation",
-    "company": "CPKC",
-    "location": "Calgary, Alberta, Canada",
-    "source": "Linkedin",
-    "url": "https://www.linkedin.com/jobs/view/4430914721",
-    "date": "2026-06-19",
-    "description": "nan",
-    "scraped_at": "2026-07-01T12:19:09.739504"
-  },
-  {
     "id": "jobspy_c808f7bf1cded6e2",
     "title": "Standards Intern - Natural Resources, Environment and Climate Change / Stagiaire en normalisation \u2013 Ressources naturelles, environnement et changements climatiques",
     "company": "Canadian Standards Association",
@@ -537,5 +515,16 @@
     "date": "nan",
     "description": "If you are committed to public service, enjoy collaborating with others, share our values and have a desire to learn and grow, join The City of Calgary. City employees deliver the services, run the programs and operate the facilities which make a difference in our community. We support work\\-life balance, promote physical and psychological safety, and offer competitive wages, pensions, and benefits. Together we make Calgary a great place to make a living, a great place to make a life.\n \n\n\n\n  \n\n\n",
     "scraped_at": "2026-07-31T11:17:33.753128"
+  },
+  {
+    "id": "jobspy_92843e49f1232287",
+    "title": "Global Head of People",
+    "company": "Rhodium Digital Ltd.",
+    "location": "Calgary, AB, CA",
+    "source": "Indeed",
+    "url": "https://ca.indeed.com/viewjob?jk=9ef66be21e2690b5",
+    "date": "2026-07-31",
+    "description": "Global Head of People\n\n**Location:** Calgary, Alberta preferred  \n**Employment Type:** Full\\-time  \n**Reports to:** Chief Executive Officer\n\nRhodium Digital is looking for an exceptional **Global Head of People** to join our leadership team and build the people function required for our next stage of growth.\n\nWe are a rapidly growing professional services and technology organization serving clients across Canada, the United States, the United Kingdom, Australia, and other international markets.\n",
+    "scraped_at": "2026-08-01T10:25:50.485354"
   }
 ]
