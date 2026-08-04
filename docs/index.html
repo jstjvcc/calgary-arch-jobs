@@ -183,8 +183,8 @@ body{
       <div class="masthead__city">📍 Calgary, Alberta</div>
     </div>
     <div style="text-align:right">
-      <div class="masthead__date">Updated August 03, 2026</div>
-      <div class="counter">0</div>
+      <div class="masthead__date">Updated August 04, 2026</div>
+      <div class="counter">1</div>
       <span class="counter__label">New today</span>
     </div>
   </div>
@@ -202,13 +202,16 @@ body{
   <!-- Tab nav -->
   <div class="tab-nav">
     <button class="tab-btn active" onclick="switchTab('listings',this)">All Listings</button>
-    <button class="tab-btn" onclick="switchTab('new',this)">New Today <span class="tab-count" id="new-count-badge">0</span></button>
+    <button class="tab-btn" onclick="switchTab('new',this)">New Today <span class="tab-count" id="new-count-badge">1</span></button>
     <button class="tab-btn" onclick="switchTab('hidden',this)">Hidden <span class="tab-count" id="hidden-count-badge">0</span></button>
   </div>
 
   <!-- New today tab -->
   <section id="tab-new" class="tab-panel" style="display:none">
-    <div class="jobs-grid" id="new-grid"><p class="no-jobs">No new jobs today — check back tomorrow! 🏛</p></div>
+    <div class="jobs-grid" id="new-grid"><div class="job-card-wrap" data-job-id="jobspy_ea3e90e496d4b3b4"><button class="dismiss-btn" onclick="dismissJob('jobspy_ea3e90e496d4b3b4',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4446114929" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Linkedin" data-scraped="1785842273"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span><span class="badge-new">NEW</span></div><h3 class="job-title">Industrialization Intern</h3><p class="job-company">De Havilland Aircraft of Canada Limited</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-07-27</p><p class="job-desc">**Profile:**
+ Reporting to the Industrialization Supervisor, the
+ **Industrialization Intern** 
+ will assist in the development an…</p></a></div></div>
   </section>
 
   <!-- All listings tab -->
@@ -228,7 +231,11 @@ body{
       <button class="filter-btn date-btn" onclick="filterDate(7,this)">Last Week</button>
       <button class="filter-btn date-btn" onclick="filterDate(14,this)">Last 2 Weeks</button>
     </div>
-    <div class="jobs-grid" id="all-grid"><div class="job-card-wrap" data-job-id="jobspy_bcc3d0e7c4e79ed4"><button class="dismiss-btn" onclick="dismissJob('jobspy_bcc3d0e7c4e79ed4',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4447857052" target="_blank" rel="noopener" class="job-card" data-source="Linkedin" data-scraped="1785666293"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span></div><h3 class="job-title">Registered Architect - Relocation to BC's Interior</h3><p class="job-company">TalentSphere Staffing Solutions</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 nan</p><p class="job-desc">**Registered Architect**
+    <div class="jobs-grid" id="all-grid"><div class="job-card-wrap" data-job-id="jobspy_ea3e90e496d4b3b4"><button class="dismiss-btn" onclick="dismissJob('jobspy_ea3e90e496d4b3b4',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4446114929" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Linkedin" data-scraped="1785842273"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span><span class="badge-new">NEW</span></div><h3 class="job-title">Industrialization Intern</h3><p class="job-company">De Havilland Aircraft of Canada Limited</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-07-27</p><p class="job-desc">**Profile:**
+ Reporting to the Industrialization Supervisor, the
+ **Industrialization Intern** 
+ will assist in the development an…</p></a></div>
+<div class="job-card-wrap" data-job-id="jobspy_bcc3d0e7c4e79ed4"><button class="dismiss-btn" onclick="dismissJob('jobspy_bcc3d0e7c4e79ed4',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4447857052" target="_blank" rel="noopener" class="job-card" data-source="Linkedin" data-scraped="1785666293"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span></div><h3 class="job-title">Registered Architect - Relocation to BC's Interior</h3><p class="job-company">TalentSphere Staffing Solutions</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 nan</p><p class="job-desc">**Registered Architect**
 **Relocation Opportunity to British Columbia's Interior Region**
  Commercial, Multifamily, Institutional …</p></a></div>
 <div class="job-card-wrap" data-job-id="jobspy_92843e49f1232287"><button class="dismiss-btn" onclick="dismissJob('jobspy_92843e49f1232287',event)" title="Hide this listing">✕</button><a href="https://ca.indeed.com/viewjob?jk=9ef66be21e2690b5" target="_blank" rel="noopener" class="job-card" data-source="Indeed" data-scraped="1785579950"><div class="job-card__header"><span class="job-source" style="background:#7A9DB0">Indeed</span></div><h3 class="job-title">Global Head of People</h3><p class="job-company">Rhodium Digital Ltd.</p><p class="job-location">📍 Calgary, AB, CA</p><p class="job-date">🕐 2026-07-31</p><p class="job-desc">Global Head of People
@@ -472,11 +479,6 @@ Visions Electronics – proudly 100% Canadian owne…</p></a></div>
  Information Service…</p></a></div>
 <div class="job-card-wrap" data-job-id="jobspy_ecb30b1bacfbc9f2"><button class="dismiss-btn" onclick="dismissJob('jobspy_ecb30b1bacfbc9f2',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4430171036" target="_blank" rel="noopener" class="job-card" data-source="Linkedin" data-scraped="1783341670"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span></div><h3 class="job-title">Co-op/Intern Software Development - C++</h3><p class="job-company">Kinaxis</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-06-18</p><p class="job-desc">**About Kinaxis**
  Are you looking to join an innovative, market\-leading company where you can truly elevate your career? At Kina…</p></a></div>
-<div class="job-card-wrap" data-job-id="linkedin_b27179e6b19ab245"><button class="dismiss-btn" onclick="dismissJob('linkedin_b27179e6b19ab245',event)" title="Hide this listing">✕</button><a href="https://ca.linkedin.com/jobs/view/architect-professional-services-ms-azure-at-softchoice-4435478958" target="_blank" rel="noopener" class="job-card" data-source="LinkedIn" data-scraped="1783249442"><div class="job-card__header"><span class="job-source" style="background:#7A9DB0">LinkedIn</span></div><h3 class="job-title">Architect, Professional Services (MS Azure)</h3><p class="job-company">Softchoice</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-07-03</p></a></div>
-<div class="job-card-wrap" data-job-id="linkedin_77119714489c19fa"><button class="dismiss-btn" onclick="dismissJob('linkedin_77119714489c19fa',event)" title="Hide this listing">✕</button><a href="https://ca.linkedin.com/jobs/view/architect-professional-services-at-softchoice-4435499112" target="_blank" rel="noopener" class="job-card" data-source="LinkedIn" data-scraped="1783249442"><div class="job-card__header"><span class="job-source" style="background:#7A9DB0">LinkedIn</span></div><h3 class="job-title">Architect, Professional Services</h3><p class="job-company">Softchoice</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-07-03</p></a></div>
-<div class="job-card-wrap" data-job-id="linkedin_4357b7fde077b05d"><button class="dismiss-btn" onclick="dismissJob('linkedin_4357b7fde077b05d',event)" title="Hide this listing">✕</button><a href="https://ca.linkedin.com/jobs/view/mechanical-design-intern-at-coolit-systems-4435480319" target="_blank" rel="noopener" class="job-card" data-source="LinkedIn" data-scraped="1783249442"><div class="job-card__header"><span class="job-source" style="background:#7A9DB0">LinkedIn</span></div><h3 class="job-title">Mechanical Design Intern</h3><p class="job-company">CoolIT Systems</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-07-03</p></a></div>
-<div class="job-card-wrap" data-job-id="linkedin_6732fa6460b140d8"><button class="dismiss-btn" onclick="dismissJob('linkedin_6732fa6460b140d8',event)" title="Hide this listing">✕</button><a href="https://ca.linkedin.com/jobs/view/standards-intern-natural-resources-environment-and-climate-change-stagiaire-en-normalisation-%E2%80%93-ressources-naturelles-environnement-et-changements-climatiques-at-canadian-standards-association-4436771722" target="_blank" rel="noopener" class="job-card" data-source="LinkedIn" data-scraped="1783249442"><div class="job-card__header"><span class="job-source" style="background:#7A9DB0">LinkedIn</span></div><h3 class="job-title">Standards Intern - Natural Resources, Environment and Climate Change / Stagiaire en normalisation – Ressources naturelles, environnement et changements climatiques</h3><p class="job-company">Canadian Standards Association</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-07-03</p></a></div>
-<div class="job-card-wrap" data-job-id="linkedin_bb4a3bd6a1ad55c9"><button class="dismiss-btn" onclick="dismissJob('linkedin_bb4a3bd6a1ad55c9',event)" title="Hide this listing">✕</button><a href="https://ca.linkedin.com/jobs/view/agile-tester-co-op-september-2026-september-2027-at-siemens-4435739747" target="_blank" rel="noopener" class="job-card" data-source="LinkedIn" data-scraped="1783249442"><div class="job-card__header"><span class="job-source" style="background:#7A9DB0">LinkedIn</span></div><h3 class="job-title">Agile Tester, Co-op, September 2026 - September 2027</h3><p class="job-company">Siemens</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-07-04</p></a></div>
 <div class="job-card-wrap" data-job-id="firm_bec01a020a666b59"><button class="dismiss-btn" onclick="dismissJob('firm_bec01a020a666b59',event)" title="Hide this listing">✕</button><a href="https://www.mckinleystudios.com/careers/registered-architect" target="_blank" rel="noopener" class="job-card" data-source="Firm Website" data-scraped="1773606385"><div class="job-card__header"><span class="job-source" style="background:#503228">Firm Website</span></div><h3 class="job-title">registered architect / yyc + yvr</h3><p class="job-company">McKinley Studios</p><p class="job-location">📍 Calgary, AB</p><p class="job-date">🕐 On firm website</p><p class="job-desc">Listed on McKinley Studios careers page…</p></a></div></div>
   </section>
 
