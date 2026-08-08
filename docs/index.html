@@ -183,8 +183,8 @@ body{
       <div class="masthead__city">📍 Calgary, Alberta</div>
     </div>
     <div style="text-align:right">
-      <div class="masthead__date">Updated August 07, 2026</div>
-      <div class="counter">3</div>
+      <div class="masthead__date">Updated August 08, 2026</div>
+      <div class="counter">0</div>
       <span class="counter__label">New today</span>
     </div>
   </div>
@@ -202,25 +202,13 @@ body{
   <!-- Tab nav -->
   <div class="tab-nav">
     <button class="tab-btn active" onclick="switchTab('listings',this)">All Listings</button>
-    <button class="tab-btn" onclick="switchTab('new',this)">New Today <span class="tab-count" id="new-count-badge">3</span></button>
+    <button class="tab-btn" onclick="switchTab('new',this)">New Today <span class="tab-count" id="new-count-badge">0</span></button>
     <button class="tab-btn" onclick="switchTab('hidden',this)">Hidden <span class="tab-count" id="hidden-count-badge">0</span></button>
   </div>
 
   <!-- New today tab -->
   <section id="tab-new" class="tab-panel" style="display:none">
-    <div class="jobs-grid" id="new-grid"><div class="job-card-wrap" data-job-id="jobspy_4efc6dd1dfc72f5c"><button class="dismiss-btn" onclick="dismissJob('jobspy_4efc6dd1dfc72f5c',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4450071786" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Linkedin" data-scraped="1786096291"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span><span class="badge-new">NEW</span></div><h3 class="job-title">Production Artist, Plush</h3><p class="job-company">Youtooz</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 nan</p><p class="job-desc">Youtooz creates designer toys for the heroes and role models of the internet — Youtubers, Instagram influencers, celebrities, athl…</p></a></div>
-<div class="job-card-wrap" data-job-id="jobspy_c7422cc34799e239"><button class="dismiss-btn" onclick="dismissJob('jobspy_c7422cc34799e239',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4446351936" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Linkedin" data-scraped="1786096612"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span><span class="badge-new">NEW</span></div><h3 class="job-title">Operational Excellence Co-op</h3><p class="job-company">InterPro Pipe + Steel</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-07-28</p><p class="job-desc">At Interpro Recycling, our strength starts with our people! As a team we collaborate to solve problems, contribute ideas and chall…</p></a></div>
-<div class="job-card-wrap" data-job-id="jobspy_43b14c26f9275c03"><button class="dismiss-btn" onclick="dismissJob('jobspy_43b14c26f9275c03',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4438721998" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Linkedin" data-scraped="1786096612"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span><span class="badge-new">NEW</span></div><h3 class="job-title">Frito Lay Sales Business Development Co-op Fall 2026 (Calgary)</h3><p class="job-company">PepsiCo</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-07-16</p><p class="job-desc">**Overview**
-**Sales Business Development Co\-op**
-**Co\-op Work Term Duration** 
-**:** 
- 4 months
-   
-
-  
-
-**Start Date:** 
- Sept…</p></a></div></div>
+    <div class="jobs-grid" id="new-grid"><p class="no-jobs">No new jobs today — check back tomorrow! 🏛</p></div>
   </section>
 
   <!-- All listings tab -->
@@ -240,7 +228,7 @@ body{
       <button class="filter-btn date-btn" onclick="filterDate(7,this)">Last Week</button>
       <button class="filter-btn date-btn" onclick="filterDate(14,this)">Last 2 Weeks</button>
     </div>
-    <div class="jobs-grid" id="all-grid"><div class="job-card-wrap" data-job-id="jobspy_43b14c26f9275c03"><button class="dismiss-btn" onclick="dismissJob('jobspy_43b14c26f9275c03',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4438721998" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Linkedin" data-scraped="1786096612"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span><span class="badge-new">NEW</span></div><h3 class="job-title">Frito Lay Sales Business Development Co-op Fall 2026 (Calgary)</h3><p class="job-company">PepsiCo</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-07-16</p><p class="job-desc">**Overview**
+    <div class="jobs-grid" id="all-grid"><div class="job-card-wrap" data-job-id="jobspy_43b14c26f9275c03"><button class="dismiss-btn" onclick="dismissJob('jobspy_43b14c26f9275c03',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4438721998" target="_blank" rel="noopener" class="job-card" data-source="Linkedin" data-scraped="1786096612"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span></div><h3 class="job-title">Frito Lay Sales Business Development Co-op Fall 2026 (Calgary)</h3><p class="job-company">PepsiCo</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-07-16</p><p class="job-desc">**Overview**
 **Sales Business Development Co\-op**
 **Co\-op Work Term Duration** 
 **:** 
@@ -251,8 +239,8 @@ body{
 
 **Start Date:** 
  Sept…</p></a></div>
-<div class="job-card-wrap" data-job-id="jobspy_c7422cc34799e239"><button class="dismiss-btn" onclick="dismissJob('jobspy_c7422cc34799e239',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4446351936" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Linkedin" data-scraped="1786096612"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span><span class="badge-new">NEW</span></div><h3 class="job-title">Operational Excellence Co-op</h3><p class="job-company">InterPro Pipe + Steel</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-07-28</p><p class="job-desc">At Interpro Recycling, our strength starts with our people! As a team we collaborate to solve problems, contribute ideas and chall…</p></a></div>
-<div class="job-card-wrap" data-job-id="jobspy_4efc6dd1dfc72f5c"><button class="dismiss-btn" onclick="dismissJob('jobspy_4efc6dd1dfc72f5c',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4450071786" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Linkedin" data-scraped="1786096291"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span><span class="badge-new">NEW</span></div><h3 class="job-title">Production Artist, Plush</h3><p class="job-company">Youtooz</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 nan</p><p class="job-desc">Youtooz creates designer toys for the heroes and role models of the internet — Youtubers, Instagram influencers, celebrities, athl…</p></a></div>
+<div class="job-card-wrap" data-job-id="jobspy_c7422cc34799e239"><button class="dismiss-btn" onclick="dismissJob('jobspy_c7422cc34799e239',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4446351936" target="_blank" rel="noopener" class="job-card" data-source="Linkedin" data-scraped="1786096612"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span></div><h3 class="job-title">Operational Excellence Co-op</h3><p class="job-company">InterPro Pipe + Steel</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-07-28</p><p class="job-desc">At Interpro Recycling, our strength starts with our people! As a team we collaborate to solve problems, contribute ideas and chall…</p></a></div>
+<div class="job-card-wrap" data-job-id="jobspy_4efc6dd1dfc72f5c"><button class="dismiss-btn" onclick="dismissJob('jobspy_4efc6dd1dfc72f5c',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4450071786" target="_blank" rel="noopener" class="job-card" data-source="Linkedin" data-scraped="1786096291"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span></div><h3 class="job-title">Production Artist, Plush</h3><p class="job-company">Youtooz</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 nan</p><p class="job-desc">Youtooz creates designer toys for the heroes and role models of the internet — Youtubers, Instagram influencers, celebrities, athl…</p></a></div>
 <div class="job-card-wrap" data-job-id="jobspy_72f2de8d2938c4e8"><button class="dismiss-btn" onclick="dismissJob('jobspy_72f2de8d2938c4e8',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4446840631" target="_blank" rel="noopener" class="job-card" data-source="Linkedin" data-scraped="1786015121"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span></div><h3 class="job-title">Process Technology Co-op Student</h3><p class="job-company">InterPro Pipe + Steel</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-07-29</p><p class="job-desc">At Interpro Pipe \& Steel Inc., our strength starts with our people! As a team we collaborate to solve problems, contribute ideas …</p></a></div>
 <div class="job-card-wrap" data-job-id="jobspy_b136fb2b925fa5eb"><button class="dismiss-btn" onclick="dismissJob('jobspy_b136fb2b925fa5eb',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4449175284" target="_blank" rel="noopener" class="job-card" data-source="Linkedin" data-scraped="1786015091"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span></div><h3 class="job-title">Co-op Student, Property Tax Services</h3><p class="job-company">MNP</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 nan</p><p class="job-desc">Inspirational, innovative and entrepreneurial \- this is how we describe our empowered teams. Combine your passion with purpose an…</p></a></div>
 <div class="job-card-wrap" data-job-id="jobspy_eaec78c94a1ee85a"><button class="dismiss-btn" onclick="dismissJob('jobspy_eaec78c94a1ee85a',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4449683666" target="_blank" rel="noopener" class="job-card" data-source="Linkedin" data-scraped="1786015091"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span></div><h3 class="job-title">Operations Program Enablement Student</h3><p class="job-company">Bird Construction</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 nan</p><p class="job-desc">Our internships and co\-ops are designed to provide you with a business relevant project that will allow you to independently mana…</p></a></div>
