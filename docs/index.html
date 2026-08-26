@@ -183,8 +183,8 @@ body{
       <div class="masthead__city">📍 Calgary, Alberta</div>
     </div>
     <div style="text-align:right">
-      <div class="masthead__date">Updated August 25, 2026</div>
-      <div class="counter">0</div>
+      <div class="masthead__date">Updated August 26, 2026</div>
+      <div class="counter">2</div>
       <span class="counter__label">New today</span>
     </div>
   </div>
@@ -202,13 +202,16 @@ body{
   <!-- Tab nav -->
   <div class="tab-nav">
     <button class="tab-btn active" onclick="switchTab('listings',this)">All Listings</button>
-    <button class="tab-btn" onclick="switchTab('new',this)">New Today <span class="tab-count" id="new-count-badge">0</span></button>
+    <button class="tab-btn" onclick="switchTab('new',this)">New Today <span class="tab-count" id="new-count-badge">2</span></button>
     <button class="tab-btn" onclick="switchTab('hidden',this)">Hidden <span class="tab-count" id="hidden-count-badge">0</span></button>
   </div>
 
   <!-- New today tab -->
   <section id="tab-new" class="tab-panel" style="display:none">
-    <div class="jobs-grid" id="new-grid"><p class="no-jobs">No new jobs today — check back tomorrow! 🏛</p></div>
+    <div class="jobs-grid" id="new-grid"><div class="job-card-wrap" data-job-id="jobspy_567360531c2d07f1"><button class="dismiss-btn" onclick="dismissJob('jobspy_567360531c2d07f1',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4457218102" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Linkedin" data-scraped="1787736666"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span><span class="badge-new">NEW</span></div><h3 class="job-title">Technical Engineering Seller Intern – Entry Level Sales Program 2027</h3><p class="job-company">IBM</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 nan</p><p class="job-desc">**Introduction**
+ At IBM, technology creates value when it solves real business challenges. As an Entry\-Level Technical Engineeri…</p></a></div>
+<div class="job-card-wrap" data-job-id="jobspy_1c3aadd82b502677"><button class="dismiss-btn" onclick="dismissJob('jobspy_1c3aadd82b502677',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4457605960" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Linkedin" data-scraped="1787736869"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span><span class="badge-new">NEW</span></div><h3 class="job-title">Project Coordination Intern</h3><p class="job-company">Certarus Ltd.</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 nan</p><p class="job-desc">**Summary**
+ The Project Coordination Intern supports the Asset Integrity Team with day\-to\-day administrative and integrity rela…</p></a></div></div>
   </section>
 
   <!-- All listings tab -->
@@ -228,7 +231,11 @@ body{
       <button class="filter-btn date-btn" onclick="filterDate(7,this)">Last Week</button>
       <button class="filter-btn date-btn" onclick="filterDate(14,this)">Last 2 Weeks</button>
     </div>
-    <div class="jobs-grid" id="all-grid"><div class="job-card-wrap" data-job-id="jobspy_3ea508c31bde13b4"><button class="dismiss-btn" onclick="dismissJob('jobspy_3ea508c31bde13b4',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4452878011" target="_blank" rel="noopener" class="job-card" data-source="Linkedin" data-scraped="1787390645"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span></div><h3 class="job-title">Calgary Project Engineer Co-Op</h3><p class="job-company">CGC Inc.</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-08-18</p><p class="job-desc">**Project Engineer Co\-Op (Student)**
+    <div class="jobs-grid" id="all-grid"><div class="job-card-wrap" data-job-id="jobspy_1c3aadd82b502677"><button class="dismiss-btn" onclick="dismissJob('jobspy_1c3aadd82b502677',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4457605960" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Linkedin" data-scraped="1787736869"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span><span class="badge-new">NEW</span></div><h3 class="job-title">Project Coordination Intern</h3><p class="job-company">Certarus Ltd.</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 nan</p><p class="job-desc">**Summary**
+ The Project Coordination Intern supports the Asset Integrity Team with day\-to\-day administrative and integrity rela…</p></a></div>
+<div class="job-card-wrap" data-job-id="jobspy_567360531c2d07f1"><button class="dismiss-btn" onclick="dismissJob('jobspy_567360531c2d07f1',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4457218102" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Linkedin" data-scraped="1787736666"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span><span class="badge-new">NEW</span></div><h3 class="job-title">Technical Engineering Seller Intern – Entry Level Sales Program 2027</h3><p class="job-company">IBM</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 nan</p><p class="job-desc">**Introduction**
+ At IBM, technology creates value when it solves real business challenges. As an Entry\-Level Technical Engineeri…</p></a></div>
+<div class="job-card-wrap" data-job-id="jobspy_3ea508c31bde13b4"><button class="dismiss-btn" onclick="dismissJob('jobspy_3ea508c31bde13b4',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4452878011" target="_blank" rel="noopener" class="job-card" data-source="Linkedin" data-scraped="1787390645"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span></div><h3 class="job-title">Calgary Project Engineer Co-Op</h3><p class="job-company">CGC Inc.</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-08-18</p><p class="job-desc">**Project Engineer Co\-Op (Student)**
 *CGC Inc. is a leading marketer, manufacturer and distributor of gypsum wallboard products, …</p></a></div>
 <div class="job-card-wrap" data-job-id="jobspy_3bd137381681521c"><button class="dismiss-btn" onclick="dismissJob('jobspy_3bd137381681521c',event)" title="Hide this listing">✕</button><a href="https://ca.indeed.com/viewjob?jk=7cbf53d1659e4ed0" target="_blank" rel="noopener" class="job-card" data-source="Indeed" data-scraped="1787390645"><div class="job-card__header"><span class="job-source" style="background:#7A9DB0">Indeed</span></div><h3 class="job-title">September 2027 - Data Enablement (CPA) - 8 month Co-op - Calgary</h3><p class="job-company">PwC</p><p class="job-location">📍 Calgary, AB, CA</p><p class="job-date">🕐 2026-08-21</p><p class="job-desc">**Line of Service**
 
@@ -551,7 +558,6 @@ At Zeidler Architecture, we believe that design has the power to shape experienc
   
 
  Architecture \& Desi…</p></a></div>
-<div class="job-card-wrap" data-job-id="linkedin_8d60807840d6b357"><button class="dismiss-btn" onclick="dismissJob('linkedin_8d60807840d6b357',event)" title="Hide this listing">✕</button><a href="https://ca.linkedin.com/jobs/view/co-op-intern-information-security-at-kinaxis-4417353847" target="_blank" rel="noopener" class="job-card" data-source="LinkedIn" data-scraped="1785062009"><div class="job-card__header"><span class="job-source" style="background:#7A9DB0">LinkedIn</span></div><h3 class="job-title">Co-op/ Intern Information Security</h3><p class="job-company">Kinaxis</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-07-25</p></a></div>
 <div class="job-card-wrap" data-job-id="firm_bec01a020a666b59"><button class="dismiss-btn" onclick="dismissJob('firm_bec01a020a666b59',event)" title="Hide this listing">✕</button><a href="https://www.mckinleystudios.com/careers/registered-architect" target="_blank" rel="noopener" class="job-card" data-source="Firm Website" data-scraped="1773606385"><div class="job-card__header"><span class="job-source" style="background:#503228">Firm Website</span></div><h3 class="job-title">registered architect / yyc + yvr</h3><p class="job-company">McKinley Studios</p><p class="job-location">📍 Calgary, AB</p><p class="job-date">🕐 On firm website</p><p class="job-desc">Listed on McKinley Studios careers page…</p></a></div></div>
   </section>
 
