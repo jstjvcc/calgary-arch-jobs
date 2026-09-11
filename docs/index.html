@@ -183,8 +183,8 @@ body{
       <div class="masthead__city">📍 Calgary, Alberta</div>
     </div>
     <div style="text-align:right">
-      <div class="masthead__date">Updated September 10, 2026</div>
-      <div class="counter">0</div>
+      <div class="masthead__date">Updated September 11, 2026</div>
+      <div class="counter">2</div>
       <span class="counter__label">New today</span>
     </div>
   </div>
@@ -202,13 +202,23 @@ body{
   <!-- Tab nav -->
   <div class="tab-nav">
     <button class="tab-btn active" onclick="switchTab('listings',this)">All Listings</button>
-    <button class="tab-btn" onclick="switchTab('new',this)">New Today <span class="tab-count" id="new-count-badge">0</span></button>
+    <button class="tab-btn" onclick="switchTab('new',this)">New Today <span class="tab-count" id="new-count-badge">2</span></button>
     <button class="tab-btn" onclick="switchTab('hidden',this)">Hidden <span class="tab-count" id="hidden-count-badge">0</span></button>
   </div>
 
   <!-- New today tab -->
   <section id="tab-new" class="tab-panel" style="display:none">
-    <div class="jobs-grid" id="new-grid"><p class="no-jobs">No new jobs today — check back tomorrow! 🏛</p></div>
+    <div class="jobs-grid" id="new-grid"><div class="job-card-wrap" data-job-id="jobspy_525c2a88b5a7f7a1"><button class="dismiss-btn" onclick="dismissJob('jobspy_525c2a88b5a7f7a1',event)" title="Hide this listing">✕</button><a href="https://ca.indeed.com/viewjob?jk=47f651cc530ff1c2" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Indeed" data-scraped="1789132205"><div class="job-card__header"><span class="job-source" style="background:#7A9DB0">Indeed</span><span class="badge-new">NEW</span></div><h3 class="job-title">Production Designer, Architectural Design - Alberta House Building (Calgary, AB)</h3><p class="job-company">Anthem Properties</p><p class="job-location">📍 Calgary, AB, CA</p><p class="job-date">🕐 2026-08-20</p><p class="job-desc">**You are**
+
+
+* A strong communicator, who can share information across multiple teams effectively
+* An empathetic team member, wh…</p></a></div>
+<div class="job-card-wrap" data-job-id="jobspy_0efd187b5d44681a"><button class="dismiss-btn" onclick="dismissJob('jobspy_0efd187b5d44681a',event)" title="Hide this listing">✕</button><a href="https://ca.indeed.com/viewjob?jk=b67995493b574dee" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Indeed" data-scraped="1789132205"><div class="job-card__header"><span class="job-source" style="background:#7A9DB0">Indeed</span><span class="badge-new">NEW</span></div><h3 class="job-title">Product Development Designer, Architectural Design - Alberta House Building (Calgary, AB)</h3><p class="job-company">Anthem Properties</p><p class="job-location">📍 Calgary, AB, CA</p><p class="job-date">🕐 2026-08-19</p><p class="job-desc">**You are**
+
+
+* A strong communicator
+* An active listener who seeks to understand and listen to others
+* A creative problem solve…</p></a></div></div>
   </section>
 
   <!-- All listings tab -->
@@ -227,7 +237,18 @@ body{
       <button class="filter-btn date-btn" onclick="filterDate(7,this)">Last Week</button>
       <button class="filter-btn date-btn" onclick="filterDate(14,this)">Last 2 Weeks</button>
     </div>
-    <div class="jobs-grid" id="all-grid"><div class="job-card-wrap" data-job-id="jobspy_fb801cefc9b9a8c3"><button class="dismiss-btn" onclick="dismissJob('jobspy_fb801cefc9b9a8c3',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4464907667" target="_blank" rel="noopener" class="job-card" data-source="Linkedin" data-scraped="1788960104"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span></div><h3 class="job-title">Capital Projects - Intern</h3><p class="job-company">SECURE</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 nan</p><p class="job-desc">**About Us**
+    <div class="jobs-grid" id="all-grid"><div class="job-card-wrap" data-job-id="jobspy_0efd187b5d44681a"><button class="dismiss-btn" onclick="dismissJob('jobspy_0efd187b5d44681a',event)" title="Hide this listing">✕</button><a href="https://ca.indeed.com/viewjob?jk=b67995493b574dee" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Indeed" data-scraped="1789132205"><div class="job-card__header"><span class="job-source" style="background:#7A9DB0">Indeed</span><span class="badge-new">NEW</span></div><h3 class="job-title">Product Development Designer, Architectural Design - Alberta House Building (Calgary, AB)</h3><p class="job-company">Anthem Properties</p><p class="job-location">📍 Calgary, AB, CA</p><p class="job-date">🕐 2026-08-19</p><p class="job-desc">**You are**
+
+
+* A strong communicator
+* An active listener who seeks to understand and listen to others
+* A creative problem solve…</p></a></div>
+<div class="job-card-wrap" data-job-id="jobspy_525c2a88b5a7f7a1"><button class="dismiss-btn" onclick="dismissJob('jobspy_525c2a88b5a7f7a1',event)" title="Hide this listing">✕</button><a href="https://ca.indeed.com/viewjob?jk=47f651cc530ff1c2" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Indeed" data-scraped="1789132205"><div class="job-card__header"><span class="job-source" style="background:#7A9DB0">Indeed</span><span class="badge-new">NEW</span></div><h3 class="job-title">Production Designer, Architectural Design - Alberta House Building (Calgary, AB)</h3><p class="job-company">Anthem Properties</p><p class="job-location">📍 Calgary, AB, CA</p><p class="job-date">🕐 2026-08-20</p><p class="job-desc">**You are**
+
+
+* A strong communicator, who can share information across multiple teams effectively
+* An empathetic team member, wh…</p></a></div>
+<div class="job-card-wrap" data-job-id="jobspy_fb801cefc9b9a8c3"><button class="dismiss-btn" onclick="dismissJob('jobspy_fb801cefc9b9a8c3',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4464907667" target="_blank" rel="noopener" class="job-card" data-source="Linkedin" data-scraped="1788960104"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span></div><h3 class="job-title">Capital Projects - Intern</h3><p class="job-company">SECURE</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 nan</p><p class="job-desc">**About Us**
  At SECURE, we lead the way in waste management and energy infrastructure, providing unmatched security and peace of …</p></a></div>
 <div class="job-card-wrap" data-job-id="jobspy_5229ea8c2771fd81"><button class="dismiss-btn" onclick="dismissJob('jobspy_5229ea8c2771fd81',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4454652670" target="_blank" rel="noopener" class="job-card" data-source="Linkedin" data-scraped="1788960104"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span></div><h3 class="job-title">September 2027 - Data Enablement (Non-CPA) - 8 month Co-op - Calgary</h3><p class="job-company">PwC Canada</p><p class="job-location">📍 </p><p class="job-date">🕐 2026-08-21</p><p class="job-desc">At PwC Canada, we’re more than a professional services firm—we’re a community of solvers tackling the world’s most important probl…</p></a></div>
 <div class="job-card-wrap" data-job-id="jobspy_530427419ba6dd4c"><button class="dismiss-btn" onclick="dismissJob('jobspy_530427419ba6dd4c',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4464650323" target="_blank" rel="noopener" class="job-card" data-source="Linkedin" data-scraped="1788960040"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span></div><h3 class="job-title">Windows Defender Architect(Cyber Security, Tools Tower Lead)</h3><p class="job-company">K&K Global Talent Solutions INC.</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 nan</p><p class="job-desc">**Role :: Windows Defender Architect(Cyber Security, Tools Tower Lead)** 
@@ -764,11 +785,6 @@ Intern…</p></a></div>
 * Opportunity for advancement
 * Training \& development
 * Vision in…</p></a></div>
-<div class="job-card-wrap" data-job-id="jobspy_6e4b5529f6940dd2"><button class="dismiss-btn" onclick="dismissJob('jobspy_6e4b5529f6940dd2',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4453055381" target="_blank" rel="noopener" class="job-card" data-source="Linkedin" data-scraped="1786528707"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span></div><h3 class="job-title">Architect, Workplace and Power Platform</h3><p class="job-company">Softchoice</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 nan</p><p class="job-desc">**Why You’ll Love Softchoice**
- At Softchoice, a World Wide Technology (WWT) company, we work together to make a new world happen.…</p></a></div>
-<div class="job-card-wrap" data-job-id="jobspy_8dff1ee8ef307ee7"><button class="dismiss-btn" onclick="dismissJob('jobspy_8dff1ee8ef307ee7',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4434437650" target="_blank" rel="noopener" class="job-card" data-source="Linkedin" data-scraped="1786528464"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span></div><h3 class="job-title">Associate Analog Design Engineer</h3><p class="job-company">Semtech</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 nan</p><p class="job-desc">**Job Description**
-**Our Team:**
- Semtech's Signal Integrity Products group designs analog and mixed\-signal Integrated Circuits …</p></a></div>
 <div class="job-card-wrap" data-job-id="firm_bec01a020a666b59"><button class="dismiss-btn" onclick="dismissJob('firm_bec01a020a666b59',event)" title="Hide this listing">✕</button><a href="https://www.mckinleystudios.com/careers/registered-architect" target="_blank" rel="noopener" class="job-card" data-source="Firm Website" data-scraped="1773606385"><div class="job-card__header"><span class="job-source" style="background:#503228">Firm Website</span></div><h3 class="job-title">registered architect / yyc + yvr</h3><p class="job-company">McKinley Studios</p><p class="job-location">📍 Calgary, AB</p><p class="job-date">🕐 On firm website</p><p class="job-desc">Listed on McKinley Studios careers page…</p></a></div></div>
   </section>
 
