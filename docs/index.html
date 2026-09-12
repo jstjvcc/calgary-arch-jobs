@@ -183,8 +183,8 @@ body{
       <div class="masthead__city">📍 Calgary, Alberta</div>
     </div>
     <div style="text-align:right">
-      <div class="masthead__date">Updated September 11, 2026</div>
-      <div class="counter">2</div>
+      <div class="masthead__date">Updated September 12, 2026</div>
+      <div class="counter">3</div>
       <span class="counter__label">New today</span>
     </div>
   </div>
@@ -202,23 +202,16 @@ body{
   <!-- Tab nav -->
   <div class="tab-nav">
     <button class="tab-btn active" onclick="switchTab('listings',this)">All Listings</button>
-    <button class="tab-btn" onclick="switchTab('new',this)">New Today <span class="tab-count" id="new-count-badge">2</span></button>
+    <button class="tab-btn" onclick="switchTab('new',this)">New Today <span class="tab-count" id="new-count-badge">3</span></button>
     <button class="tab-btn" onclick="switchTab('hidden',this)">Hidden <span class="tab-count" id="hidden-count-badge">0</span></button>
   </div>
 
   <!-- New today tab -->
   <section id="tab-new" class="tab-panel" style="display:none">
-    <div class="jobs-grid" id="new-grid"><div class="job-card-wrap" data-job-id="jobspy_525c2a88b5a7f7a1"><button class="dismiss-btn" onclick="dismissJob('jobspy_525c2a88b5a7f7a1',event)" title="Hide this listing">✕</button><a href="https://ca.indeed.com/viewjob?jk=47f651cc530ff1c2" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Indeed" data-scraped="1789132205"><div class="job-card__header"><span class="job-source" style="background:#7A9DB0">Indeed</span><span class="badge-new">NEW</span></div><h3 class="job-title">Production Designer, Architectural Design - Alberta House Building (Calgary, AB)</h3><p class="job-company">Anthem Properties</p><p class="job-location">📍 Calgary, AB, CA</p><p class="job-date">🕐 2026-08-20</p><p class="job-desc">**You are**
-
-
-* A strong communicator, who can share information across multiple teams effectively
-* An empathetic team member, wh…</p></a></div>
-<div class="job-card-wrap" data-job-id="jobspy_0efd187b5d44681a"><button class="dismiss-btn" onclick="dismissJob('jobspy_0efd187b5d44681a',event)" title="Hide this listing">✕</button><a href="https://ca.indeed.com/viewjob?jk=b67995493b574dee" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Indeed" data-scraped="1789132205"><div class="job-card__header"><span class="job-source" style="background:#7A9DB0">Indeed</span><span class="badge-new">NEW</span></div><h3 class="job-title">Product Development Designer, Architectural Design - Alberta House Building (Calgary, AB)</h3><p class="job-company">Anthem Properties</p><p class="job-location">📍 Calgary, AB, CA</p><p class="job-date">🕐 2026-08-19</p><p class="job-desc">**You are**
-
-
-* A strong communicator
-* An active listener who seeks to understand and listen to others
-* A creative problem solve…</p></a></div></div>
+    <div class="jobs-grid" id="new-grid"><div class="job-card-wrap" data-job-id="jobspy_98a68fa8f94057fe"><button class="dismiss-btn" onclick="dismissJob('jobspy_98a68fa8f94057fe',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4466351726" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Linkedin" data-scraped="1789216221"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span><span class="badge-new">NEW</span></div><h3 class="job-title">Co-op/Intern Enterprise Platforms</h3><p class="job-company">Kinaxis</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 nan</p><p class="job-desc">**About Kinaxis**
+ Are you looking to join an innovative, market\-leading company where you can truly elevate your career? At Kina…</p></a></div>
+<div class="job-card-wrap" data-job-id="jobspy_2933b56e226169e0"><button class="dismiss-btn" onclick="dismissJob('jobspy_2933b56e226169e0',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4465314804" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Linkedin" data-scraped="1789216452"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span><span class="badge-new">NEW</span></div><h3 class="job-title">Intern/Co-op - Environmental (Summer 2027)</h3><p class="job-company">Langan Engineering & Environmental Services</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-09-09</p><p class="job-desc">Langan provides expert land development engineering and environmental consulting services for major developers, renewable energy p…</p></a></div>
+<div class="job-card-wrap" data-job-id="linkedin_4c213ee3365fa9d8"><button class="dismiss-btn" onclick="dismissJob('linkedin_4c213ee3365fa9d8',event)" title="Hide this listing">✕</button><a href="https://ca.linkedin.com/jobs/view/architect-professional-services-at-softchoice-4433256676" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="LinkedIn" data-scraped="1789216487"><div class="job-card__header"><span class="job-source" style="background:#7A9DB0">LinkedIn</span><span class="badge-new">NEW</span></div><h3 class="job-title">Architect, Professional Services</h3><p class="job-company">Softchoice</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-09-11</p></a></div></div>
   </section>
 
   <!-- All listings tab -->
@@ -227,6 +220,7 @@ body{
       <button class="filter-btn active" onclick="filterJobs('all',this)">All</button>
       <button class="filter-btn" onclick="filterJobs('Firm Website',this)">Firm Website</button>
 <button class="filter-btn" onclick="filterJobs('Indeed',this)">Indeed</button>
+<button class="filter-btn" onclick="filterJobs('LinkedIn',this)">LinkedIn</button>
 <button class="filter-btn" onclick="filterJobs('Linkedin',this)">Linkedin</button>
     </div>
     <div class="filters" style="margin-top:-0.75rem">
@@ -237,13 +231,17 @@ body{
       <button class="filter-btn date-btn" onclick="filterDate(7,this)">Last Week</button>
       <button class="filter-btn date-btn" onclick="filterDate(14,this)">Last 2 Weeks</button>
     </div>
-    <div class="jobs-grid" id="all-grid"><div class="job-card-wrap" data-job-id="jobspy_0efd187b5d44681a"><button class="dismiss-btn" onclick="dismissJob('jobspy_0efd187b5d44681a',event)" title="Hide this listing">✕</button><a href="https://ca.indeed.com/viewjob?jk=b67995493b574dee" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Indeed" data-scraped="1789132205"><div class="job-card__header"><span class="job-source" style="background:#7A9DB0">Indeed</span><span class="badge-new">NEW</span></div><h3 class="job-title">Product Development Designer, Architectural Design - Alberta House Building (Calgary, AB)</h3><p class="job-company">Anthem Properties</p><p class="job-location">📍 Calgary, AB, CA</p><p class="job-date">🕐 2026-08-19</p><p class="job-desc">**You are**
+    <div class="jobs-grid" id="all-grid"><div class="job-card-wrap" data-job-id="linkedin_4c213ee3365fa9d8"><button class="dismiss-btn" onclick="dismissJob('linkedin_4c213ee3365fa9d8',event)" title="Hide this listing">✕</button><a href="https://ca.linkedin.com/jobs/view/architect-professional-services-at-softchoice-4433256676" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="LinkedIn" data-scraped="1789216487"><div class="job-card__header"><span class="job-source" style="background:#7A9DB0">LinkedIn</span><span class="badge-new">NEW</span></div><h3 class="job-title">Architect, Professional Services</h3><p class="job-company">Softchoice</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-09-11</p></a></div>
+<div class="job-card-wrap" data-job-id="jobspy_2933b56e226169e0"><button class="dismiss-btn" onclick="dismissJob('jobspy_2933b56e226169e0',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4465314804" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Linkedin" data-scraped="1789216452"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span><span class="badge-new">NEW</span></div><h3 class="job-title">Intern/Co-op - Environmental (Summer 2027)</h3><p class="job-company">Langan Engineering & Environmental Services</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-09-09</p><p class="job-desc">Langan provides expert land development engineering and environmental consulting services for major developers, renewable energy p…</p></a></div>
+<div class="job-card-wrap" data-job-id="jobspy_98a68fa8f94057fe"><button class="dismiss-btn" onclick="dismissJob('jobspy_98a68fa8f94057fe',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4466351726" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Linkedin" data-scraped="1789216221"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span><span class="badge-new">NEW</span></div><h3 class="job-title">Co-op/Intern Enterprise Platforms</h3><p class="job-company">Kinaxis</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 nan</p><p class="job-desc">**About Kinaxis**
+ Are you looking to join an innovative, market\-leading company where you can truly elevate your career? At Kina…</p></a></div>
+<div class="job-card-wrap" data-job-id="jobspy_0efd187b5d44681a"><button class="dismiss-btn" onclick="dismissJob('jobspy_0efd187b5d44681a',event)" title="Hide this listing">✕</button><a href="https://ca.indeed.com/viewjob?jk=b67995493b574dee" target="_blank" rel="noopener" class="job-card" data-source="Indeed" data-scraped="1789132205"><div class="job-card__header"><span class="job-source" style="background:#7A9DB0">Indeed</span></div><h3 class="job-title">Product Development Designer, Architectural Design - Alberta House Building (Calgary, AB)</h3><p class="job-company">Anthem Properties</p><p class="job-location">📍 Calgary, AB, CA</p><p class="job-date">🕐 2026-08-19</p><p class="job-desc">**You are**
 
 
 * A strong communicator
 * An active listener who seeks to understand and listen to others
 * A creative problem solve…</p></a></div>
-<div class="job-card-wrap" data-job-id="jobspy_525c2a88b5a7f7a1"><button class="dismiss-btn" onclick="dismissJob('jobspy_525c2a88b5a7f7a1',event)" title="Hide this listing">✕</button><a href="https://ca.indeed.com/viewjob?jk=47f651cc530ff1c2" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Indeed" data-scraped="1789132205"><div class="job-card__header"><span class="job-source" style="background:#7A9DB0">Indeed</span><span class="badge-new">NEW</span></div><h3 class="job-title">Production Designer, Architectural Design - Alberta House Building (Calgary, AB)</h3><p class="job-company">Anthem Properties</p><p class="job-location">📍 Calgary, AB, CA</p><p class="job-date">🕐 2026-08-20</p><p class="job-desc">**You are**
+<div class="job-card-wrap" data-job-id="jobspy_525c2a88b5a7f7a1"><button class="dismiss-btn" onclick="dismissJob('jobspy_525c2a88b5a7f7a1',event)" title="Hide this listing">✕</button><a href="https://ca.indeed.com/viewjob?jk=47f651cc530ff1c2" target="_blank" rel="noopener" class="job-card" data-source="Indeed" data-scraped="1789132205"><div class="job-card__header"><span class="job-source" style="background:#7A9DB0">Indeed</span></div><h3 class="job-title">Production Designer, Architectural Design - Alberta House Building (Calgary, AB)</h3><p class="job-company">Anthem Properties</p><p class="job-location">📍 Calgary, AB, CA</p><p class="job-date">🕐 2026-08-20</p><p class="job-desc">**You are**
 
 
 * A strong communicator, who can share information across multiple teams effectively
