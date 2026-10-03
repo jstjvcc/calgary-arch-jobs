@@ -183,8 +183,8 @@ body{
       <div class="masthead__city">📍 Calgary, Alberta</div>
     </div>
     <div style="text-align:right">
-      <div class="masthead__date">Updated October 02, 2026</div>
-      <div class="counter">0</div>
+      <div class="masthead__date">Updated October 03, 2026</div>
+      <div class="counter">3</div>
       <span class="counter__label">New today</span>
     </div>
   </div>
@@ -202,13 +202,17 @@ body{
   <!-- Tab nav -->
   <div class="tab-nav">
     <button class="tab-btn active" onclick="switchTab('listings',this)">All Listings</button>
-    <button class="tab-btn" onclick="switchTab('new',this)">New Today <span class="tab-count" id="new-count-badge">0</span></button>
+    <button class="tab-btn" onclick="switchTab('new',this)">New Today <span class="tab-count" id="new-count-badge">3</span></button>
     <button class="tab-btn" onclick="switchTab('hidden',this)">Hidden <span class="tab-count" id="hidden-count-badge">0</span></button>
   </div>
 
   <!-- New today tab -->
   <section id="tab-new" class="tab-panel" style="display:none">
-    <div class="jobs-grid" id="new-grid"><p class="no-jobs">No new jobs today — check back tomorrow! 🏛</p></div>
+    <div class="jobs-grid" id="new-grid"><div class="job-card-wrap" data-job-id="jobspy_89dd71afad7c357e"><button class="dismiss-btn" onclick="dismissJob('jobspy_89dd71afad7c357e',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4475086228" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Linkedin" data-scraped="1791036250"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span><span class="badge-new">NEW</span></div><h3 class="job-title">Geomatics Internship - Major Projects - May 2027</h3><p class="job-company">McElhanney</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-10-03</p><p class="job-desc">**About McElhanney**
+Based in Western Canada for over 110 years, McElhanney offers innovative and practical engineering, surveying…</p></a></div>
+<div class="job-card-wrap" data-job-id="jobspy_1f1c73f3c01a9c7e"><button class="dismiss-btn" onclick="dismissJob('jobspy_1f1c73f3c01a9c7e',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4473174800" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Linkedin" data-scraped="1791036250"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span><span class="badge-new">NEW</span></div><h3 class="job-title">AI & Automation Consultant Intern / Stagiaire conseiller en IA et automatisation</h3><p class="job-company">IBM</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-10-02</p><p class="job-desc">**Introduction**
+A career in IBM Consulting is rooted by long term relationships and close collaboration with clients across the g…</p></a></div>
+<div class="job-card-wrap" data-job-id="jobspy_5106cd6aa5046211"><button class="dismiss-btn" onclick="dismissJob('jobspy_5106cd6aa5046211',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4470626228" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Linkedin" data-scraped="1791036280"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span><span class="badge-new">NEW</span></div><h3 class="job-title">Distribution Designer</h3><p class="job-company">Iconic Power Systems Inc.</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-09-22</p><p class="job-desc">Reporting to the Engineering Lead, the Distribution Designer is responsible for designing and reviewing utility distribution proje…</p></a></div></div>
   </section>
 
   <!-- All listings tab -->
@@ -228,7 +232,12 @@ body{
       <button class="filter-btn date-btn" onclick="filterDate(7,this)">Last Week</button>
       <button class="filter-btn date-btn" onclick="filterDate(14,this)">Last 2 Weeks</button>
     </div>
-    <div class="jobs-grid" id="all-grid"><div class="job-card-wrap" data-job-id="jobspy_c1e541b08279ee3f"><button class="dismiss-btn" onclick="dismissJob('jobspy_c1e541b08279ee3f',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4463197717" target="_blank" rel="noopener" class="job-card" data-source="Linkedin" data-scraped="1790695067"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span></div><h3 class="job-title">New Graduate, Building Structural</h3><p class="job-company">AtkinsRéalis</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-09-09</p><p class="job-desc">**Overview**
+    <div class="jobs-grid" id="all-grid"><div class="job-card-wrap" data-job-id="jobspy_5106cd6aa5046211"><button class="dismiss-btn" onclick="dismissJob('jobspy_5106cd6aa5046211',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4470626228" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Linkedin" data-scraped="1791036280"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span><span class="badge-new">NEW</span></div><h3 class="job-title">Distribution Designer</h3><p class="job-company">Iconic Power Systems Inc.</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-09-22</p><p class="job-desc">Reporting to the Engineering Lead, the Distribution Designer is responsible for designing and reviewing utility distribution proje…</p></a></div>
+<div class="job-card-wrap" data-job-id="jobspy_1f1c73f3c01a9c7e"><button class="dismiss-btn" onclick="dismissJob('jobspy_1f1c73f3c01a9c7e',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4473174800" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Linkedin" data-scraped="1791036250"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span><span class="badge-new">NEW</span></div><h3 class="job-title">AI & Automation Consultant Intern / Stagiaire conseiller en IA et automatisation</h3><p class="job-company">IBM</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-10-02</p><p class="job-desc">**Introduction**
+A career in IBM Consulting is rooted by long term relationships and close collaboration with clients across the g…</p></a></div>
+<div class="job-card-wrap" data-job-id="jobspy_89dd71afad7c357e"><button class="dismiss-btn" onclick="dismissJob('jobspy_89dd71afad7c357e',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4475086228" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Linkedin" data-scraped="1791036250"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span><span class="badge-new">NEW</span></div><h3 class="job-title">Geomatics Internship - Major Projects - May 2027</h3><p class="job-company">McElhanney</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-10-03</p><p class="job-desc">**About McElhanney**
+Based in Western Canada for over 110 years, McElhanney offers innovative and practical engineering, surveying…</p></a></div>
+<div class="job-card-wrap" data-job-id="jobspy_c1e541b08279ee3f"><button class="dismiss-btn" onclick="dismissJob('jobspy_c1e541b08279ee3f',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4463197717" target="_blank" rel="noopener" class="job-card" data-source="Linkedin" data-scraped="1790695067"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span></div><h3 class="job-title">New Graduate, Building Structural</h3><p class="job-company">AtkinsRéalis</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-09-09</p><p class="job-desc">**Overview**
 **Kickstart your career with our Odyssey Program!**
  Designed exclusively for recent graduates, Odyssey is more than …</p></a></div>
 <div class="job-card-wrap" data-job-id="jobspy_72e4d84a1df31acf"><button class="dismiss-btn" onclick="dismissJob('jobspy_72e4d84a1df31acf',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4469642024" target="_blank" rel="noopener" class="job-card" data-source="Linkedin" data-scraped="1790695039"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span></div><h3 class="job-title">Engineering Co-op Student - Water (Summer 2027) - 16 Month Term</h3><p class="job-company">Stantec</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-09-23</p><p class="job-desc">Learning begins in the classroom but there’s no better place to gain real\-world experience than with Stantec. Interns are an inte…</p></a></div>
@@ -515,37 +524,6 @@ Ma…</p></a></div>
  Designed exclusively for recent graduates, Odyssey is more than …</p></a></div>
 <div class="job-card-wrap" data-job-id="jobspy_7c3478195e7c07fe"><button class="dismiss-btn" onclick="dismissJob('jobspy_7c3478195e7c07fe',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4463153805" target="_blank" rel="noopener" class="job-card" data-source="Linkedin" data-scraped="1788526877"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span></div><h3 class="job-title">Geomatics Engineer Intern</h3><p class="job-company">CNH</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 nan</p><p class="job-desc">**About Us**
  Innovation. Sustainability. Productivity. This is how we are Breaking New Ground in our mission to sustainably advan…</p></a></div>
-<div class="job-card-wrap" data-job-id="jobspy_fa3b5a14dd00d6a2"><button class="dismiss-btn" onclick="dismissJob('jobspy_fa3b5a14dd00d6a2',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4459503061" target="_blank" rel="noopener" class="job-card" data-source="Linkedin" data-scraped="1788441190"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span></div><h3 class="job-title">Summer 2027 Long Term AGS Libraries Intern/Co-op</h3><p class="job-company">AMD</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-09-01</p><p class="job-desc">**ADVANCE YOUR CAREER. ADVANCE THE WORLD.**
- At AMD, we believe technology can change lives for the better. It can heal us, entert…</p></a></div>
-<div class="job-card-wrap" data-job-id="jobspy_80611ac0c83f04ce"><button class="dismiss-btn" onclick="dismissJob('jobspy_80611ac0c83f04ce',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4460512152" target="_blank" rel="noopener" class="job-card" data-source="Linkedin" data-scraped="1788441065"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span></div><h3 class="job-title">Tech & Transformation - Cyber - Enterprise Security - New Grad 2027 - Multiple Locations</h3><p class="job-company">Deloitte</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-08-28</p><p class="job-desc">**Job Type:** 
- New Graduate
- **Work Model:** 
- Hybrid
-   
-
-  
-
-**Reference code:** 
- 134492
- **Primary Location:** 
- Toronto, ON
-…</p></a></div>
-<div class="job-card-wrap" data-job-id="jobspy_a1b3e8ace0a48a1b"><button class="dismiss-btn" onclick="dismissJob('jobspy_a1b3e8ace0a48a1b',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4460056425" target="_blank" rel="noopener" class="job-card" data-source="Linkedin" data-scraped="1788441065"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span></div><h3 class="job-title">Equipment Planner (Calgary/Edmonton) - Kiewit Equipment Services</h3><p class="job-company">Kiewit</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-08-31</p><p class="job-desc">**Requisition ID:** 
- 180445
-   
-
-  
-
-**Job Level:** 
- Entry Level
-   
-
-  
-
-**Home District/Group:** 
- Kiewit Equipment Services
- …</p></a></div>
-<div class="job-card-wrap" data-job-id="jobspy_5013e0a5bd1868bf"><button class="dismiss-btn" onclick="dismissJob('jobspy_5013e0a5bd1868bf',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4461331920" target="_blank" rel="noopener" class="job-card" data-source="Linkedin" data-scraped="1788440818"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span></div><h3 class="job-title">Land and Right of Way Co-op Student (12-month term)</h3><p class="job-company">Trans Mountain</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 nan</p><p class="job-desc">Trans Mountain Corporation operates Canada’s only pipeline system transporting oil products to the West Coast. We deliver approxim…</p></a></div>
 <div class="job-card-wrap" data-job-id="firm_bec01a020a666b59"><button class="dismiss-btn" onclick="dismissJob('firm_bec01a020a666b59',event)" title="Hide this listing">✕</button><a href="https://www.mckinleystudios.com/careers/registered-architect" target="_blank" rel="noopener" class="job-card" data-source="Firm Website" data-scraped="1773606385"><div class="job-card__header"><span class="job-source" style="background:#503228">Firm Website</span></div><h3 class="job-title">registered architect / yyc + yvr</h3><p class="job-company">McKinley Studios</p><p class="job-location">📍 Calgary, AB</p><p class="job-date">🕐 On firm website</p><p class="job-desc">Listed on McKinley Studios careers page…</p></a></div></div>
   </section>
 
