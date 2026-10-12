@@ -11,39 +11,6 @@
     "scraped_at": "2026-03-15T20:26:25.265869"
   },
   {
-    "id": "jobspy_98a68fa8f94057fe",
-    "title": "Co-op/Intern Enterprise Platforms",
-    "company": "Kinaxis",
-    "location": "Calgary, Alberta, Canada",
-    "source": "Linkedin",
-    "url": "https://www.linkedin.com/jobs/view/4466351726",
-    "date": "nan",
-    "description": "**About Kinaxis**\n Are you looking to join an innovative, market\\-leading company where you can truly elevate your career? At Kinaxis we are serious about culture, we are serious about technology, we are serious about customers, and we are serious about not taking ourselves too seriously. If you are looking to be part of an incredible growth story, then we might just be the place for you!\n   \n\n  \n\n In 1984, we started out as a team of three engineers. Today, we have grown to become a global orga",
-    "scraped_at": "2026-09-12T12:30:21.260270"
-  },
-  {
-    "id": "jobspy_2933b56e226169e0",
-    "title": "Intern/Co-op - Environmental (Summer 2027)",
-    "company": "Langan Engineering & Environmental Services",
-    "location": "Calgary, Alberta, Canada",
-    "source": "Linkedin",
-    "url": "https://www.linkedin.com/jobs/view/4465314804",
-    "date": "2026-09-09",
-    "description": "Langan provides expert land development engineering and environmental consulting services for major developers, renewable energy producers, energy companies, corporations, healthcare systems, colleges/universities, and large infrastructure programs throughout North America and around the world. Our employees collaborate seamlessly among 50\\+ offices and gain valuable hands\\-on experience that fosters career growth. Langan culture is entrepreneurial from advancing innovative technical solutions, ",
-    "scraped_at": "2026-09-12T12:34:12.029879"
-  },
-  {
-    "id": "linkedin_4c213ee3365fa9d8",
-    "title": "Architect, Professional Services",
-    "company": "Softchoice",
-    "location": "Calgary, Alberta, Canada",
-    "source": "LinkedIn",
-    "url": "https://ca.linkedin.com/jobs/view/architect-professional-services-at-softchoice-4433256676",
-    "date": "2026-09-11",
-    "description": "",
-    "scraped_at": "2026-09-12T12:34:47.683976"
-  },
-  {
     "id": "jobspy_f242554579efee05",
     "title": "Production Designer, Architectural Design - Alberta House Building (Calgary, AB)",
     "company": "Anthem Properties Group Ltd.",
@@ -559,5 +526,27 @@
     "date": "2026-10-09",
     "description": "nan",
     "scraped_at": "2026-10-11T15:16:54.475474"
+  },
+  {
+    "id": "jobspy_f3f038ccd21eb3fe",
+    "title": "Lead ServiceNow Architecture Consultant",
+    "company": "CGI",
+    "location": "Calgary, Alberta, Canada",
+    "source": "Linkedin",
+    "url": "https://www.linkedin.com/jobs/view/4463692648",
+    "date": "2026-09-26",
+    "description": "nan",
+    "scraped_at": "2026-10-12T18:20:13.922178"
+  },
+  {
+    "id": "jobspy_fcfce123b9fdedd1",
+    "title": "Architect, Professional Services",
+    "company": "Softchoice",
+    "location": "Calgary, Alberta, Canada",
+    "source": "Linkedin",
+    "url": "https://www.linkedin.com/jobs/view/4435499112",
+    "date": "2026-09-26",
+    "description": "nan",
+    "scraped_at": "2026-10-12T18:22:54.946818"
   }
 ]
