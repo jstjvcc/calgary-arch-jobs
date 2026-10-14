@@ -526,5 +526,49 @@
     "date": "2026-09-26",
     "description": "nan",
     "scraped_at": "2026-10-12T18:22:54.946818"
+  },
+  {
+    "id": "jobspy_be1e718f3b71f0c1",
+    "title": "Architecte de solutions",
+    "company": "Bank of Canada",
+    "location": "Calgary, AB, Canada",
+    "source": "Indeed",
+    "url": "https://ca.indeed.com/viewjob?jk=44153ed3cf9dbd42",
+    "date": "2026-10-09",
+    "description": "Type de poste: emploi \u00e0 dur\u00e9e d\u00e9termin\u00e9e\n\nDur\u00e9e du poste: jusqu'au 31 d\u00e9cembre 2028\n\nLieu de travail:\n\nOttawa ou Calgary, CA\n\nTravail \u00e0 distance: Mod\u00e8le hybride\n\nDate de cl\u00f4ture: 25 octobre 2026 23:59 HNE\n\n**\u00c9quit\u00e9, diversit\u00e9 et inclusion**\n  \nLa Banque s\u2019engage \u00e0 se doter d\u2019une main-d\u2019\u0153uvre qui refl\u00e8te la diversit\u00e9 de notre pays et qui repr\u00e9sente et inclut tout le monde, sans \u00e9gard \u00e0 la race, \u00e0 l\u2019origine ethnique, \u00e0 la couleur, \u00e0 la religion, au sexe, \u00e0 l\u2019\u00e2ge, au handicap, \u00e0 l\u2019orientation sexue",
+    "scraped_at": "2026-10-14T14:08:46.093775"
+  },
+  {
+    "id": "linkedin_8c6f7a87395033c3",
+    "title": "Azure DevSecOps Architect",
+    "company": "Enterprise Solutions Inc.",
+    "location": "Calgary, Alberta, Canada",
+    "source": "LinkedIn",
+    "url": "https://ca.linkedin.com/jobs/view/azure-devsecops-architect-at-enterprise-solutions-inc-4478135254",
+    "date": "2026-10-13",
+    "description": "",
+    "scraped_at": "2026-10-14T14:10:59.751049"
+  },
+  {
+    "id": "linkedin_d36505e90c08a45d",
+    "title": "Azure DevSecOps Architect",
+    "company": "Smart IT Frame LLC",
+    "location": "Calgary, Alberta, Canada",
+    "source": "LinkedIn",
+    "url": "https://ca.linkedin.com/jobs/view/azure-devsecops-architect-at-smart-it-frame-llc-4478159061",
+    "date": "2026-10-13",
+    "description": "",
+    "scraped_at": "2026-10-14T14:10:59.751268"
+  },
+  {
+    "id": "linkedin_f8179a262b21cf50",
+    "title": "Azure DevSecOps Architect (Azure OpenShift)",
+    "company": "Enterprise Solutions Inc.",
+    "location": "Calgary, Alberta, Canada",
+    "source": "LinkedIn",
+    "url": "https://ca.linkedin.com/jobs/view/azure-devsecops-architect-azure-openshift-at-enterprise-solutions-inc-4478106736",
+    "date": "2026-10-13",
+    "description": "",
+    "scraped_at": "2026-10-14T14:10:59.751379"
   }
 ]

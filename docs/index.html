@@ -183,8 +183,8 @@ body{
       <div class="masthead__city">📍 Calgary, Alberta</div>
     </div>
     <div style="text-align:right">
-      <div class="masthead__date">Updated October 13, 2026</div>
-      <div class="counter">0</div>
+      <div class="masthead__date">Updated October 14, 2026</div>
+      <div class="counter">4</div>
       <span class="counter__label">New today</span>
     </div>
   </div>
@@ -202,13 +202,24 @@ body{
   <!-- Tab nav -->
   <div class="tab-nav">
     <button class="tab-btn active" onclick="switchTab('listings',this)">All Listings</button>
-    <button class="tab-btn" onclick="switchTab('new',this)">New Today <span class="tab-count" id="new-count-badge">0</span></button>
+    <button class="tab-btn" onclick="switchTab('new',this)">New Today <span class="tab-count" id="new-count-badge">4</span></button>
     <button class="tab-btn" onclick="switchTab('hidden',this)">Hidden <span class="tab-count" id="hidden-count-badge">0</span></button>
   </div>
 
   <!-- New today tab -->
   <section id="tab-new" class="tab-panel" style="display:none">
-    <div class="jobs-grid" id="new-grid"><p class="no-jobs">No new jobs today — check back tomorrow! 🏛</p></div>
+    <div class="jobs-grid" id="new-grid"><div class="job-card-wrap" data-job-id="jobspy_be1e718f3b71f0c1"><button class="dismiss-btn" onclick="dismissJob('jobspy_be1e718f3b71f0c1',event)" title="Hide this listing">✕</button><a href="https://ca.indeed.com/viewjob?jk=44153ed3cf9dbd42" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Indeed" data-scraped="1791986926"><div class="job-card__header"><span class="job-source" style="background:#7A9DB0">Indeed</span><span class="badge-new">NEW</span></div><h3 class="job-title">Architecte de solutions</h3><p class="job-company">Bank of Canada</p><p class="job-location">📍 Calgary, AB, Canada</p><p class="job-date">🕐 2026-10-09</p><p class="job-desc">Type de poste: emploi à durée déterminée
+
+Durée du poste: jusqu'au 31 décembre 2028
+
+Lieu de travail:
+
+Ottawa ou Calgary, CA
+
+Trav…</p></a></div>
+<div class="job-card-wrap" data-job-id="linkedin_8c6f7a87395033c3"><button class="dismiss-btn" onclick="dismissJob('linkedin_8c6f7a87395033c3',event)" title="Hide this listing">✕</button><a href="https://ca.linkedin.com/jobs/view/azure-devsecops-architect-at-enterprise-solutions-inc-4478135254" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="LinkedIn" data-scraped="1791987059"><div class="job-card__header"><span class="job-source" style="background:#7A9DB0">LinkedIn</span><span class="badge-new">NEW</span></div><h3 class="job-title">Azure DevSecOps Architect</h3><p class="job-company">Enterprise Solutions Inc.</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-10-13</p></a></div>
+<div class="job-card-wrap" data-job-id="linkedin_d36505e90c08a45d"><button class="dismiss-btn" onclick="dismissJob('linkedin_d36505e90c08a45d',event)" title="Hide this listing">✕</button><a href="https://ca.linkedin.com/jobs/view/azure-devsecops-architect-at-smart-it-frame-llc-4478159061" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="LinkedIn" data-scraped="1791987059"><div class="job-card__header"><span class="job-source" style="background:#7A9DB0">LinkedIn</span><span class="badge-new">NEW</span></div><h3 class="job-title">Azure DevSecOps Architect</h3><p class="job-company">Smart IT Frame LLC</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-10-13</p></a></div>
+<div class="job-card-wrap" data-job-id="linkedin_f8179a262b21cf50"><button class="dismiss-btn" onclick="dismissJob('linkedin_f8179a262b21cf50',event)" title="Hide this listing">✕</button><a href="https://ca.linkedin.com/jobs/view/azure-devsecops-architect-azure-openshift-at-enterprise-solutions-inc-4478106736" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="LinkedIn" data-scraped="1791987059"><div class="job-card__header"><span class="job-source" style="background:#7A9DB0">LinkedIn</span><span class="badge-new">NEW</span></div><h3 class="job-title">Azure DevSecOps Architect (Azure OpenShift)</h3><p class="job-company">Enterprise Solutions Inc.</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-10-13</p></a></div></div>
   </section>
 
   <!-- All listings tab -->
@@ -217,6 +228,7 @@ body{
       <button class="filter-btn active" onclick="filterJobs('all',this)">All</button>
       <button class="filter-btn" onclick="filterJobs('Firm Website',this)">Firm Website</button>
 <button class="filter-btn" onclick="filterJobs('Indeed',this)">Indeed</button>
+<button class="filter-btn" onclick="filterJobs('LinkedIn',this)">LinkedIn</button>
 <button class="filter-btn" onclick="filterJobs('Linkedin',this)">Linkedin</button>
     </div>
     <div class="filters" style="margin-top:-0.75rem">
@@ -227,7 +239,19 @@ body{
       <button class="filter-btn date-btn" onclick="filterDate(7,this)">Last Week</button>
       <button class="filter-btn date-btn" onclick="filterDate(14,this)">Last 2 Weeks</button>
     </div>
-    <div class="jobs-grid" id="all-grid"><div class="job-card-wrap" data-job-id="jobspy_fcfce123b9fdedd1"><button class="dismiss-btn" onclick="dismissJob('jobspy_fcfce123b9fdedd1',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4435499112" target="_blank" rel="noopener" class="job-card" data-source="Linkedin" data-scraped="1791829374"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span></div><h3 class="job-title">Architect, Professional Services</h3><p class="job-company">Softchoice</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-09-26</p><p class="job-desc">nan…</p></a></div>
+    <div class="jobs-grid" id="all-grid"><div class="job-card-wrap" data-job-id="linkedin_f8179a262b21cf50"><button class="dismiss-btn" onclick="dismissJob('linkedin_f8179a262b21cf50',event)" title="Hide this listing">✕</button><a href="https://ca.linkedin.com/jobs/view/azure-devsecops-architect-azure-openshift-at-enterprise-solutions-inc-4478106736" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="LinkedIn" data-scraped="1791987059"><div class="job-card__header"><span class="job-source" style="background:#7A9DB0">LinkedIn</span><span class="badge-new">NEW</span></div><h3 class="job-title">Azure DevSecOps Architect (Azure OpenShift)</h3><p class="job-company">Enterprise Solutions Inc.</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-10-13</p></a></div>
+<div class="job-card-wrap" data-job-id="linkedin_d36505e90c08a45d"><button class="dismiss-btn" onclick="dismissJob('linkedin_d36505e90c08a45d',event)" title="Hide this listing">✕</button><a href="https://ca.linkedin.com/jobs/view/azure-devsecops-architect-at-smart-it-frame-llc-4478159061" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="LinkedIn" data-scraped="1791987059"><div class="job-card__header"><span class="job-source" style="background:#7A9DB0">LinkedIn</span><span class="badge-new">NEW</span></div><h3 class="job-title">Azure DevSecOps Architect</h3><p class="job-company">Smart IT Frame LLC</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-10-13</p></a></div>
+<div class="job-card-wrap" data-job-id="linkedin_8c6f7a87395033c3"><button class="dismiss-btn" onclick="dismissJob('linkedin_8c6f7a87395033c3',event)" title="Hide this listing">✕</button><a href="https://ca.linkedin.com/jobs/view/azure-devsecops-architect-at-enterprise-solutions-inc-4478135254" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="LinkedIn" data-scraped="1791987059"><div class="job-card__header"><span class="job-source" style="background:#7A9DB0">LinkedIn</span><span class="badge-new">NEW</span></div><h3 class="job-title">Azure DevSecOps Architect</h3><p class="job-company">Enterprise Solutions Inc.</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-10-13</p></a></div>
+<div class="job-card-wrap" data-job-id="jobspy_be1e718f3b71f0c1"><button class="dismiss-btn" onclick="dismissJob('jobspy_be1e718f3b71f0c1',event)" title="Hide this listing">✕</button><a href="https://ca.indeed.com/viewjob?jk=44153ed3cf9dbd42" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Indeed" data-scraped="1791986926"><div class="job-card__header"><span class="job-source" style="background:#7A9DB0">Indeed</span><span class="badge-new">NEW</span></div><h3 class="job-title">Architecte de solutions</h3><p class="job-company">Bank of Canada</p><p class="job-location">📍 Calgary, AB, Canada</p><p class="job-date">🕐 2026-10-09</p><p class="job-desc">Type de poste: emploi à durée déterminée
+
+Durée du poste: jusqu'au 31 décembre 2028
+
+Lieu de travail:
+
+Ottawa ou Calgary, CA
+
+Trav…</p></a></div>
+<div class="job-card-wrap" data-job-id="jobspy_fcfce123b9fdedd1"><button class="dismiss-btn" onclick="dismissJob('jobspy_fcfce123b9fdedd1',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4435499112" target="_blank" rel="noopener" class="job-card" data-source="Linkedin" data-scraped="1791829374"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span></div><h3 class="job-title">Architect, Professional Services</h3><p class="job-company">Softchoice</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-09-26</p><p class="job-desc">nan…</p></a></div>
 <div class="job-card-wrap" data-job-id="jobspy_f3f038ccd21eb3fe"><button class="dismiss-btn" onclick="dismissJob('jobspy_f3f038ccd21eb3fe',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4463692648" target="_blank" rel="noopener" class="job-card" data-source="Linkedin" data-scraped="1791829213"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span></div><h3 class="job-title">Lead ServiceNow Architecture Consultant</h3><p class="job-company">CGI</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-09-26</p><p class="job-desc">nan…</p></a></div>
 <div class="job-card-wrap" data-job-id="jobspy_72326819b523ea3e"><button class="dismiss-btn" onclick="dismissJob('jobspy_72326819b523ea3e',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4476865293" target="_blank" rel="noopener" class="job-card" data-source="Linkedin" data-scraped="1791731814"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span></div><h3 class="job-title">Architecte de solutions</h3><p class="job-company">Bank of Canada</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-10-09</p><p class="job-desc">nan…</p></a></div>
 <div class="job-card-wrap" data-job-id="jobspy_55c284a4b3f3c508"><button class="dismiss-btn" onclick="dismissJob('jobspy_55c284a4b3f3c508',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4453588632" target="_blank" rel="noopener" class="job-card" data-source="Linkedin" data-scraped="1791644392"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span></div><h3 class="job-title">Architecte, Services professionnels</h3><p class="job-company">Softchoice</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-09-26</p><p class="job-desc">nan…</p></a></div>
