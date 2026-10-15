@@ -570,5 +570,27 @@
     "date": "2026-10-13",
     "description": "",
     "scraped_at": "2026-10-14T14:10:59.751379"
+  },
+  {
+    "id": "jobspy_8b72ce3ff069f39e",
+    "title": "Architect, Ontology & AI Innovation",
+    "company": "Kinaxis",
+    "location": "Calgary, Alberta, Canada",
+    "source": "Linkedin",
+    "url": "https://www.linkedin.com/jobs/view/4441643348",
+    "date": "2026-10-12",
+    "description": "nan",
+    "scraped_at": "2026-10-15T13:46:49.665736"
+  },
+  {
+    "id": "jobspy_3a2cd3584bc42858",
+    "title": "Engineering Intern - Aerostructures",
+    "company": "De Havilland Aircraft of Canada Limited",
+    "location": "Calgary, Alberta, Canada",
+    "source": "Linkedin",
+    "url": "https://www.linkedin.com/jobs/view/4479085865",
+    "date": "2026-10-13",
+    "description": "nan",
+    "scraped_at": "2026-10-15T13:49:46.912976"
   }
 ]
