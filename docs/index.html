@@ -183,8 +183,8 @@ body{
       <div class="masthead__city">📍 Calgary, Alberta</div>
     </div>
     <div style="text-align:right">
-      <div class="masthead__date">Updated October 18, 2026</div>
-      <div class="counter">2</div>
+      <div class="masthead__date">Updated October 19, 2026</div>
+      <div class="counter">0</div>
       <span class="counter__label">New today</span>
     </div>
   </div>
@@ -202,21 +202,13 @@ body{
   <!-- Tab nav -->
   <div class="tab-nav">
     <button class="tab-btn active" onclick="switchTab('listings',this)">All Listings</button>
-    <button class="tab-btn" onclick="switchTab('new',this)">New Today <span class="tab-count" id="new-count-badge">2</span></button>
+    <button class="tab-btn" onclick="switchTab('new',this)">New Today <span class="tab-count" id="new-count-badge">0</span></button>
     <button class="tab-btn" onclick="switchTab('hidden',this)">Hidden <span class="tab-count" id="hidden-count-badge">0</span></button>
   </div>
 
   <!-- New today tab -->
   <section id="tab-new" class="tab-panel" style="display:none">
-    <div class="jobs-grid" id="new-grid"><div class="job-card-wrap" data-job-id="jobspy_4df2c51d4efc7856"><button class="dismiss-btn" onclick="dismissJob('jobspy_4df2c51d4efc7856',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4479645090" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Linkedin" data-scraped="1792327969"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span><span class="badge-new">NEW</span></div><h3 class="job-title">Architectural Control Consultant - Full-Time</h3><p class="job-company">Jayman BUILT</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-10-16</p><p class="job-desc">**Builder of the year 28 times.**
- 
-**Picture a career with us.**
-  
-
-Jayman BUILT is currently seeking a
-**Full-Time**
-**Architec…</p></a></div>
-<div class="job-card-wrap" data-job-id="jobspy_eba2fbfeecdf11ad"><button class="dismiss-btn" onclick="dismissJob('jobspy_eba2fbfeecdf11ad',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4464935080" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Linkedin" data-scraped="1792328228"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span><span class="badge-new">NEW</span></div><h3 class="job-title">Business Intelligence Student</h3><p class="job-company">Bird Construction</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-09-30</p><p class="job-desc">Our internships and Co-ops are designed to provide you with a business relevant project that will allow you to independently manag…</p></a></div></div>
+    <div class="jobs-grid" id="new-grid"><p class="no-jobs">No new jobs today — check back tomorrow! 🏛</p></div>
   </section>
 
   <!-- All listings tab -->
@@ -236,8 +228,8 @@ Jayman BUILT is currently seeking a
       <button class="filter-btn date-btn" onclick="filterDate(7,this)">Last Week</button>
       <button class="filter-btn date-btn" onclick="filterDate(14,this)">Last 2 Weeks</button>
     </div>
-    <div class="jobs-grid" id="all-grid"><div class="job-card-wrap" data-job-id="jobspy_eba2fbfeecdf11ad"><button class="dismiss-btn" onclick="dismissJob('jobspy_eba2fbfeecdf11ad',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4464935080" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Linkedin" data-scraped="1792328228"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span><span class="badge-new">NEW</span></div><h3 class="job-title">Business Intelligence Student</h3><p class="job-company">Bird Construction</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-09-30</p><p class="job-desc">Our internships and Co-ops are designed to provide you with a business relevant project that will allow you to independently manag…</p></a></div>
-<div class="job-card-wrap" data-job-id="jobspy_4df2c51d4efc7856"><button class="dismiss-btn" onclick="dismissJob('jobspy_4df2c51d4efc7856',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4479645090" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Linkedin" data-scraped="1792327969"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span><span class="badge-new">NEW</span></div><h3 class="job-title">Architectural Control Consultant - Full-Time</h3><p class="job-company">Jayman BUILT</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-10-16</p><p class="job-desc">**Builder of the year 28 times.**
+    <div class="jobs-grid" id="all-grid"><div class="job-card-wrap" data-job-id="jobspy_eba2fbfeecdf11ad"><button class="dismiss-btn" onclick="dismissJob('jobspy_eba2fbfeecdf11ad',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4464935080" target="_blank" rel="noopener" class="job-card" data-source="Linkedin" data-scraped="1792328228"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span></div><h3 class="job-title">Business Intelligence Student</h3><p class="job-company">Bird Construction</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-09-30</p><p class="job-desc">Our internships and Co-ops are designed to provide you with a business relevant project that will allow you to independently manag…</p></a></div>
+<div class="job-card-wrap" data-job-id="jobspy_4df2c51d4efc7856"><button class="dismiss-btn" onclick="dismissJob('jobspy_4df2c51d4efc7856',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4479645090" target="_blank" rel="noopener" class="job-card" data-source="Linkedin" data-scraped="1792327969"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span></div><h3 class="job-title">Architectural Control Consultant - Full-Time</h3><p class="job-company">Jayman BUILT</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-10-16</p><p class="job-desc">**Builder of the year 28 times.**
  
 **Picture a career with us.**
   
