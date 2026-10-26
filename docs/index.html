@@ -183,8 +183,8 @@ body{
       <div class="masthead__city">📍 Calgary, Alberta</div>
     </div>
     <div style="text-align:right">
-      <div class="masthead__date">Updated October 25, 2026</div>
-      <div class="counter">1</div>
+      <div class="masthead__date">Updated October 26, 2026</div>
+      <div class="counter">0</div>
       <span class="counter__label">New today</span>
     </div>
   </div>
@@ -202,14 +202,13 @@ body{
   <!-- Tab nav -->
   <div class="tab-nav">
     <button class="tab-btn active" onclick="switchTab('listings',this)">All Listings</button>
-    <button class="tab-btn" onclick="switchTab('new',this)">New Today <span class="tab-count" id="new-count-badge">1</span></button>
+    <button class="tab-btn" onclick="switchTab('new',this)">New Today <span class="tab-count" id="new-count-badge">0</span></button>
     <button class="tab-btn" onclick="switchTab('hidden',this)">Hidden <span class="tab-count" id="hidden-count-badge">0</span></button>
   </div>
 
   <!-- New today tab -->
   <section id="tab-new" class="tab-panel" style="display:none">
-    <div class="jobs-grid" id="new-grid"><div class="job-card-wrap" data-job-id="jobspy_33d70951fe5dcfb5"><button class="dismiss-btn" onclick="dismissJob('jobspy_33d70951fe5dcfb5',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4481966066" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Linkedin" data-scraped="1792934935"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span><span class="badge-new">NEW</span></div><h3 class="job-title">Engineering Intern, Buildings</h3><p class="job-company">TYLin</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-10-23</p><p class="job-desc">**TYLin**
-is a globally recognized, full-service infrastructure consulting firm committed to providing innovative, cost-effective,…</p></a></div></div>
+    <div class="jobs-grid" id="new-grid"><p class="no-jobs">No new jobs today — check back tomorrow! 🏛</p></div>
   </section>
 
   <!-- All listings tab -->
@@ -229,7 +228,7 @@ is a globally recognized, full-service infrastructure consulting firm committed 
       <button class="filter-btn date-btn" onclick="filterDate(7,this)">Last Week</button>
       <button class="filter-btn date-btn" onclick="filterDate(14,this)">Last 2 Weeks</button>
     </div>
-    <div class="jobs-grid" id="all-grid"><div class="job-card-wrap" data-job-id="jobspy_33d70951fe5dcfb5"><button class="dismiss-btn" onclick="dismissJob('jobspy_33d70951fe5dcfb5',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4481966066" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Linkedin" data-scraped="1792934935"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span><span class="badge-new">NEW</span></div><h3 class="job-title">Engineering Intern, Buildings</h3><p class="job-company">TYLin</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-10-23</p><p class="job-desc">**TYLin**
+    <div class="jobs-grid" id="all-grid"><div class="job-card-wrap" data-job-id="jobspy_33d70951fe5dcfb5"><button class="dismiss-btn" onclick="dismissJob('jobspy_33d70951fe5dcfb5',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4481966066" target="_blank" rel="noopener" class="job-card" data-source="Linkedin" data-scraped="1792934935"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span></div><h3 class="job-title">Engineering Intern, Buildings</h3><p class="job-company">TYLin</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-10-23</p><p class="job-desc">**TYLin**
 is a globally recognized, full-service infrastructure consulting firm committed to providing innovative, cost-effective,…</p></a></div>
 <div class="job-card-wrap" data-job-id="jobspy_fb9ca4a50fe822e8"><button class="dismiss-btn" onclick="dismissJob('jobspy_fb9ca4a50fe822e8',event)" title="Hide this listing">✕</button><a href="https://ca.indeed.com/viewjob?jk=e85ba961c4ff9888" target="_blank" rel="noopener" class="job-card" data-source="Indeed" data-scraped="1792846926"><div class="job-card__header"><span class="job-source" style="background:#7A9DB0">Indeed</span></div><h3 class="job-title">Engineering Intern, Buildings</h3><p class="job-company">TYLin</p><p class="job-location">📍 Calgary, AB, Canada</p><p class="job-date">🕐 2026-10-23</p><p class="job-desc">**TYLin** is a globally recognized, full-service infrastructure consulting firm committed to providing innovative, cost-effective,…</p></a></div>
 <div class="job-card-wrap" data-job-id="jobspy_84df3041ebec76ab"><button class="dismiss-btn" onclick="dismissJob('jobspy_84df3041ebec76ab',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4481951684" target="_blank" rel="noopener" class="job-card" data-source="Linkedin" data-scraped="1792846810"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span></div><h3 class="job-title">Engineering Intern, Buildings</h3><p class="job-company">TYLin</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-10-23</p><p class="job-desc">**TYLin**
@@ -396,12 +395,6 @@ Ma…</p></a></div>
  Aecon delivers some of the most complex and impactful infrastructure projects — from transfo…</p></a></div>
 <div class="job-card-wrap" data-job-id="jobspy_72b2050b24573b9a"><button class="dismiss-btn" onclick="dismissJob('jobspy_72b2050b24573b9a',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4469411585" target="_blank" rel="noopener" class="job-card" data-source="Linkedin" data-scraped="1790615615"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span></div><h3 class="job-title">Traffic Control Co-op Student</h3><p class="job-company">Aecon Group Inc.</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-09-23</p><p class="job-desc">**Come Build Your Career at Aecon!**
  Aecon delivers some of the most complex and impactful infrastructure projects — from transfo…</p></a></div>
-<div class="job-card-wrap" data-job-id="jobspy_67efed76c9498cc2"><button class="dismiss-btn" onclick="dismissJob('jobspy_67efed76c9498cc2',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4466460854" target="_blank" rel="noopener" class="job-card" data-source="Linkedin" data-scraped="1790346132"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span></div><h3 class="job-title">Site Civil Structural EIT - New Graduate</h3><p class="job-company">Fluor Corporation</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-09-12</p><p class="job-desc">Fluor is one of Canada's top employers and is recognized globally as a leader in the Engineering, Procurement, Construction, Fabri…</p></a></div>
-<div class="job-card-wrap" data-job-id="jobspy_3e0bc99ebfbeb47f"><button class="dismiss-btn" onclick="dismissJob('jobspy_3e0bc99ebfbeb47f',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4470053803" target="_blank" rel="noopener" class="job-card" data-source="Linkedin" data-scraped="1790345920"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span></div><h3 class="job-title">Junior designer/drafter</h3><p class="job-company">WSP in Canada</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 nan</p><p class="job-desc">**Job Description**
-**What if you could redefine what's possible? With us, you can.**
- With us, you can. You want Purpose. Growth.…</p></a></div>
-<div class="job-card-wrap" data-job-id="jobspy_f2dc41819084a38c"><button class="dismiss-btn" onclick="dismissJob('jobspy_f2dc41819084a38c',event)" title="Hide this listing">✕</button><a href="https://ca.indeed.com/viewjob?jk=1069b36a4f09b896" target="_blank" rel="noopener" class="job-card" data-source="Indeed" data-scraped="1790345920"><div class="job-card__header"><span class="job-source" style="background:#7A9DB0">Indeed</span></div><h3 class="job-title">Junior designer/drafter</h3><p class="job-company">WSP</p><p class="job-location">📍 Calgary, AB, CA</p><p class="job-date">🕐 2026-09-24</p><p class="job-desc">**What if you could redefine what's possible? With us, you can.**
-================================================================…</p></a></div>
 <div class="job-card-wrap" data-job-id="firm_bec01a020a666b59"><button class="dismiss-btn" onclick="dismissJob('firm_bec01a020a666b59',event)" title="Hide this listing">✕</button><a href="https://www.mckinleystudios.com/careers/registered-architect" target="_blank" rel="noopener" class="job-card" data-source="Firm Website" data-scraped="1773606385"><div class="job-card__header"><span class="job-source" style="background:#503228">Firm Website</span></div><h3 class="job-title">registered architect / yyc + yvr</h3><p class="job-company">McKinley Studios</p><p class="job-location">📍 Calgary, AB</p><p class="job-date">🕐 On firm website</p><p class="job-desc">Listed on McKinley Studios careers page…</p></a></div></div>
   </section>
 
