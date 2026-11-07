@@ -183,8 +183,8 @@ body{
       <div class="masthead__city">📍 Calgary, Alberta</div>
     </div>
     <div style="text-align:right">
-      <div class="masthead__date">Updated November 06, 2026</div>
-      <div class="counter">1</div>
+      <div class="masthead__date">Updated November 07, 2026</div>
+      <div class="counter">0</div>
       <span class="counter__label">New today</span>
     </div>
   </div>
@@ -202,15 +202,13 @@ body{
   <!-- Tab nav -->
   <div class="tab-nav">
     <button class="tab-btn active" onclick="switchTab('listings',this)">All Listings</button>
-    <button class="tab-btn" onclick="switchTab('new',this)">New Today <span class="tab-count" id="new-count-badge">1</span></button>
+    <button class="tab-btn" onclick="switchTab('new',this)">New Today <span class="tab-count" id="new-count-badge">0</span></button>
     <button class="tab-btn" onclick="switchTab('hidden',this)">Hidden <span class="tab-count" id="hidden-count-badge">0</span></button>
   </div>
 
   <!-- New today tab -->
   <section id="tab-new" class="tab-panel" style="display:none">
-    <div class="jobs-grid" id="new-grid"><div class="job-card-wrap" data-job-id="jobspy_dc61264064296a4b"><button class="dismiss-btn" onclick="dismissJob('jobspy_dc61264064296a4b',event)" title="Hide this listing">✕</button><a href="https://ca.indeed.com/viewjob?jk=50837088e72f8bce" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Indeed" data-scraped="1793982776"><div class="job-card__header"><span class="job-source" style="background:#7A9DB0">Indeed</span><span class="badge-new">NEW</span></div><h3 class="job-title">Assistant Professor, Schulich School of Engineering, Department of Geomatics Engineering</h3><p class="job-company">University of Calgary</p><p class="job-location">📍 Calgary, AB, Canada</p><p class="job-date">🕐 2026-11-06</p><p class="job-desc">**Description**
-
-The **Schulich School of Engineering** at the University of Calgary invites applications for a tenure-track facul…</p></a></div></div>
+    <div class="jobs-grid" id="new-grid"><p class="no-jobs">No new jobs today — check back tomorrow! 🏛</p></div>
   </section>
 
   <!-- All listings tab -->
@@ -230,7 +228,7 @@ The **Schulich School of Engineering** at the University of Calgary invites appl
       <button class="filter-btn date-btn" onclick="filterDate(7,this)">Last Week</button>
       <button class="filter-btn date-btn" onclick="filterDate(14,this)">Last 2 Weeks</button>
     </div>
-    <div class="jobs-grid" id="all-grid"><div class="job-card-wrap" data-job-id="jobspy_dc61264064296a4b"><button class="dismiss-btn" onclick="dismissJob('jobspy_dc61264064296a4b',event)" title="Hide this listing">✕</button><a href="https://ca.indeed.com/viewjob?jk=50837088e72f8bce" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Indeed" data-scraped="1793982776"><div class="job-card__header"><span class="job-source" style="background:#7A9DB0">Indeed</span><span class="badge-new">NEW</span></div><h3 class="job-title">Assistant Professor, Schulich School of Engineering, Department of Geomatics Engineering</h3><p class="job-company">University of Calgary</p><p class="job-location">📍 Calgary, AB, Canada</p><p class="job-date">🕐 2026-11-06</p><p class="job-desc">**Description**
+    <div class="jobs-grid" id="all-grid"><div class="job-card-wrap" data-job-id="jobspy_dc61264064296a4b"><button class="dismiss-btn" onclick="dismissJob('jobspy_dc61264064296a4b',event)" title="Hide this listing">✕</button><a href="https://ca.indeed.com/viewjob?jk=50837088e72f8bce" target="_blank" rel="noopener" class="job-card" data-source="Indeed" data-scraped="1793982776"><div class="job-card__header"><span class="job-source" style="background:#7A9DB0">Indeed</span></div><h3 class="job-title">Assistant Professor, Schulich School of Engineering, Department of Geomatics Engineering</h3><p class="job-company">University of Calgary</p><p class="job-location">📍 Calgary, AB, Canada</p><p class="job-date">🕐 2026-11-06</p><p class="job-desc">**Description**
 
 The **Schulich School of Engineering** at the University of Calgary invites applications for a tenure-track facul…</p></a></div>
 <div class="job-card-wrap" data-job-id="jobspy_2b7745baf73fb3bf"><button class="dismiss-btn" onclick="dismissJob('jobspy_2b7745baf73fb3bf',event)" title="Hide this listing">✕</button><a href="https://ca.indeed.com/viewjob?jk=ec718e4a699b2b27" target="_blank" rel="noopener" class="job-card" data-source="Indeed" data-scraped="1793897758"><div class="job-card__header"><span class="job-source" style="background:#7A9DB0">Indeed</span></div><h3 class="job-title">Junior Highway Designer</h3><p class="job-company">Egis Group</p><p class="job-location">📍 Calgary, AB, Canada</p><p class="job-date">🕐 2026-11-05</p><p class="job-desc">* Permanent Contract
