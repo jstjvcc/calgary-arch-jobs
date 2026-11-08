@@ -183,8 +183,8 @@ body{
       <div class="masthead__city">📍 Calgary, Alberta</div>
     </div>
     <div style="text-align:right">
-      <div class="masthead__date">Updated November 07, 2026</div>
-      <div class="counter">0</div>
+      <div class="masthead__date">Updated November 08, 2026</div>
+      <div class="counter">1</div>
       <span class="counter__label">New today</span>
     </div>
   </div>
@@ -202,13 +202,13 @@ body{
   <!-- Tab nav -->
   <div class="tab-nav">
     <button class="tab-btn active" onclick="switchTab('listings',this)">All Listings</button>
-    <button class="tab-btn" onclick="switchTab('new',this)">New Today <span class="tab-count" id="new-count-badge">0</span></button>
+    <button class="tab-btn" onclick="switchTab('new',this)">New Today <span class="tab-count" id="new-count-badge">1</span></button>
     <button class="tab-btn" onclick="switchTab('hidden',this)">Hidden <span class="tab-count" id="hidden-count-badge">0</span></button>
   </div>
 
   <!-- New today tab -->
   <section id="tab-new" class="tab-panel" style="display:none">
-    <div class="jobs-grid" id="new-grid"><p class="no-jobs">No new jobs today — check back tomorrow! 🏛</p></div>
+    <div class="jobs-grid" id="new-grid"><div class="job-card-wrap" data-job-id="jobspy_443e088ccfd6dcee"><button class="dismiss-btn" onclick="dismissJob('jobspy_443e088ccfd6dcee',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4484634665" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Linkedin" data-scraped="1794152599"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span><span class="badge-new">NEW</span></div><h3 class="job-title">Snowflake Architect</h3><p class="job-company">Celebal Technologies</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-11-03</p><p class="job-desc">nan…</p></a></div></div>
   </section>
 
   <!-- All listings tab -->
@@ -228,7 +228,8 @@ body{
       <button class="filter-btn date-btn" onclick="filterDate(7,this)">Last Week</button>
       <button class="filter-btn date-btn" onclick="filterDate(14,this)">Last 2 Weeks</button>
     </div>
-    <div class="jobs-grid" id="all-grid"><div class="job-card-wrap" data-job-id="jobspy_dc61264064296a4b"><button class="dismiss-btn" onclick="dismissJob('jobspy_dc61264064296a4b',event)" title="Hide this listing">✕</button><a href="https://ca.indeed.com/viewjob?jk=50837088e72f8bce" target="_blank" rel="noopener" class="job-card" data-source="Indeed" data-scraped="1793982776"><div class="job-card__header"><span class="job-source" style="background:#7A9DB0">Indeed</span></div><h3 class="job-title">Assistant Professor, Schulich School of Engineering, Department of Geomatics Engineering</h3><p class="job-company">University of Calgary</p><p class="job-location">📍 Calgary, AB, Canada</p><p class="job-date">🕐 2026-11-06</p><p class="job-desc">**Description**
+    <div class="jobs-grid" id="all-grid"><div class="job-card-wrap" data-job-id="jobspy_443e088ccfd6dcee"><button class="dismiss-btn" onclick="dismissJob('jobspy_443e088ccfd6dcee',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4484634665" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Linkedin" data-scraped="1794152599"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span><span class="badge-new">NEW</span></div><h3 class="job-title">Snowflake Architect</h3><p class="job-company">Celebal Technologies</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-11-03</p><p class="job-desc">nan…</p></a></div>
+<div class="job-card-wrap" data-job-id="jobspy_dc61264064296a4b"><button class="dismiss-btn" onclick="dismissJob('jobspy_dc61264064296a4b',event)" title="Hide this listing">✕</button><a href="https://ca.indeed.com/viewjob?jk=50837088e72f8bce" target="_blank" rel="noopener" class="job-card" data-source="Indeed" data-scraped="1793982776"><div class="job-card__header"><span class="job-source" style="background:#7A9DB0">Indeed</span></div><h3 class="job-title">Assistant Professor, Schulich School of Engineering, Department of Geomatics Engineering</h3><p class="job-company">University of Calgary</p><p class="job-location">📍 Calgary, AB, Canada</p><p class="job-date">🕐 2026-11-06</p><p class="job-desc">**Description**
 
 The **Schulich School of Engineering** at the University of Calgary invites applications for a tenure-track facul…</p></a></div>
 <div class="job-card-wrap" data-job-id="jobspy_2b7745baf73fb3bf"><button class="dismiss-btn" onclick="dismissJob('jobspy_2b7745baf73fb3bf',event)" title="Hide this listing">✕</button><a href="https://ca.indeed.com/viewjob?jk=ec718e4a699b2b27" target="_blank" rel="noopener" class="job-card" data-source="Indeed" data-scraped="1793897758"><div class="job-card__header"><span class="job-source" style="background:#7A9DB0">Indeed</span></div><h3 class="job-title">Junior Highway Designer</h3><p class="job-company">Egis Group</p><p class="job-location">📍 Calgary, AB, Canada</p><p class="job-date">🕐 2026-11-05</p><p class="job-desc">* Permanent Contract
@@ -370,16 +371,6 @@ About Us
 ----------------------------
 
 As a Software Developer Intern you will be working on mission critical …</p></a></div>
-<div class="job-card-wrap" data-job-id="jobspy_148e3ed41d062356"><button class="dismiss-btn" onclick="dismissJob('jobspy_148e3ed41d062356',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4474805903" target="_blank" rel="noopener" class="job-card" data-source="Linkedin" data-scraped="1791475435"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span></div><h3 class="job-title">Technical Co-op I: Software Development Intern</h3><p class="job-company">Lockheed Martin</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-10-08</p><p class="job-desc">**Standard Job Description**
-As a Software Developer Intern you will be working on mission critical software for the control and a…</p></a></div>
-<div class="job-card-wrap" data-job-id="jobspy_17ccf6aa97513943"><button class="dismiss-btn" onclick="dismissJob('jobspy_17ccf6aa97513943',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4476916628" target="_blank" rel="noopener" class="job-card" data-source="Linkedin" data-scraped="1791475084"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span></div><h3 class="job-title">Aerostructures Intern</h3><p class="job-company">De Havilland Aircraft of Canada Limited</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-10-07</p><p class="job-desc">De Havilland Aircraft of Canada Limited (DHC) is a storied name in the aerospace industry, recognized worldwide for its pioneering…</p></a></div>
-<div class="job-card-wrap" data-job-id="jobspy_a8ca15fd54058eda"><button class="dismiss-btn" onclick="dismissJob('jobspy_a8ca15fd54058eda',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4475722370" target="_blank" rel="noopener" class="job-card" data-source="Linkedin" data-scraped="1791475057"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span></div><h3 class="job-title">Co-op: IT and Engineering</h3><p class="job-company">Canadian Security Intelligence Service (CSIS) | Service canadien du renseignement de sécurité (SCRS)</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-10-08</p><p class="job-desc">**Job Summary**
-**Work Term:**
-Winter 2028 (January – April 2028)
-  
-  
-The Canadian Security Intelligence Service (CSIS) is seeki…</p></a></div>
-<div class="job-card-wrap" data-job-id="jobspy_ba6dcc4c2847e715"><button class="dismiss-btn" onclick="dismissJob('jobspy_ba6dcc4c2847e715',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4475849231" target="_blank" rel="noopener" class="job-card" data-source="Linkedin" data-scraped="1791474995"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span></div><h3 class="job-title">Architect - Healthcare</h3><p class="job-company">Hays</p><p class="job-location">📍 Greater Calgary Metropolitan Area</p><p class="job-date">🕐 2026-10-05</p><p class="job-desc">Hays has partnered with an established firm with offices in across Western Canada who are seeking an Architect with healthcare des…</p></a></div>
 <div class="job-card-wrap" data-job-id="firm_bec01a020a666b59"><button class="dismiss-btn" onclick="dismissJob('firm_bec01a020a666b59',event)" title="Hide this listing">✕</button><a href="https://www.mckinleystudios.com/careers/registered-architect" target="_blank" rel="noopener" class="job-card" data-source="Firm Website" data-scraped="1773606385"><div class="job-card__header"><span class="job-source" style="background:#503228">Firm Website</span></div><h3 class="job-title">registered architect / yyc + yvr</h3><p class="job-company">McKinley Studios</p><p class="job-location">📍 Calgary, AB</p><p class="job-date">🕐 On firm website</p><p class="job-desc">Listed on McKinley Studios careers page…</p></a></div></div>
   </section>
 
