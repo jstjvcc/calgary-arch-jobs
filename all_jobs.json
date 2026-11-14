@@ -11,28 +11,6 @@
     "scraped_at": "2026-03-15T20:26:25.265869"
   },
   {
-    "id": "jobspy_8b72ce3ff069f39e",
-    "title": "Architect, Ontology & AI Innovation",
-    "company": "Kinaxis",
-    "location": "Calgary, Alberta, Canada",
-    "source": "Linkedin",
-    "url": "https://www.linkedin.com/jobs/view/4441643348",
-    "date": "2026-10-12",
-    "description": "nan",
-    "scraped_at": "2026-10-15T13:46:49.665736"
-  },
-  {
-    "id": "jobspy_3a2cd3584bc42858",
-    "title": "Engineering Intern - Aerostructures",
-    "company": "De Havilland Aircraft of Canada Limited",
-    "location": "Calgary, Alberta, Canada",
-    "source": "Linkedin",
-    "url": "https://www.linkedin.com/jobs/view/4479085865",
-    "date": "2026-10-13",
-    "description": "nan",
-    "scraped_at": "2026-10-15T13:49:46.912976"
-  },
-  {
     "id": "jobspy_897b12e33982b91f",
     "title": "AltaGas - 2027 Transportation Intern",
     "company": "AltaGas Ltd.",
@@ -438,5 +416,71 @@
     "date": "2026-11-12",
     "description": "",
     "scraped_at": "2026-11-13T16:57:33.713671"
+  },
+  {
+    "id": "jobspy_b8d9bc25ba75509c",
+    "title": "ServiceNow Architecture Consultant",
+    "company": "CGI",
+    "location": "Calgary, Alberta, Canada",
+    "source": "Linkedin",
+    "url": "https://www.linkedin.com/jobs/view/4491050108",
+    "date": "2026-11-14",
+    "description": "nan",
+    "scraped_at": "2026-11-14T15:24:43.699697"
+  },
+  {
+    "id": "jobspy_7432de5bce278d4f",
+    "title": "Power Platform Architect",
+    "company": "Tata Consultancy Services",
+    "location": "Calgary, Alberta, Canada",
+    "source": "Linkedin",
+    "url": "https://www.linkedin.com/jobs/view/4486057148",
+    "date": "2026-11-03",
+    "description": "nan",
+    "scraped_at": "2026-11-14T15:24:43.700624"
+  },
+  {
+    "id": "jobspy_3f397bbdde331dde",
+    "title": "System Engineering Intern",
+    "company": "Lockheed Martin",
+    "location": "Calgary, Alberta, Canada",
+    "source": "Linkedin",
+    "url": "https://www.linkedin.com/jobs/view/4488984058",
+    "date": "2026-11-13",
+    "description": "**Standard Job Description**\nAs a Systems Engineer you will be working on mission critical software for the control and analytics of uncrewed vehicles and systems.\n  \n  \nLockheed Martin Skunk Works Canada software is deployed globally in Small (SUAS), Medium (Shadow RQ-7), Large (Grey Eagle MQ-1C), and high altitude pseudo satellite (HAPS) systems as well as surface vehicles and target systems.\n  \n  \nAs part of the Skunk Works team, you'll have the opportunity to work on cutting edge next genera",
+    "scraped_at": "2026-11-14T15:25:43.500021"
+  },
+  {
+    "id": "jobspy_3a76c52235a59ee1",
+    "title": "Technical Co-op I: Software Development Intern",
+    "company": "Lockheed Martin",
+    "location": "Calgary, Alberta, Canada",
+    "source": "Linkedin",
+    "url": "https://www.linkedin.com/jobs/view/4488962994",
+    "date": "2026-11-13",
+    "description": "**Standard Job Description**\nAs a Software Developer Intern you will be working on mission critical software for the control and analytics of Unmanned Vehicles and Systems.\n  \n  \nLockheed Martin Canada CDL Systems software is deployed globally in Small (SUAS), Medium (Shadow RQ-7), Large (Grey Eagle MQ-1C), and high altitude pseudo satellite (HAPS) systems as well as surface vehicles and target systems.\n  \n  \nAs part of the Skunkworks team, you'll have the opportunity to work on cutting edge nex",
+    "scraped_at": "2026-11-14T15:25:43.500086"
+  },
+  {
+    "id": "jobspy_a44eda90dcd88ca5",
+    "title": "Architectural Project Lead",
+    "company": "Hays",
+    "location": "Greater Calgary Metropolitan Area",
+    "source": "Linkedin",
+    "url": "https://www.linkedin.com/jobs/view/4490788201",
+    "date": "2026-11-13",
+    "description": "A boutique architectural practice specializing in residential, hospitality and commercial projects is looking for a\n**Architectural Project Lead**\nto join their team. They take great pride in their work and are focused on an approach that is long-lasting, sustainable, and most importantly inspires creativity. With their client's needs at the forefront of their work, they take the extra time to understand theirs interests and focus on the three key principles: Functionality, Inclusive Elegance, a",
+    "scraped_at": "2026-11-14T15:28:42.523766"
+  },
+  {
+    "id": "jobspy_2fb95e58b30474ae",
+    "title": "System Engineering Intern",
+    "company": "Lockheed Martin",
+    "location": "Calgary, Alberta, Canada",
+    "source": "Linkedin",
+    "url": "https://www.linkedin.com/jobs/view/4488965918",
+    "date": "2026-11-13",
+    "description": "**Standard Job Description**\nAs a Systems Engineer you will be working on mission critical software for the control and analytics of uncrewed vehicles and systems.\n  \n  \nLockheed Martin Skunk Works Canada software is deployed globally in Small (SUAS), Medium (Shadow RQ-7), Large (Grey Eagle MQ-1C), and high altitude pseudo satellite (HAPS) systems as well as surface vehicles and target systems.\n  \n  \nAs part of the Skunk Works team, you'll have the opportunity to work on cutting edge next genera",
+    "scraped_at": "2026-11-14T15:31:41.985128"
   }
 ]
