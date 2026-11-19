@@ -11,17 +11,6 @@
     "scraped_at": "2026-03-15T20:26:25.265869"
   },
   {
-    "id": "jobspy_23775bd7411db10d",
-    "title": "D\u00e9veloppeur ou d\u00e9veloppeuse de syst\u00e8mes",
-    "company": "Co-operators Assurance et services financiers",
-    "location": "Calgary, Alberta, Canada",
-    "source": "Linkedin",
-    "url": "https://www.linkedin.com/jobs/view/4478650135",
-    "date": "2026-10-20",
-    "description": "Entreprise: GCL\n  \n  \nService: TI - Mise en \u0153uvre de solutions\n  \n  \nCat\u00e9gories d\u2019emplois: Poste permanent \u00e0 temps plein\n  \n  \nMod\u00e8le de travail: Hybride (2 jours au bureau)\n  \n  \nLangue: Le ou la titulaire de ce poste travaille en anglais.\n  \n  \nRenseignements suppl\u00e9mentaires : Ce poste est actuellement vacant.\n  \n  \nL\u2019opportunit\u00e9 :\n  \n  \nNous sommes une coop\u00e9rative canadienne de services financiers de premier plan engag\u00e9e \u00e0 promouvoir activement une soci\u00e9t\u00e9 durable et r\u00e9siliente, et notre \u00e9qui",
-    "scraped_at": "2026-10-20T13:57:39.556027"
-  },
-  {
     "id": "jobspy_99a4d7e878402577",
     "title": "System Engineering Intern",
     "company": "Lockheed Martin",
@@ -504,5 +493,27 @@
     "date": "2026-11-16",
     "description": "nan",
     "scraped_at": "2026-11-18T17:41:04.859856"
+  },
+  {
+    "id": "jobspy_45f31f41ce911060",
+    "title": "Engineering Intern, Buildings",
+    "company": "TYLin",
+    "location": "Calgary, Canada",
+    "source": "Glassdoor",
+    "url": "https://www.glassdoor.ca/job-listing/j?jl=1010305271461",
+    "date": "2026-10-24",
+    "description": "**TYLin** is a globally recognized, full-service infrastructure consulting firm committed to providing innovative, cost-effective, constructible designs for the global infrastructure market. With over 3,000 employees throughout the Americas, Asia, and Europe, the firm provides support on projects of varying size and complexity. Together, we enhance conventional designs with smarter, more resilient systems. We provide people with better mobility. We steward precious resources by finding more sust",
+    "scraped_at": "2026-11-19T17:52:22.352310"
+  },
+  {
+    "id": "jobspy_c0778643c0ba19d9",
+    "title": "Assistant Professor, Multi-Sensor Systems for Autonomous and Intelligent Systems",
+    "company": "The University of Calgary",
+    "location": "Calgary, Canada",
+    "source": "Glassdoor",
+    "url": "https://www.glassdoor.ca/job-listing/j?jl=1010319241203",
+    "date": "2026-11-06",
+    "description": "**Description**\n\nThe **Schulich School of Engineering** at the University of Calgary invites applications for a tenure-track faculty position at the rank of **Assistant Professor in Geomatics Engineering.** The anticipated start date is July 1, 2027 or a mutually agreed date.\n\nThe successful candidate will demonstrate a strong record of high-quality research and publications; the potential to establish a successful externally funded research program and achieve international recognition within a",
+    "scraped_at": "2026-11-19T17:52:51.313408"
   }
 ]
