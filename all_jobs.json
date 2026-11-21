@@ -11,28 +11,6 @@
     "scraped_at": "2026-03-15T20:26:25.265869"
   },
   {
-    "id": "jobspy_99a4d7e878402577",
-    "title": "System Engineering Intern",
-    "company": "Lockheed Martin",
-    "location": "Calgary, Alberta, Canada",
-    "source": "Linkedin",
-    "url": "https://www.linkedin.com/jobs/view/4480036856",
-    "date": "2026-10-22",
-    "description": "**Standard Job Description**\nAs a Systems Engineer you will be working on mission critical software for the control and analytics of uncrewed vehicles and systems.\n  \n  \nLockheed Martin Skunk Works Canada software is deployed globally in Small (SUAS), Medium (Shadow RQ-7), Large (Grey Eagle MQ-1C), and high altitude pseudo satellite (HAPS) systems as well as surface vehicles and target systems.\n  \n  \nAs part of the Skunk Works team, you'll have the opportunity to work on cutting edge next genera",
-    "scraped_at": "2026-10-22T14:13:24.906967"
-  },
-  {
-    "id": "jobspy_4eb6c7c059a0983c",
-    "title": "Co-op/Intern/Temp (12-16 mo) - AI-Enabled Automation Engineering (Industrial Software Development)",
-    "company": "Spartan Controls",
-    "location": "Calgary, Alberta, Canada",
-    "source": "Linkedin",
-    "url": "https://www.linkedin.com/jobs/view/4481193276",
-    "date": "2026-10-22",
-    "description": "Spartan Controls is an employee-owned company and leading provider of data management, industrial automation, valves, measurement and control solutions for process industries in Western Canada and beyond. We are dedicated to providing exceptional sales, support and service experiences for our diverse customer base in industries such as mining, power, oil & gas, municipal, pulp & paper, and chemical.\n  \n  \nSpartan is committed to creating a sustainable modern world with innovative automation. Our",
-    "scraped_at": "2026-10-22T14:19:33.254347"
-  },
-  {
     "id": "jobspy_94d1fd8ec682a080",
     "title": "May 2027 Geographic Information Systems (GIS) Co-op",
     "company": "Elk Valley Resources",
@@ -614,5 +592,27 @@
     "date": "2026-11-17",
     "description": "Elk Valley Resources (EVR) operates four steelmaking coal mines that employ over 5,000 people in the Elk Valley of British Columbia. We are committed to responsible resource development, environmental performance and building strong partnerships with communities and Indigenous Peoples.\n  \n  \nEVR is proud to be part of the Glencore Group, contributing to a global portfolio of operations with a history that dates back more than 100 years in Canada.\n  \n  \n**S**\n**tart Date:**\nJanuary 2027\n  \n  \n**D",
     "scraped_at": "2026-11-20T17:29:05.351399"
+  },
+  {
+    "id": "jobspy_3b8bb74ac9db7d14",
+    "title": "Co-op Student",
+    "company": "Kasian Architecture Interior Design and Planning",
+    "location": "Calgary, Alberta, Canada",
+    "source": "Linkedin",
+    "url": "https://www.linkedin.com/jobs/view/4492845608",
+    "date": "2026-11-20",
+    "description": "nan",
+    "scraped_at": "2026-11-21T16:32:00.842099"
+  },
+  {
+    "id": "jobspy_380f7ed2a80bb739",
+    "title": "Technical Engineering Seller Intern \u2013 Entry Level Sales Program 2027",
+    "company": "IBM",
+    "location": "Calgary, Alberta, Canada",
+    "source": "Linkedin",
+    "url": "https://www.linkedin.com/jobs/view/4491965463",
+    "date": "2026-11-20",
+    "description": "**Introduction**\nAt IBM, technology creates value when it solves real business challenges. As an Entry-Level Technical Engineering Seller, you will work with clients and IBM technical experts to design, demonstrate, and deliver solutions across AI, hybrid cloud, automation, data, and security. This role combines technical problem-solving, customer engagement, and business consulting to help organizations achieve measurable outcomes while building the foundation for a career in technical sales an",
+    "scraped_at": "2026-11-21T16:33:20.008883"
   }
 ]
