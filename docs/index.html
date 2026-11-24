@@ -183,8 +183,8 @@ body{
       <div class="masthead__city">📍 Calgary, Alberta</div>
     </div>
     <div style="text-align:right">
-      <div class="masthead__date">Updated November 23, 2026</div>
-      <div class="counter">1</div>
+      <div class="masthead__date">Updated November 24, 2026</div>
+      <div class="counter">0</div>
       <span class="counter__label">New today</span>
     </div>
   </div>
@@ -202,13 +202,13 @@ body{
   <!-- Tab nav -->
   <div class="tab-nav">
     <button class="tab-btn active" onclick="switchTab('listings',this)">All Listings</button>
-    <button class="tab-btn" onclick="switchTab('new',this)">New Today <span class="tab-count" id="new-count-badge">1</span></button>
+    <button class="tab-btn" onclick="switchTab('new',this)">New Today <span class="tab-count" id="new-count-badge">0</span></button>
     <button class="tab-btn" onclick="switchTab('hidden',this)">Hidden <span class="tab-count" id="hidden-count-badge">0</span></button>
   </div>
 
   <!-- New today tab -->
   <section id="tab-new" class="tab-panel" style="display:none">
-    <div class="jobs-grid" id="new-grid"><div class="job-card-wrap" data-job-id="jobspy_02e8579bcbb06f8c"><button class="dismiss-btn" onclick="dismissJob('jobspy_02e8579bcbb06f8c',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4493676163" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Linkedin" data-scraped="1795466553"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span><span class="badge-new">NEW</span></div><h3 class="job-title">Engineering Intern</h3><p class="job-company">De Havilland Aircraft of Canada Limited</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-11-23</p><p class="job-desc">De Havilland Aircraft of Canada Limited (DHC) is a storied name in the aerospace industry, recognized worldwide for its pioneering…</p></a></div></div>
+    <div class="jobs-grid" id="new-grid"><p class="no-jobs">No new jobs today — check back tomorrow! 🏛</p></div>
   </section>
 
   <!-- All listings tab -->
@@ -229,7 +229,7 @@ body{
       <button class="filter-btn date-btn" onclick="filterDate(7,this)">Last Week</button>
       <button class="filter-btn date-btn" onclick="filterDate(14,this)">Last 2 Weeks</button>
     </div>
-    <div class="jobs-grid" id="all-grid"><div class="job-card-wrap" data-job-id="jobspy_02e8579bcbb06f8c"><button class="dismiss-btn" onclick="dismissJob('jobspy_02e8579bcbb06f8c',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4493676163" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Linkedin" data-scraped="1795466553"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span><span class="badge-new">NEW</span></div><h3 class="job-title">Engineering Intern</h3><p class="job-company">De Havilland Aircraft of Canada Limited</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-11-23</p><p class="job-desc">De Havilland Aircraft of Canada Limited (DHC) is a storied name in the aerospace industry, recognized worldwide for its pioneering…</p></a></div>
+    <div class="jobs-grid" id="all-grid"><div class="job-card-wrap" data-job-id="jobspy_02e8579bcbb06f8c"><button class="dismiss-btn" onclick="dismissJob('jobspy_02e8579bcbb06f8c',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4493676163" target="_blank" rel="noopener" class="job-card" data-source="Linkedin" data-scraped="1795466553"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span></div><h3 class="job-title">Engineering Intern</h3><p class="job-company">De Havilland Aircraft of Canada Limited</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-11-23</p><p class="job-desc">De Havilland Aircraft of Canada Limited (DHC) is a storied name in the aerospace industry, recognized worldwide for its pioneering…</p></a></div>
 <div class="job-card-wrap" data-job-id="jobspy_380f7ed2a80bb739"><button class="dismiss-btn" onclick="dismissJob('jobspy_380f7ed2a80bb739',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4491965463" target="_blank" rel="noopener" class="job-card" data-source="Linkedin" data-scraped="1795278800"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span></div><h3 class="job-title">Technical Engineering Seller Intern – Entry Level Sales Program 2027</h3><p class="job-company">IBM</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-11-20</p><p class="job-desc">**Introduction**
 At IBM, technology creates value when it solves real business challenges. As an Entry-Level Technical Engineering…</p></a></div>
 <div class="job-card-wrap" data-job-id="jobspy_3b8bb74ac9db7d14"><button class="dismiss-btn" onclick="dismissJob('jobspy_3b8bb74ac9db7d14',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4492845608" target="_blank" rel="noopener" class="job-card" data-source="Linkedin" data-scraped="1795278720"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span></div><h3 class="job-title">Co-op Student</h3><p class="job-company">Kasian Architecture Interior Design and Planning</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-11-20</p><p class="job-desc">nan…</p></a></div>
@@ -366,8 +366,6 @@ to join our
 We are the curious. Problem solvers. Driven to unlock the potential in every system. Across five…</p></a></div>
 <div class="job-card-wrap" data-job-id="jobspy_429c18fd1c3b338c"><button class="dismiss-btn" onclick="dismissJob('jobspy_429c18fd1c3b338c',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4483259925" target="_blank" rel="noopener" class="job-card" data-source="Linkedin" data-scraped="1793113274"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span></div><h3 class="job-title">Intern, Mechanical Designer</h3><p class="job-company">Introba</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-10-26</p><p class="job-desc">**WHERE PASSION + PURPOSE ALIGN**
 We are the curious. Problem solvers. Driven to unlock the potential in every system. Across five…</p></a></div>
-<div class="job-card-wrap" data-job-id="jobspy_33d70951fe5dcfb5"><button class="dismiss-btn" onclick="dismissJob('jobspy_33d70951fe5dcfb5',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4481966066" target="_blank" rel="noopener" class="job-card" data-source="Linkedin" data-scraped="1792934935"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span></div><h3 class="job-title">Engineering Intern, Buildings</h3><p class="job-company">TYLin</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-10-23</p><p class="job-desc">**TYLin**
-is a globally recognized, full-service infrastructure consulting firm committed to providing innovative, cost-effective,…</p></a></div>
 <div class="job-card-wrap" data-job-id="firm_bec01a020a666b59"><button class="dismiss-btn" onclick="dismissJob('firm_bec01a020a666b59',event)" title="Hide this listing">✕</button><a href="https://www.mckinleystudios.com/careers/registered-architect" target="_blank" rel="noopener" class="job-card" data-source="Firm Website" data-scraped="1773606385"><div class="job-card__header"><span class="job-source" style="background:#503228">Firm Website</span></div><h3 class="job-title">registered architect / yyc + yvr</h3><p class="job-company">McKinley Studios</p><p class="job-location">📍 Calgary, AB</p><p class="job-date">🕐 On firm website</p><p class="job-desc">Listed on McKinley Studios careers page…</p></a></div></div>
   </section>
 
