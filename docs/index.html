@@ -183,8 +183,8 @@ body{
       <div class="masthead__city">📍 Calgary, Alberta</div>
     </div>
     <div style="text-align:right">
-      <div class="masthead__date">Updated November 24, 2026</div>
-      <div class="counter">0</div>
+      <div class="masthead__date">Updated November 25, 2026</div>
+      <div class="counter">4</div>
       <span class="counter__label">New today</span>
     </div>
   </div>
@@ -202,13 +202,25 @@ body{
   <!-- Tab nav -->
   <div class="tab-nav">
     <button class="tab-btn active" onclick="switchTab('listings',this)">All Listings</button>
-    <button class="tab-btn" onclick="switchTab('new',this)">New Today <span class="tab-count" id="new-count-badge">0</span></button>
+    <button class="tab-btn" onclick="switchTab('new',this)">New Today <span class="tab-count" id="new-count-badge">4</span></button>
     <button class="tab-btn" onclick="switchTab('hidden',this)">Hidden <span class="tab-count" id="hidden-count-badge">0</span></button>
   </div>
 
   <!-- New today tab -->
   <section id="tab-new" class="tab-panel" style="display:none">
-    <div class="jobs-grid" id="new-grid"><p class="no-jobs">No new jobs today — check back tomorrow! 🏛</p></div>
+    <div class="jobs-grid" id="new-grid"><div class="job-card-wrap" data-job-id="jobspy_b22bfe1b969f9e85"><button class="dismiss-btn" onclick="dismissJob('jobspy_b22bfe1b969f9e85',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4494744646" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Linkedin" data-scraped="1795632881"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span><span class="badge-new">NEW</span></div><h3 class="job-title">Engineering Co-op Student</h3><p class="job-company">UFA</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-11-24</p><p class="job-desc">Department: Environment, Health & Safety
+  
+  
+Employment Type: Student
+  
+  
+Requisition ID: 1972
+  
+  
+Date Posted: November 24,…</p></a></div>
+<div class="job-card-wrap" data-job-id="linkedin_c6e4499979d39d35"><button class="dismiss-btn" onclick="dismissJob('linkedin_c6e4499979d39d35',event)" title="Hide this listing">✕</button><a href="https://ca.linkedin.com/jobs/view/engineering-co-op-student-at-ufa-4494744646" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="LinkedIn" data-scraped="1795633092"><div class="job-card__header"><span class="job-source" style="background:#7A9DB0">LinkedIn</span><span class="badge-new">NEW</span></div><h3 class="job-title">Engineering Co-op Student</h3><p class="job-company">UFA</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-11-24</p></a></div>
+<div class="job-card-wrap" data-job-id="linkedin_5a81f180aae743ab"><button class="dismiss-btn" onclick="dismissJob('linkedin_5a81f180aae743ab',event)" title="Hide this listing">✕</button><a href="https://ca.linkedin.com/jobs/view/engineering-co-op-student-structures-at-aecon-group-inc-4469984643" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="LinkedIn" data-scraped="1795633092"><div class="job-card__header"><span class="job-source" style="background:#7A9DB0">LinkedIn</span><span class="badge-new">NEW</span></div><h3 class="job-title">Engineering Co-op Student - Structures</h3><p class="job-company">Aecon Group Inc.</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-11-25</p></a></div>
+<div class="job-card-wrap" data-job-id="linkedin_e9d7de6584c2ab77"><button class="dismiss-btn" onclick="dismissJob('linkedin_e9d7de6584c2ab77',event)" title="Hide this listing">✕</button><a href="https://ca.linkedin.com/jobs/view/engineering-co-op-student-at-aecon-group-inc-4469993431" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="LinkedIn" data-scraped="1795633092"><div class="job-card__header"><span class="job-source" style="background:#7A9DB0">LinkedIn</span><span class="badge-new">NEW</span></div><h3 class="job-title">Engineering Co-op Student</h3><p class="job-company">Aecon Group Inc.</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-11-25</p></a></div></div>
   </section>
 
   <!-- All listings tab -->
@@ -229,7 +241,20 @@ body{
       <button class="filter-btn date-btn" onclick="filterDate(7,this)">Last Week</button>
       <button class="filter-btn date-btn" onclick="filterDate(14,this)">Last 2 Weeks</button>
     </div>
-    <div class="jobs-grid" id="all-grid"><div class="job-card-wrap" data-job-id="jobspy_02e8579bcbb06f8c"><button class="dismiss-btn" onclick="dismissJob('jobspy_02e8579bcbb06f8c',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4493676163" target="_blank" rel="noopener" class="job-card" data-source="Linkedin" data-scraped="1795466553"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span></div><h3 class="job-title">Engineering Intern</h3><p class="job-company">De Havilland Aircraft of Canada Limited</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-11-23</p><p class="job-desc">De Havilland Aircraft of Canada Limited (DHC) is a storied name in the aerospace industry, recognized worldwide for its pioneering…</p></a></div>
+    <div class="jobs-grid" id="all-grid"><div class="job-card-wrap" data-job-id="linkedin_e9d7de6584c2ab77"><button class="dismiss-btn" onclick="dismissJob('linkedin_e9d7de6584c2ab77',event)" title="Hide this listing">✕</button><a href="https://ca.linkedin.com/jobs/view/engineering-co-op-student-at-aecon-group-inc-4469993431" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="LinkedIn" data-scraped="1795633092"><div class="job-card__header"><span class="job-source" style="background:#7A9DB0">LinkedIn</span><span class="badge-new">NEW</span></div><h3 class="job-title">Engineering Co-op Student</h3><p class="job-company">Aecon Group Inc.</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-11-25</p></a></div>
+<div class="job-card-wrap" data-job-id="linkedin_5a81f180aae743ab"><button class="dismiss-btn" onclick="dismissJob('linkedin_5a81f180aae743ab',event)" title="Hide this listing">✕</button><a href="https://ca.linkedin.com/jobs/view/engineering-co-op-student-structures-at-aecon-group-inc-4469984643" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="LinkedIn" data-scraped="1795633092"><div class="job-card__header"><span class="job-source" style="background:#7A9DB0">LinkedIn</span><span class="badge-new">NEW</span></div><h3 class="job-title">Engineering Co-op Student - Structures</h3><p class="job-company">Aecon Group Inc.</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-11-25</p></a></div>
+<div class="job-card-wrap" data-job-id="linkedin_c6e4499979d39d35"><button class="dismiss-btn" onclick="dismissJob('linkedin_c6e4499979d39d35',event)" title="Hide this listing">✕</button><a href="https://ca.linkedin.com/jobs/view/engineering-co-op-student-at-ufa-4494744646" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="LinkedIn" data-scraped="1795633092"><div class="job-card__header"><span class="job-source" style="background:#7A9DB0">LinkedIn</span><span class="badge-new">NEW</span></div><h3 class="job-title">Engineering Co-op Student</h3><p class="job-company">UFA</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-11-24</p></a></div>
+<div class="job-card-wrap" data-job-id="jobspy_b22bfe1b969f9e85"><button class="dismiss-btn" onclick="dismissJob('jobspy_b22bfe1b969f9e85',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4494744646" target="_blank" rel="noopener" class="job-card  job-card--new" data-source="Linkedin" data-scraped="1795632881"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span><span class="badge-new">NEW</span></div><h3 class="job-title">Engineering Co-op Student</h3><p class="job-company">UFA</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-11-24</p><p class="job-desc">Department: Environment, Health & Safety
+  
+  
+Employment Type: Student
+  
+  
+Requisition ID: 1972
+  
+  
+Date Posted: November 24,…</p></a></div>
+<div class="job-card-wrap" data-job-id="jobspy_02e8579bcbb06f8c"><button class="dismiss-btn" onclick="dismissJob('jobspy_02e8579bcbb06f8c',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4493676163" target="_blank" rel="noopener" class="job-card" data-source="Linkedin" data-scraped="1795466553"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span></div><h3 class="job-title">Engineering Intern</h3><p class="job-company">De Havilland Aircraft of Canada Limited</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-11-23</p><p class="job-desc">De Havilland Aircraft of Canada Limited (DHC) is a storied name in the aerospace industry, recognized worldwide for its pioneering…</p></a></div>
 <div class="job-card-wrap" data-job-id="jobspy_380f7ed2a80bb739"><button class="dismiss-btn" onclick="dismissJob('jobspy_380f7ed2a80bb739',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4491965463" target="_blank" rel="noopener" class="job-card" data-source="Linkedin" data-scraped="1795278800"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span></div><h3 class="job-title">Technical Engineering Seller Intern – Entry Level Sales Program 2027</h3><p class="job-company">IBM</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-11-20</p><p class="job-desc">**Introduction**
 At IBM, technology creates value when it solves real business challenges. As an Entry-Level Technical Engineering…</p></a></div>
 <div class="job-card-wrap" data-job-id="jobspy_3b8bb74ac9db7d14"><button class="dismiss-btn" onclick="dismissJob('jobspy_3b8bb74ac9db7d14',event)" title="Hide this listing">✕</button><a href="https://www.linkedin.com/jobs/view/4492845608" target="_blank" rel="noopener" class="job-card" data-source="Linkedin" data-scraped="1795278720"><div class="job-card__header"><span class="job-source" style="background:#555">Linkedin</span></div><h3 class="job-title">Co-op Student</h3><p class="job-company">Kasian Architecture Interior Design and Planning</p><p class="job-location">📍 Calgary, Alberta, Canada</p><p class="job-date">🕐 2026-11-20</p><p class="job-desc">nan…</p></a></div>
